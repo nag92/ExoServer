@@ -10,32 +10,41 @@ class SensorManager(object):
         self.sensors = {}
         self.listener = listener
         self.types = {}
-        pass
+        self.timer = threading.Timer(0.01, self.update)
 
+    def start(self):
+        self.timer.start()
+
+    def stop(self):
+        self.timer.cancel()
 
     def registar(self, sensor):
 
         if sensor.type in self.types:
-            self.types[sensor.type].append(sensor.id)
+            id = len(self.types[sensor.type])
         else:
+            id = 0
             self.types[sensor.type] = []
-            self.types[sensor.type].append(sensor.id)
 
-        self.sensors[( sensor.type, sensor.id)] = sensor
+        self.types[sensor.type].append(id)
+        self.sensors[(sensor.type, id)] = sensor
 
 
     def unregistar(self, key):
+        #TODO write method to update the IDs
        del self.sensors[key]
 
 
     def update(self):
 
         if self.listener.have_data():
+
             data = self.listener.get_data()
             readings = self.parse(data)
 
-
-
+            for key, items in self.types:
+                for sensor_id in items:
+                    self.sensors[(type, sensor_id)] = readings[key][sensor_id]
 
 
     def parse(self, data):
@@ -43,6 +52,7 @@ class SensorManager(object):
         readings = {}
 
         next = 0
+
         while next < len(data)-2:
 
             type = data[next]
@@ -55,10 +65,10 @@ class SensorManager(object):
 
             readings[type] = []
 
-            for index in xrange( len(mydata)/num_sensors ):
+            for index in xrange(len(mydata)/num_sensors):
                 first = index*length + 1
-                last =  index*length + 1 + 3
-                readings[type].append([ mydata[first:last ]])
+                last = index*length + 1 + 3
+                readings[type].append([mydata[first:last]])
 
 
 
