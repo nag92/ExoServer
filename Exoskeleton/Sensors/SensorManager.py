@@ -1,6 +1,7 @@
 
 import threading
 import Sensor
+import RepeatedTimer
 
 class SensorManager(object):
 
@@ -10,13 +11,13 @@ class SensorManager(object):
         self.sensors = {}
         self.listener = listener
         self.types = {}
-        self.timer = threading.Timer(0.01, self.update)
+        self.timer = RepeatedTimer.RepeatedTimer(0.01, self.update)
 
     def start(self):
         self.timer.start()
 
     def stop(self):
-        self.timer.cancel()
+        self.timer.stop()
 
     def registar(self, sensor):
 

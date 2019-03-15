@@ -10,7 +10,7 @@ class RepeatedTimer(object):
     self.kwargs = kwargs
     self.is_running = False
     self.next_call = time.time()
-    self.start()
+    #self.start()
 
   def _run(self):
     self.is_running = False
