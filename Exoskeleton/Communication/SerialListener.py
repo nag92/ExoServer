@@ -2,7 +2,7 @@ import serial
 import Queue
 import threading
 import datetime
-
+import struct
 class SerialListener():
 
 
@@ -22,22 +22,20 @@ class SerialListener():
     def connect(self):
         self.connected = True
 
-
     def disconnect(self):
         self.connected = False
 
-    @property
-    def data(self):
-        return self._data
+    def have_data(self):
+        return not self._data.empty()
 
-
-    @data.setter
-    def data(self, data):
-        self._data = data
+    def get_data(self):
+        return self._data.get()
 
     def read(self):
 
         while not self.connected:
 
             if self.serial_port.in_waiting > 0:
-                self._data = self.serial_port.readline().decode()
+                ts = datetime.datetime.now().timestamp()
+                #vF, = struct.unpack('<f', data)
+                self._data.put( ( ts, self.serial_port.readline().decode()))
