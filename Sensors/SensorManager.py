@@ -1,5 +1,3 @@
-
-import threading
 import Sensor
 import RepeatedTimer
 
