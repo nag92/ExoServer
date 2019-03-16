@@ -16,9 +16,9 @@ class Sensor(object):
     word_length[POT] = 1
     word_length[FSR] = 1
 
-    def __init__(self, id, pin):
-        self._id = id
-        self._pin = pin
+    def __init__(self,  name):
+
+        self._name = name
         self._type = None
         self._values = None
         self._offset = 0
@@ -27,20 +27,16 @@ class Sensor(object):
         pass
 
     @property
-    def id(self):
-        return self._id
+    def name(self):
+        return self._name
 
-    @id.setter
-    def id(self, id):
-        self._id = id
+    @name.setter
+    def name(self, name):
+        self._name = name
 
     @property
     def type(self):
         return self._type
-
-    @type.setter
-    def type(self, type):
-        self._type = type
 
     @type.setter
     def type(self, type):
@@ -62,6 +58,7 @@ class Sensor(object):
 
 
     @orientation.setter
+    @abc.abstractmethod
     def orientation(self, orientation):
         self.orientation = orientation
 
@@ -76,5 +73,6 @@ class Sensor(object):
         pass
 
     @abc.abstractmethod
-    def set_values(self):
-        pass
+    def set_values(self, values):
+        self._values = values
+
