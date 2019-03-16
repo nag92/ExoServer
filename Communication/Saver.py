@@ -1,18 +1,28 @@
 
 from Sensors import SensorManager, Sensor
+import pickle
 
-def watch(SM):
+def watch(SM=SensorManager.SensorManager):
 
     while True:
         try:
-            print "yolo"
+            for key, sensor in SM.get_sensors().iteritems():
+                print sensor.name, " ", sensor.type, " ", sensor.get_values()
         except KeyboardInterrupt:
             print 'All done'
             # If you actually want the program to exit
             raise
 
-    
+
+def record(name, SM=SensorManager.SensorManager):
+
+    with open(name + ".pkl", 'wb') as output:
+        while True:
+            try:
+                pickle.dump(SM.get_sensors(), output)
+            except KeyboardInterrupt:
+                print 'All done'
+                # If you actually want the program to exit
+                raise
 
 
-
-def record(SM)

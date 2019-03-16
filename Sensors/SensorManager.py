@@ -18,6 +18,15 @@ class SensorManager(object):
         # Tread to call the serial read at each time step
         self.timer = RepeatedTimer.RepeatedTimer(0.001, self.update)
 
+
+    def get_sensors(self):
+        """
+
+        :return:
+        :rtype: dict
+        """
+        return self.sensors
+
     def start(self):
         """
         start the tread to get data from the serial port
