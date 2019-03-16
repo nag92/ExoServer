@@ -1,5 +1,5 @@
 import serial
-import Queue
+import queue
 import threading
 import datetime
 import struct
@@ -13,8 +13,10 @@ class SerialListener():
         self.port = port
         self.serial_port = serial.Serial(self.port, self.baud, timeout=0)
         self.connected = False
-        self._data = Queue.queue()
-        self.thread = threading.Thread(target=self.read())
+        self._data = queue.Queue(maxsize=20)
+        print "to"
+        self.thread = threading.Thread(target=self.read)
+
 
     def start(self):
         self.thread.start()
@@ -29,7 +31,7 @@ class SerialListener():
         return not self._data.empty()
 
     def get_data(self):
-        return self._data.get()
+        return self.temp #self._data.get()
 
     def read(self):
 
