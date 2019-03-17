@@ -1,6 +1,6 @@
 import time
 
-from Communication.SerialListener import SerialListener
+from Managers.SerialManager import SerialListener
 
 
 
