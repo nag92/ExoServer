@@ -28,7 +28,7 @@ class Sensor(object):
         self._values = None
         self._offset = 0
         self._orientation = None
-        self.word_length = 0
+        self._error = 0
         pass
 
     @property

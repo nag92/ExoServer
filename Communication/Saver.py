@@ -1,5 +1,4 @@
-
-from Sensors import SensorManager, Sensor
+from Managers import SensorManager
 import pickle
 
 def watch(SM=SensorManager.SensorManager):

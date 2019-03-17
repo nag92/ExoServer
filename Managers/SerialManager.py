@@ -3,7 +3,9 @@ import queue
 import threading
 import datetime
 import struct
-class SerialListener():
+import Manager
+
+class SerialManager(Manager.Manager):
 
 
     def __init__(self, port, baud):
@@ -27,6 +29,7 @@ class SerialListener():
         # tread for reading the serial port
         self.thread = threading.Thread(target=self.read)
 
+        super(SerialManager, self).__init__()
 
     def start(self):
         """
@@ -63,7 +66,7 @@ class SerialListener():
         :return:
         :rtype array
         """
-        return self.temp #self._data.get()
+        return self._data.get()
 
     def read(self):
         """
@@ -76,6 +79,7 @@ class SerialListener():
 
             if self.serial_port.in_waiting > 0:
                 ts = datetime.datetime.now().timestamp()
-                #vF, = struct.unpack('<f', data)
+                # vF, = struct.unpack('<f', data)
                 # store the data in the queue
                 self._data.put(self.serial_port.readline().decode())
+                self.notify_observers()
