@@ -28,6 +28,9 @@ class FilterManager(Manager.Manager):
     def get_sensor(self, name):
         return self._filtered_sensor[name]
 
+    def get_sensors(self):
+        return self._filtered_sensor
+
     def unregistar(self, key):
         # TODO write method to update the IDs
         del self.sensors[key]

@@ -70,6 +70,11 @@ class SensorManager(Manager.Manager):
 
 
     def registar_all_sensors(self, all_sensors):
+        """
+        Registar all the sensors
+        :param all_sensors: a list of sensors
+        :return:
+        """
 
         for sensor in all_sensors:
             self.registar(sensor)
