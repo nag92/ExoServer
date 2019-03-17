@@ -19,6 +19,8 @@ class SensorManager(Manager.Manager):
         #self.timer = Sensors.RepeatedTimer.RepeatedTimer(0.001, self.update)
         super(SensorManager, self).__init__()
 
+    def register_fitlers(self, FM):
+        self.register_observer(FM)
 
     def get_sensors(self):
         """

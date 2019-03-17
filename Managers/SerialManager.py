@@ -38,11 +38,12 @@ class SerialManager(Manager.Manager):
         """
         self.thread.start()
 
-    def connect(self):
+    def connect(self, SM):
         """
         Connect to the device.
         :return:
         """
+        self.register_observer(SM)
         self.connected = True
 
     def disconnect(self):

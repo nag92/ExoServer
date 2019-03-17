@@ -2,7 +2,8 @@ import abc
 class Manager(abc):
 
     def __init__(self):
-        self.__observers = []
+
+        self._observers = []
 
     def register_observer(self, observer):
         self.__observers.append(observer)
