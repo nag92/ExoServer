@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a40d6a-0c34-4a82-bb9f-8109db5d49e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Filters/Kalman.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Filters/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sensors/IMU.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/Ethernet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Communication/Ethernet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/CommunicationManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/CommunicationManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/serial_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/serial_test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,23 +24,59 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Sensors/IMU.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Managers/SerialManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state relative-caret-position="1520">
+              <caret line="80" column="33" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="33" />
               <folding>
-                <element signature="e#1#19#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Managers/CommunicationManager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Sensors/Sensor.py">
+        <entry file="file://$PROJECT_DIR$/Communication/Ethernet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="87" column="19" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="19" />
+            <state relative-caret-position="684">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#1#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Managers/Manager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Managers/SensorManager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1671">
+              <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,18 +112,22 @@
         <option value="$PROJECT_DIR$/Sensors/Sensor.py" />
         <option value="$PROJECT_DIR$/Managers/SerialListener.py" />
         <option value="$PROJECT_DIR$/Managers/Manager.py" />
-        <option value="$PROJECT_DIR$/Managers/SerialManager.py" />
-        <option value="$PROJECT_DIR$/Managers/SensorManager.py" />
         <option value="$PROJECT_DIR$/Managers/FilterManager.py" />
         <option value="$PROJECT_DIR$/Filters/Kalman.py" />
         <option value="$PROJECT_DIR$/Sensors/IMU.py" />
+        <option value="$PROJECT_DIR$/Communication/USBManager.py" />
+        <option value="$PROJECT_DIR$/Managers/SerialManager.py" />
+        <option value="$PROJECT_DIR$/Managers/SensorManager.py" />
+        <option value="$PROJECT_DIR$/Communication/Ethernet.py" />
+        <option value="$PROJECT_DIR$/Managers/CommunicationManager.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="48" />
     <option name="y" value="27" />
-    <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="width" value="1697" />
+    <option name="height" value="953" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -103,6 +142,16 @@
             <path>
               <item name="ExoServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="ExoServer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ExoServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ExoServer" type="462c0819:PsiDirectoryNode" />
+              <item name="Communication" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ExoServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ExoServer" type="462c0819:PsiDirectoryNode" />
+              <item name="Managers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ExoServer" type="b2602c69:ProjectViewProjectNode" />
@@ -254,14 +303,28 @@
       <option name="project" value="LOCAL" />
       <updated>1552854523407</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added return functions">
+      <created>1552858005249</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1552858005249</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added class to handle communications. Created implementation of a ethernet">
+      <created>1553033226311</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1553033226311</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919742" visible="true" weight="0.24986821" />
-      <window_info id="Structure" order="1" sideWeight="0.5008026" side_tool="true" weight="0.24986821" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49892473" visible="true" weight="0.14760147" />
+      <window_info id="Structure" order="1" sideWeight="0.50107527" side_tool="true" weight="0.19662625" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32939914" />
@@ -271,7 +334,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32903227" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.33010754" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33010754" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32903227" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -279,8 +342,8 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919742" visible="true" weight="0.24986821" />
-      <window_info id="Structure" order="1" sideWeight="0.5008026" side_tool="true" weight="0.24986821" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49892473" visible="true" weight="0.14760147" />
+      <window_info id="Structure" order="1" sideWeight="0.50107527" side_tool="true" weight="0.19662625" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32939914" />
@@ -306,7 +369,8 @@
     <MESSAGE value="added fitlers to the FilterManager class" />
     <MESSAGE value="added methods to the class to registar the managers" />
     <MESSAGE value="added return functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added return functions" />
+    <MESSAGE value="Added class to handle communications. Created implementation of a ethernet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added class to handle communications. Created implementation of a ethernet" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Exoskeleton/Sensors/Sensor.py" />
@@ -345,46 +409,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/Manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/SerialManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="49" column="11" lean-forward="true" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Communication/Saver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="34" lean-forward="true" selection-start-column="34" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Managers/FilterManager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="24" selection-start-line="24" selection-end-line="25" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/SensorManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -396,19 +426,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sensors/Sensor.py">
+    <entry file="file://$PROJECT_DIR$/Sensors/IMU.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="87" column="19" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="19" />
+        <state relative-caret-position="289">
+          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <folding>
+            <element signature="e#1#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sensors/IMU.py">
+    <entry file="file://$PROJECT_DIR$/Communication/Saver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        <state>
+          <caret column="34" lean-forward="true" selection-start-column="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sensors/Sensor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="87" column="26" lean-forward="true" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/SerialManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1520">
+          <caret line="80" column="33" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="33" />
           <folding>
-            <element signature="e#1#19#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Communication/Ethernet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#1#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/Manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/SensorManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1671">
+          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/CommunicationManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

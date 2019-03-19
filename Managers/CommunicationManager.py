@@ -6,18 +6,16 @@ import Manager
 
 class CommunicationManager(Manager.Manager):
 
-    def __init__(self):
-
+    def __init__(self, ):
         self.setup()
         self.thread = threading.Thread(target=self.read)
         self.connected = False
         # queue holding the data
-        self._data = Queue.Queue(maxsize=20)
-        self._messages = Queue.Queue(maxsize=20)
+        self._incoming_messages = Queue.Queue(maxsize=20)
+        self._outgoing_messages = Queue.Queue(maxsize=20)
         # tread for reading the serial port
         self._server = None
-        super(CommunicationManager,self).__init__()
-
+        super(CommunicationManager, self).__init__()
 
     @abc.abstractmethod
     def setup(self):
@@ -60,7 +58,11 @@ class CommunicationManager(Manager.Manager):
         :return:
         :rtype bool
         """
-        return not self._data.empty()
+        return not self._incoming_messages.empty()
+
+    @abc.abstractmethod
+    def read_port(self):
+        pass
 
     def get_data(self):
         # type: () -> Queue.Queue
@@ -69,11 +71,14 @@ class CommunicationManager(Manager.Manager):
         :return:
         :rtype array
         """
-        return self._data
+        return self._incoming_messages
 
-    @abc.abstractmethod
     def read(self):
-        pass
+        while not self.connected:
+            raw_data = self.read_port
+            data = self.decode(raw_data)
+            self._incoming_messages.put(data)
+            self.notify_observers(self.get_data)
 
     @abc.abstractmethod
     def send(self, msg):

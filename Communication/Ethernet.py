@@ -35,14 +35,8 @@ class Ethernet(CommunicationManager.CommunicationManager):
     def get_data(self):
         return super(Ethernet, self).get_data()
 
-    def read(self):
-
-        while not self.connected:
-            raw_data = self.server.recv(1024)
-            data = self.decode(raw_data)
-            self._data.put(data)
-            self.notify_observers(self.get_data)
-
+    def read_port(self):
+        return self.server.recv(1024)
 
     def send(self, msg):
         raise NotImplementedError
