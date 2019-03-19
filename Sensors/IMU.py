@@ -5,6 +5,7 @@ from Filters import Kalman
 class IMU(object):
 
     def __init__(self, name, accel, gyro):
+
         self._name = name
         self._accel = accel
         self._gyro = gyro
@@ -38,3 +39,4 @@ class IMU(object):
 
 
     def update(self):
+        pass

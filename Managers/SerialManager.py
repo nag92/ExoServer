@@ -31,6 +31,8 @@ class SerialManager(Manager.Manager):
 
         super(SerialManager, self).__init__()
 
+
+
     def start(self):
         """
         Starts the tread to read from the sensor.

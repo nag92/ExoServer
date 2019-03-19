@@ -80,24 +80,22 @@ class SensorManager(Manager.Manager):
             self.registar(sensor)
 
     def notify(self, observable, *args, **kwargs):
-        self.update()
+        self.update(*args[0].get())
 
-    def update(self):
+    def update(self, data):
         """
         Callback function for the timer,
         reads the serial port and parses the sensor packet into each sensor
         :return:
         """
+        #data = self.listener.get_data()
 
-        if self.listener.have_data():
+        readings = self.parse(data)
 
-            data = self.listener.get_data()
-            readings = self.parse(data)
-
-            for key, items in self.types:
-                for sensor_id in items:
-                    self.sensors[(type, sensor_id)] = readings[key][sensor_id]
-            self.notify_observers()
+        for key, items in self.types:
+            for sensor_id in items:
+                self.sensors[(type, sensor_id)] = readings[key][sensor_id]
+        self.notify_observers()
 
 
     def parse(self, data):
