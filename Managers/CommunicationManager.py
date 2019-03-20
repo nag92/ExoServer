@@ -6,7 +6,7 @@ import Manager
 
 class CommunicationManager(Manager.Manager):
 
-    def __init__(self, ):
+    def __init__(self, sensor_list ):
         self.setup()
         self.thread = threading.Thread(target=self.read)
         self.connected = False
@@ -15,6 +15,7 @@ class CommunicationManager(Manager.Manager):
         self._outgoing_messages = Queue.Queue(maxsize=20)
         # tread for reading the serial port
         self._server = None
+        self._sensor_list = sensor_list
         super(CommunicationManager, self).__init__()
 
     @abc.abstractmethod
@@ -86,4 +87,10 @@ class CommunicationManager(Manager.Manager):
 
     @abc.abstractmethod
     def decode(self, msg):
-        pass
+
+        if bin( int(msg[0], base=16)) == '0b11111111' and bin(int(msg[1], base=16)) ==  '0b0':
+            raise Exception
+
+        decoded_data = []
+        for index in xrange(3, len(msg)-1):
+            decoded_data.append(  msg[index:index+2] )

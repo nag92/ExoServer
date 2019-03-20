@@ -5,7 +5,7 @@ import Manager
 
 class SensorManager(Manager.Manager):
 
-    def __init__(self, listener=SerialManager.SerialListener):
+    def __init__(self):
         """
 
         :param listener:
@@ -13,7 +13,7 @@ class SensorManager(Manager.Manager):
         """
 
         self.sensors = {}
-        self.listener = listener
+
         self.types = {}
         # Tread to call the serial read at each time step
         #self.timer = Sensors.RepeatedTimer.RepeatedTimer(0.001, self.update)
