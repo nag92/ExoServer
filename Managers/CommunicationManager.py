@@ -1,6 +1,9 @@
 import abc
 import Queue
 import threading
+
+from typing import List, Any
+
 import Manager
 
 
@@ -76,7 +79,7 @@ class CommunicationManager(Manager.Manager):
 
     def read(self):
         while not self.connected:
-            raw_data = self.read_port
+            raw_data = self.read_port()
             data = self.decode(raw_data)
             self._incoming_messages.put(data)
             self.notify_observers(self.get_data)
@@ -87,10 +90,18 @@ class CommunicationManager(Manager.Manager):
 
     @abc.abstractmethod
     def decode(self, msg):
+        """
 
-        if bin( int(msg[0], base=16)) == '0b11111111' and bin(int(msg[1], base=16)) ==  '0b0':
+        :rtype: List[float]
+        """
+        if bin( int(msg[0], base=16)) == '0b11111111' and bin(int(msg[1], base=16)) == '0b0':
+
             raise Exception
 
-        decoded_data = []
-        for index in xrange(3, len(msg)-1):
-            decoded_data.append(  msg[index:index+2] )
+        else:
+
+            decoded_data = []  # type: List[float]
+            for index in xrange(3, len(msg)-1):
+                decoded_data.append(msg[index:index+2])
+
+        return decoded_data
