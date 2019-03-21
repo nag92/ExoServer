@@ -16,11 +16,12 @@ class FilterManager(Manager.Manager):
 
     def registar(self, filters, sensor=Sensor):
         """
-        Regiestar a sensor with the manager. Each sensor is given an numeric ID.
+        Register a sensor with the manager. Each sensor is given an numeric ID.
         The IDs are created by the counting number of the occurance of the sensor type.
         :param sensor: Sensor.Sensor
         :return:
         """
+
         self._filtered_sensor[sensor.name] = deepcopy(sensor)
         self._raw_sensors[sensor.name] = sensor
         self._filters[sensor.name] = filters
