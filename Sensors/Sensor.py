@@ -6,13 +6,15 @@ class Sensor(object):
 
     ACCEl = 0
     GYRO = 1
-    POT = 2
-    FSR = 3
-    CLIFF = 4
+    MAG = 2
+    POT = 3
+    FSR = 4
+    CLIFF = 5
 
     word_length = []
     word_length[ACCEl] = 3
     word_length[GYRO] = 3
+    word_length[MAG] = 3
     word_length[POT] = 1
     word_length[FSR] = 1
 

@@ -4,11 +4,12 @@ from Filters import Kalman
 
 class IMU(object):
 
-    def __init__(self, name, accel, gyro):
+    def __init__(self, name, accel, gyro, mag):
 
         self._name = name
         self._accel = accel
         self._gyro = gyro
+        self._mag = mag
         self._orentation = np.array([0, 0, 0])
         self._angular_velocity = np.array([0, 0, 0])
 

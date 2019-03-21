@@ -25,6 +25,7 @@ class FilterManager(Manager.Manager):
         self._raw_sensors[sensor.name] = sensor
         self._filters[sensor.name] = filters
 
+
     def get_sensor(self, name):
         return self._filtered_sensor[name]
 
