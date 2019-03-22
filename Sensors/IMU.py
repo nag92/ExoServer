@@ -1,5 +1,6 @@
 
 import numpy as np
+import math
 from Filters import Kalman
 
 class IMU(object):
@@ -21,6 +22,14 @@ class IMU(object):
     @property
     def name(self):
         return self._name
+
+
+    def get_accel_angles(self):
+
+        x,y,z = self._accel.raw_values()
+        roll = math.atan2(y, z)
+        pitch = math.atan2((- x), math.sqrt(y * y + z * z))
+        return roll, pitch
 
     @property
     def orentation(self):

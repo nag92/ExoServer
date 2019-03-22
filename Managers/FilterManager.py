@@ -42,9 +42,9 @@ class FilterManager(Manager.Manager):
         for name, sensor in self._raw_sensors.iteritems():
 
             filters = self._filters[name]
-            reading = sensor.get_values()
+            reading = sensor.raw_values()
 
             for filter in filters:
                 reading = filter.update(reading)
 
-            self._filtered_sensor[name].set_values = reading
+            self._filtered_sensor[name].raw_values = reading

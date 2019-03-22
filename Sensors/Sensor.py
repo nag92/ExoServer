@@ -27,7 +27,8 @@ class Sensor(object):
 
         self._name = name
         self._type = None
-        self._values = None
+        self._raw_values = 0
+        self._filtred_values = 0
         self._offset = 0
         self._orientation = None
         self._error = 0
@@ -110,17 +111,32 @@ class Sensor(object):
     def reset(self):
         pass
 
-    @abc.abstractmethod
-    def get_values(self):
+    @property
+    def raw_values(self):
         """
         :return: values of the sensor
         """
+        return self._raw_values
 
-    @abc.abstractmethod
-    def set_values(self, values):
+    @raw_values.setter
+    def raw_values(self, values):
         """
         set the values for the sensor
         :param values: value of the sensor
         """
-        self._values = values
+        self._raw_values = values
 
+    @property
+    def filtered_values(self):
+        """
+        :return: values of the sensor
+        """
+        return self._raw_values
+
+    @filtered_values.setter
+    def filtered_values(self, values):
+        """
+        set the values for the sensor
+        :param values: value of the sensor
+        """
+        self._raw_values = values

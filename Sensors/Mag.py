@@ -26,8 +26,8 @@ class Mag(Sensor.Sensor):
     def reset(self):
         pass
 
-    def set_values(self, values):
-        super(Mag, self).set_values(values)
+    def raw_values(self, values):
+        super(Mag, self).raw_values(values)
         # TODO other offset stuff
 
 

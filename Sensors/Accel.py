@@ -28,8 +28,8 @@ class Accel(Sensor.Sensor):
     def reset(self):
         pass
 
-    def set_values(self, values):
-        super(Accel, self).set_values(values)
+    def raw_values(self, values):
+        super(Accel, self).raw_values(values)
         #TODO other offset stuff
 
 
