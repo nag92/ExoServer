@@ -6,8 +6,8 @@ from copy import deepcopy
 class FilterManager(Manager.Manager):
 
     def __init__(self):
-        self._raw_sensors = {}
-        self._filtered_sensor = {}
+
+        self._sensors = {}
         self._filters = {}
         super(FilterManager, self).__init__()
 
@@ -22,7 +22,6 @@ class FilterManager(Manager.Manager):
         :return:
         """
 
-        self._filtered_sensor[sensor.name] = deepcopy(sensor)
         self._raw_sensors[sensor.name] = sensor
         self._filters[sensor.name] = filters
 
@@ -39,7 +38,7 @@ class FilterManager(Manager.Manager):
 
     def update(self):
 
-        for name, sensor in self._raw_sensors.iteritems():
+        for name, sensor in self._raw_sensors.iteritems():  # type: (str, Sensor)
 
             filters = self._filters[name]
             reading = sensor.raw_values()
@@ -47,4 +46,4 @@ class FilterManager(Manager.Manager):
             for filter in filters:
                 reading = filter.update(reading)
 
-            self._filtered_sensor[name].raw_values = reading
+            self._filtered_sensor[name].filtered_values = reading

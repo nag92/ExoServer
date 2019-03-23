@@ -5,7 +5,7 @@ class Mag(Sensor.Sensor):
 
     def __init__(self, name):
         super(Mag, self).__init__(name)
-        self._type = Sensor.Sensor.Mag
+        self._type = Sensor.Sensor.MAG
 
     @property
     def name(self):
@@ -24,6 +24,7 @@ class Mag(Sensor.Sensor):
         return super(Mag, self).orientation()
 
     def reset(self):
+
         pass
 
     def raw_values(self, values):

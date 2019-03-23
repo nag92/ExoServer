@@ -13,9 +13,6 @@ class Accel(Sensor.Sensor):
     def name(self):
         return super(Accel, self).name()
 
-    @property
-    def type(self):
-        return super(Accel, self).type()
 
     @property
     def offset(self):
@@ -28,9 +25,9 @@ class Accel(Sensor.Sensor):
     def reset(self):
         pass
 
-    def raw_values(self, values):
-        super(Accel, self).raw_values(values)
-        #TODO other offset stuff
+    @property
+    def filtered_values(self):
+        return super(Accel, self).filtered_values()
 
 
 

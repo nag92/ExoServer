@@ -118,7 +118,7 @@ class Sensor(object):
         """
         return self._raw_values
 
-    @raw_values.setter
+    @abc.abstractmethod
     def raw_values(self, values):
         """
         set the values for the sensor
@@ -131,7 +131,8 @@ class Sensor(object):
         """
         :return: values of the sensor
         """
-        return self._raw_values
+        return self._filtered_values
+
 
     @filtered_values.setter
     def filtered_values(self, values):
@@ -139,4 +140,4 @@ class Sensor(object):
         set the values for the sensor
         :param values: value of the sensor
         """
-        self._raw_values = values
+        self._filtered_values = values
