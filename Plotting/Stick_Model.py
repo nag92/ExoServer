@@ -5,8 +5,8 @@ from TK_Plotter import TK_Plotter
 class Stick_Model(TK_Plotter):
 
 
-    def __init__(self, ID, position):
-        super(Stick_Model, self).__init__(ID)
+    def __init__(self, object, position):
+        super(Stick_Model, self).__init__(object)
 
     def initilize(self,root, position):
 
@@ -20,7 +20,7 @@ class Stick_Model(TK_Plotter):
         """Retrieve data from the input source and return an object."""
         return 1
 
-    def update(self, data):
+    def update(self, ):
         """ update the plot"""
         legs_x = data["legs_x"]
         legs_y = data["legs_y"]

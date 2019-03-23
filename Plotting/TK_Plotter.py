@@ -9,9 +9,9 @@ import matplotlib.pyplot as pltlib
 
 class TK_Plotter(object):
 
-    def __init__(self, ID ):
+    def __init__(self, object ):
 
-
+        self.object = object
         self.canvasFig = pltlib.figure(1)
         self.fig = matplotlib.figure.Figure(figsize=(5, 4), dpi=100)
         self.ax = self.fig.add_subplot(111)
@@ -37,7 +37,7 @@ class TK_Plotter(object):
         return
 
     @abc.abstractmethod
-    def update(self, data):
+    def update(self):
 
         """Save the data object to the output."""
 

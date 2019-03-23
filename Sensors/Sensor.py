@@ -2,8 +2,6 @@ import abc
 
 
 class Sensor(object):
-
-
     ACCEl = 0
     GYRO = 1
     MAG = 2
@@ -18,7 +16,7 @@ class Sensor(object):
     word_length[POT] = 1
     word_length[FSR] = 1
 
-    def __init__(self,  name):
+    def __init__(self, name):
         """
         This class handles a sensor.
         :param name: name of the sensor
@@ -29,6 +27,7 @@ class Sensor(object):
         self._type = None
         self._raw_values = 0
         self._filtred_values = 0
+        self._time = 0
         self._offset = 0
         self._orientation = None
         self._error = 0
@@ -76,7 +75,6 @@ class Sensor(object):
         """
         return self._offset
 
-
     @offset.setter
     def offset(self, offset):
         """
@@ -86,7 +84,6 @@ class Sensor(object):
         """
         self._offset = offset
 
-
     @property
     def orientation(self):
         """
@@ -94,7 +91,6 @@ class Sensor(object):
         :return: oren
         """
         return self._orientation
-
 
     @orientation.setter
     @abc.abstractmethod
@@ -105,7 +101,6 @@ class Sensor(object):
         :return:
         """
         self.orientation = orientation
-
 
     @abc.abstractmethod
     def reset(self):
@@ -133,7 +128,6 @@ class Sensor(object):
         """
         return self._filtered_values
 
-
     @filtered_values.setter
     def filtered_values(self, values):
         """
@@ -141,3 +135,18 @@ class Sensor(object):
         :param values: value of the sensor
         """
         self._filtered_values = values
+
+    @property
+    def time(self):
+        """
+        :return: values of the sensor
+        """
+        return self._time
+
+    @time.setter
+    def time(self, time):
+        """
+        set the values for the sensor
+        :param values: value of the sensor
+        """
+        self._time = time

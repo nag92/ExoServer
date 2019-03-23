@@ -1,13 +1,17 @@
 import abc
 from TK_Plotter import TK_Plotter
 import numpy as np
-
+from Sensors import FSR
 class FSR_BarGraph(TK_Plotter):
 
 
-    def __init__(self, ID, positition, numbars=6):
+    def __init__(self, object, positition, numbars=6):
+        """
+
+        :type object: List(FSR)
+        """
         self.num_bars = np.arange(numbars)
-        super(FSR_BarGraph, self).__init__(ID)
+        super(FSR_BarGraph, self).__init__(object)
 
     def initilize(self,root, position):
         self.ax.set_ylim([0,1])
@@ -18,7 +22,11 @@ class FSR_BarGraph(TK_Plotter):
         """Retrieve data from the input source and return an object."""
         return 1
 
-    def update(self, data):
+    def update(self):
 
-       [rect.set_height(h) for rect, h in zip(self.bars, data)]
-       self.flush()
+        data = []
+        for sensor in self.object:
+            data.append(sensor.filtered_values())
+
+        [rect.set_height(h) for rect, h in zip(self.bars, data)]
+        self.flush()

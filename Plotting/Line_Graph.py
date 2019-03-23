@@ -6,13 +6,13 @@ import numpy as np
 
 class Line_Graph(TK_Plotter):
 
-    def __init__(self, ID, position, num, labels):
+    def __init__(self, object, position, num, labels):
 
         self.num = num
         self.labels = labels
         self.lines = []
 
-        super(Line_Graph, self).__init__(ID)
+        super(Line_Graph, self).__init__(object)
 
     def initilize(self, root,position):
 
@@ -27,11 +27,13 @@ class Line_Graph(TK_Plotter):
         """Retrieve data from the input source and return an object."""
         return 1
 
-    def update(self, data):
+    def update(self):
 
+        mytime = self.object.time()
+        values = self.object.filtered_values()
         for ii, line in enumerate(self.labels):
-            line.set_xdata(data[ii]["x"])
-            line.set_ydata(data[ii]["y"])
+            line.set_xdata()
+            line.set_ydata(values[ii])
 
         self.flush()
 
