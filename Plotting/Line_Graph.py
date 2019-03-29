@@ -7,7 +7,7 @@ import Queue
 
 class Line_Graph(TK_Plotter):
 
-    def __init__(self, object, position, num, labels):
+    def __init__(self, object, num, labels):
 
         self.num = num
         self.labels = labels

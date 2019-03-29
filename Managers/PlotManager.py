@@ -22,13 +22,31 @@ class PlotManager(Tkinter.Tk):
     def __init__(self):
 
         Tkinter.Tk.__init__(self)
+        self.pane = ttk.Panedwindow(self.parent)
+        self._objects = []
+        self.panes = {}
 
 
     @property
     def parent(self):
         return self
 
+    def add_pane(self, name):
+        self.panes[name] = ttk.Labelframe(self.panel, text=name, width=100, height=100)
+        self.pane.add(self.panes[name])
 
+    # def add_object(self, sensor, panel, position):
+    #     self._objects.append(sensor)
+
+    def add_window(self, graph, panel_name, position):
+        """
+
+        :type position: tuple
+        """
+        if panel_name in self.panes.keys():
+
+            self._objects.append(graph.object)
+            self.graph.initilize(self.panes[panel_name], position)
 
 
 

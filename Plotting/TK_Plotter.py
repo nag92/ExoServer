@@ -25,7 +25,7 @@ class TK_Plotter(object):
 
 
     @abc.abstractmethod
-    def initilize(self):
+    def initilize(self, root, position):
 
         """Retrieve data from the input source and return an object."""
 
