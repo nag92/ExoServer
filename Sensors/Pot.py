@@ -11,9 +11,6 @@ class Pot(Sensor.Sensor):
     def name(self):
         return super(Pot, self).name()
 
-    @property
-    def type(self):
-        return super(Pot, self).type()
 
     @property
     def offset(self):

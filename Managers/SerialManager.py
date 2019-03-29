@@ -1,5 +1,5 @@
 import serial
-import queue
+import Queue
 import threading
 import datetime
 import struct
@@ -24,7 +24,7 @@ class SerialManager(Manager.Manager):
         self.connected = False
 
         # queue holding the data
-        self._data = queue.Queue(maxsize=20)
+        self._data = Queue.Queue(maxsize=20)
 
         # tread for reading the serial port
         self.thread = threading.Thread(target=self.read)

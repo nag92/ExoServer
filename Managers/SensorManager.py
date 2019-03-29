@@ -46,14 +46,14 @@ class SensorManager(Manager.Manager):
         self.timer.stop()
 
 
-    def registar(self, sensor=Sensors.Sensor.Sensor):
+    def registar(self, sensor):
         """
         Regiestar a sensor with the manager. Each sensor is given an numeric ID.
         The IDs are created by the counting number of the occurance of the sensor type.
         :param sensor: Sensor.Sensor
         :return:
         """
-
+        print sensor
         if sensor.type in self.types:
             id = len(self.types[sensor.type])
         else:
@@ -75,7 +75,7 @@ class SensorManager(Manager.Manager):
         :param all_sensors: a list of sensors
         :return:
         """
-
+        print all_sensors
         for sensor in all_sensors:
             self.registar(sensor)
 

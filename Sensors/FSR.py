@@ -11,9 +11,7 @@ class FSR(Sensor.Sensor):
     def name(self):
         return super(FSR, self).name()
 
-    @property
-    def type(self):
-        return super(FSR, self).type()
+
 
     @property
     def offset(self):

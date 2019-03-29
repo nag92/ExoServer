@@ -6,17 +6,18 @@ import rbdl
 
 class Robot(object):
 
-    def __init__(self, SM, ):
+    def __init__(self, SM):
         self._sensor_names = []
         self._sensors = {}
         assert isinstance(SM, SensorManager.SensorManager)
 
         self._sensor_manager = SM
-        self._filter_manager = FilterManager.FilterManager()
-        self._filter_manager.register_observer(self._filter_manager)
+        #self._filter_manager = FilterManager.FilterManager()
+        #self._filter_manager.register_observer(self._filter_manager)
         self.__setup_sensors()
 
     def __setup_sensors(self):
+
         self._sensor_names = ("IMU_Accel_Left_Foot",
                               "IMU_Gyro_Left_Foot",
                               "IMU_Accel_Right_Foot",
@@ -73,10 +74,10 @@ class Robot(object):
         self._sensors[self._sensor_names[20]] = FSR.FSR(self._sensor_names[20])
         self._sensors[self._sensor_names[21]] = FSR.FSR(self._sensor_names[21])
 
-        self._sensor_manager.registar_all_sensors(self._sensors)
+        self._sensor_manager.registar_all_sensors(self._sensors.values())
 
-        for sensor in self._sensors:
-            self._filter_manager.registar(BaseFilter.BaseFilter(), sensor)
+        # for sensor in self._sensors:
+        #     self._filter_manager.registar(BaseFilter.BaseFilter(), sensor)
 
     @property
     def sensor_names(self):

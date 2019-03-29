@@ -12,10 +12,6 @@ class Gyro(Sensor.Sensor):
         return super(Gyro, self).name()
 
     @property
-    def type(self):
-        return super(Gyro, self).type()
-
-    @property
     def offset(self):
         return super(Gyro, self).offset()
 

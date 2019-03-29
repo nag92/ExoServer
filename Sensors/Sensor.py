@@ -2,14 +2,14 @@ import abc
 
 
 class Sensor(object):
-    ACCEl = 0
-    GYRO = 1
-    MAG = 2
-    POT = 3
-    FSR = 4
-    CLIFF = 5
+    ACCEl = "ACCEl"
+    GYRO = "GYRO"
+    MAG = "MAG"
+    POT = "POT"
+    FSR = "FSR"
+    CLIFF = "CLIFF"
 
-    word_length = []
+    word_length = {}
     word_length[ACCEl] = 3
     word_length[GYRO] = 3
     word_length[MAG] = 3
@@ -53,7 +53,7 @@ class Sensor(object):
         """
 
         :return:
-        :rtype: int
+        :rtype: str
         """
         return self._type
 
@@ -62,7 +62,7 @@ class Sensor(object):
         """
 
         :param type: type ID of the sensor
-        :type type: int
+        :type type: str
         :return:
         """
         self._type = type
