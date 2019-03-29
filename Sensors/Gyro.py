@@ -7,9 +7,6 @@ class Gyro(Sensor.Sensor):
         super(Gyro, self).__init__(name)
         self._type = Sensor.Sensor.GYRO
 
-    @property
-    def name(self):
-        return super(Gyro, self).name()
 
     @property
     def offset(self):

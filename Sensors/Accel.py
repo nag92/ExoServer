@@ -10,11 +10,6 @@ class Accel(Sensor.Sensor):
         self._type = Sensor.Sensor.ACCEl
 
     @property
-    def name(self):
-        return super(Accel, self).name()
-
-
-    @property
     def offset(self):
         return super(Accel, self).offset()
 

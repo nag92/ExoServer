@@ -7,9 +7,7 @@ class Pot(Sensor.Sensor):
         super(Pot, self).__init__(name)
         self._type = Sensor.Sensor.POT
 
-    @property
-    def name(self):
-        return super(Pot, self).name()
+
 
 
     @property

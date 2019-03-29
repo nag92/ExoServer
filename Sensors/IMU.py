@@ -7,7 +7,7 @@ from Sensors import Accel, Gyro, Mag
 
 class IMU(object):
 
-    def __init__(self, name, accel, gyro, mag):
+    def __init__(self, name, accel, gyro, mag=None):
         """
 
         :type accel: Accel

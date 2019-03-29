@@ -53,7 +53,6 @@ class SensorManager(Manager.Manager):
         :param sensor: Sensor.Sensor
         :return:
         """
-        print sensor
         if sensor.type in self.types:
             id = len(self.types[sensor.type])
         else:

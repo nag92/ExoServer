@@ -22,7 +22,7 @@ class PlotManager(Tkinter.Tk):
     def __init__(self):
 
         Tkinter.Tk.__init__(self)
-        self.pane = ttk.Panedwindow(self.parent)
+        self.panel = ttk.Panedwindow(self.parent)
         self._objects = []
         self.panes = {}
 
@@ -33,10 +33,8 @@ class PlotManager(Tkinter.Tk):
 
     def add_pane(self, name):
         self.panes[name] = ttk.Labelframe(self.panel, text=name, width=100, height=100)
-        self.pane.add(self.panes[name])
+        self.panel.add(self.panes[name])
 
-    # def add_object(self, sensor, panel, position):
-    #     self._objects.append(sensor)
 
     def add_window(self, graph, panel_name, position):
         """
@@ -47,6 +45,11 @@ class PlotManager(Tkinter.Tk):
 
             self._objects.append(graph.object)
             self.graph.initilize(self.panes[panel_name], position)
+        else:
+            RuntimeError
+
+    def start(self):
+        self.mainloop()
 
 
 

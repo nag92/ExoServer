@@ -9,6 +9,9 @@ class Robot(object):
     def __init__(self, SM):
         self._sensor_names = []
         self._sensors = {}
+        self.pots = []
+        self.imus = []
+        self.fsr = []
         assert isinstance(SM, SensorManager.SensorManager)
 
         self._sensor_manager = SM
@@ -79,6 +82,8 @@ class Robot(object):
         # for sensor in self._sensors:
         #     self._filter_manager.registar(BaseFilter.BaseFilter(), sensor)
 
+
+
     @property
     def sensor_names(self):
         return self._sensor_names
@@ -94,3 +99,27 @@ class Robot(object):
     @sensors.setter
     def sensors(self, value):
         self._sensors = value
+
+    def get_accel(self):
+        data = []
+        for key, value in self._sensors.iteritems():
+            if "Accel" in key:
+                data.append(value)
+
+        return data
+
+    def get_gyro(self):
+        data = []
+        for key, value in self._sensors.iteritems():
+            if "Gyro" in key:
+                data.append(value)
+
+        return data
+
+    def get_pot(self):
+        data = []
+        for key, value in self._sensors.iteritems():
+            if "Pot" in key:
+                data.append(value)
+
+        return data
