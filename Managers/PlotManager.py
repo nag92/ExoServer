@@ -43,8 +43,9 @@ class PlotManager(Tkinter.Tk):
         """
         if panel_name in self.panes.keys():
 
+            graph.initilize(self.panes[panel_name], position)
             self._objects.append(graph.object)
-            self.graph.initilize(self.panes[panel_name], position)
+
         else:
             RuntimeError
 

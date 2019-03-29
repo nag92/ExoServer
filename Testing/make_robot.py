@@ -17,6 +17,7 @@ plotter.add_pane("Accel")
 plotter.add_pane("Plotter")
 
 
-line1 = Line_Graph.Line_Graph(accel[0], 3, ["x","y", "z"])
+#accel0 = Line_Graph.Line_Graph( accel[0].name, accel[0], 3, ["x","y", "z"])
 
-
+#plotter.add_window(accel0,"Accel",(0,0) )
+plotter.start()

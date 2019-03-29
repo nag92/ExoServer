@@ -7,15 +7,16 @@ import Queue
 
 class Line_Graph(TK_Plotter):
 
-    def __init__(self, object, num, labels):
+    def __init__(self, name, object, num, labels):
 
         self.num = num
+        self.name = name
         self.labels = labels
         self.lines = []
         self.queue_size = 100
         self.ticks = 0
         self.queue = Queue.Queue()
-        super(Line_Graph, self).__init__(object)
+        super(Line_Graph, self).__init__(object,name)
 
     def initilize(self, root,position):
 
