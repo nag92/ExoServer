@@ -1,6 +1,9 @@
 from Tkinter import *
 import abc
 import matplotlib
+
+from Sensors.Sensor import Sensor
+
 matplotlib.use('TKAgg')
 from Sensors import Sensor
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
@@ -8,6 +11,7 @@ from matplotlib.figure import Figure
 import matplotlib.pyplot as pltlib
 
 class TK_Plotter(object):
+
 
     def __init__(self, object,name):
         """

@@ -22,23 +22,23 @@ class FilterManager(Manager.Manager):
         :return:
         """
 
-        self._raw_sensors[sensor.name] = sensor
+        self._sensors[sensor.name] = sensor
         self._filters[sensor.name] = filters
 
 
     def get_sensor(self, name):
-        return self._filtered_sensor[name]
+        return self._sensors[name]
 
     def get_sensors(self):
-        return self._filtered_sensor
+        return self._sensors
 
     def unregistar(self, key):
         # TODO write method to update the IDs
-        del self.sensors[key]
+        del self._sensors[key]
 
     def update(self):
 
-        for name, sensor in self._raw_sensors.iteritems():  # type: (str, Sensor)
+        for name, sensor in self._sensors.iteritems():  # type: (str, Sensor)
 
             filters = self._filters[name]
             reading = sensor.raw_values()
@@ -46,4 +46,4 @@ class FilterManager(Manager.Manager):
             for filter in filters:
                 reading = filter.update(reading)
 
-            self._filtered_sensor[name].filtered_values = reading
+            sensor.filtered_values = reading

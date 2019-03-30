@@ -1,5 +1,5 @@
 import abc
-
+import Queue
 
 class Sensor(object):
     ACCEl = "ACCEl"
@@ -16,13 +16,13 @@ class Sensor(object):
     word_length[POT] = 1
     word_length[FSR] = 1
 
-    def __init__(self, name):
+    def __init__(self, name, size=100):
         """
         This class handles a sensor.
         :param name: name of the sensor
         :type name: str
         """
-
+        self.queue = Queue.Queue(maxsize=size)
         self._name = name
         self._type = None
         self._raw_values = 0
@@ -119,6 +119,7 @@ class Sensor(object):
         set the values for the sensor
         :param values: value of the sensor
         """
+        self.queue.put(values)
         self._raw_values = values
 
     @property

@@ -1,7 +1,9 @@
-from Managers import SensorManager
+from Managers import SensorManager, FilterManager
+from Filters import BaseFilter
 from Sensors import Accel, Gyro, Pot, FSR
 from Sensors import IMU
 import Leg, Joint
+
 
 class Robot(object):
 
@@ -16,8 +18,8 @@ class Robot(object):
         assert isinstance(SM, SensorManager.SensorManager)
 
         self._sensor_manager = SM
-        # self._filter_manager = FilterManager.FilterManager()
-        # self._filter_manager.register_observer(self._filter_manager)
+        self._filter_manager = FilterManager.FilterManager()
+        self._filter_manager.register_observer(self._filter_manager)
         self.__setup_sensors()
 
 
@@ -124,8 +126,9 @@ class Robot(object):
 
         self._sensor_manager.registar_all_sensors(self._sensors.values())
 
-        # for sensor in self._sensors:
-        #     self._filter_manager.registar(BaseFilter.BaseFilter(), sensor)
+        for key, sensor in self._sensors.iteritems():
+            print "sensor", sensor
+            self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor)
 
 
 

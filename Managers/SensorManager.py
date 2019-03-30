@@ -45,6 +45,10 @@ class SensorManager(Manager.Manager):
 
         self.timer.stop()
 
+    def calibrate(self):
+
+        for sensor in self.sensors:
+            sensor.offset = sum(sensor.queue)/len(sensor.queue)
 
     def registar(self, sensor):
         """

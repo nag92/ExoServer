@@ -7,11 +7,6 @@ class FSR(Sensor.Sensor):
         super(FSR, self).__init__(name)
         self._type = Sensor.Sensor.GYRO
 
-    @property
-    def name(self):
-        return super(FSR, self).name()
-
-
 
     @property
     def offset(self):

@@ -8,8 +8,6 @@ class Pot(Sensor.Sensor):
         self._type = Sensor.Sensor.POT
 
 
-
-
     @property
     def offset(self):
         return super(Pot, self).offset()
@@ -24,6 +22,10 @@ class Pot(Sensor.Sensor):
     def raw_values(self, values):
         super(Pot, self).raw_values(values)
         # TODO other offset stuff
+
+    def get_angle(self):
+
+        return self.filtered_values - self.offset
 
 
 
