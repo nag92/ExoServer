@@ -11,13 +11,24 @@ robot = Robot.Robot(SM)
 accel = robot.get_accel()
 gyro = robot.get_gyro()
 pot = robot.get_pot()
-
+print pot
 print accel
-plotter.add_pane("Accel")
-plotter.add_pane("Plotter")
+plotter.add_pane("Accel", (1,0))
+plotter.add_pane("Gyro",(0,0))
+#plotter.add_pane("POT", (0,0))
+plotter.add_pane("FSR",(0,1))
+
+for ii, sensor in enumerate(accel):
+    accel = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x","y", "z"])
+    plotter.add_window(accel,"Accel",(0,ii) )
+
+for ii, sensor in enumerate(gyro):
+    gyro = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x","y", "z"])
+    plotter.add_window(gyro,"Accel",(1,ii) )
+
+# for ii, sensor in enumerate(pot):
+#     pot = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
+#     plotter.add_window(pot,"POT",(0,ii) )
 
 
-accel0 = Line_Graph.Line_Graph( accel[0].name, accel[0], 3, ["x","y", "z"])
-
-plotter.add_window(accel0,"Accel",(0,0) )
 plotter.start()
