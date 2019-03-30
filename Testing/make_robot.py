@@ -12,12 +12,12 @@ accel = robot.get_accel()
 gyro = robot.get_gyro()
 pot = robot.get_pot()
 
-
+print accel
 plotter.add_pane("Accel")
 plotter.add_pane("Plotter")
 
 
-#accel0 = Line_Graph.Line_Graph( accel[0].name, accel[0], 3, ["x","y", "z"])
+accel0 = Line_Graph.Line_Graph( accel[0].name, accel[0], 3, ["x","y", "z"])
 
-#plotter.add_window(accel0,"Accel",(0,0) )
+plotter.add_window(accel0,"Accel",(0,0) )
 plotter.start()
