@@ -1,7 +1,7 @@
 from Managers import SensorManager
 from Sensors import Accel, Gyro, Pot, FSR
 from Sensors import IMU
-
+import Leg, Joint
 
 class Robot(object):
 
@@ -11,6 +11,8 @@ class Robot(object):
         self._pots = {}
         self._imus = {}
         self._fsr = {}
+        self.right_leg = None
+        self.left_leg = None
         assert isinstance(SM, SensorManager.SensorManager)
 
         self._sensor_manager = SM
@@ -125,10 +127,21 @@ class Robot(object):
         # for sensor in self._sensors:
         #     self._filter_manager.registar(BaseFilter.BaseFilter(), sensor)
 
-    def __seup_body(self):
-        pass
 
 
+    def __setup_robot(self):
+
+        right_hip = Joint.Joint(self._imus["IMU_Right_Hip"], self._sensors["POT_Right_Hip"] )
+        right_knee = Joint.Joint(self._imus["IMU_Right_Knee"], self._sensors["POT_Right_Knee"])
+        fsr = [self._sensors["FSR_Right_01"], self._sensors["FSR_Right_02"], self._sensors["FSR_Right_03"]]
+        right_ankle = Joint.Joint(self._imus["IMU_Right_Ankle"], self._sensors["POT_Right_Ankle"], fsr)
+        self.right_leg = Leg.Leg(right_hip,right_knee,right_ankle)
+
+        left_hip = Joint.Joint(self._imus["IMU_Left_Hip"], self._sensors["POT_Left_Hip"])
+        left_knee = Joint.Joint(self._imus["IMU_Left_Knee"], self._sensors["POT_Left_Knee"])
+        fsr = [self._sensors["FSR_Left_01"], self._sensors["FSR_Left_02"], self._sensors["FSR_Left_03"]]
+        left_ankle = Joint.Joint(self._imus["IMU_Left_Ankle"], self._sensors["POT_Left_Ankle"], fsr)
+        self.left_leg = Leg.Leg(left_hip, left_knee, left_ankle)
 
     @property
     def sensor_names(self):
