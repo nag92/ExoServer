@@ -1,16 +1,12 @@
 import numpy as np
 import math
 
-from typing import Dict, Any
-
 from Filters import Kalman
 from Sensors import Accel, Gyro, Mag
 
 
 class IMU(object):
 
-
-    kalman = None  # type: Dict[Kalman.Kalman]
 
     def __init__(self, name, accel, gyro, mag=None):
         """

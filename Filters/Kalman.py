@@ -8,7 +8,7 @@ import numpy as np
 
 # step
 
-class kalman_filter:
+class Kalman:
     # take in all the parameters of the linear kalman filter
     def __init__(self, A, B, C, Q, P, R, x):
         self._A = A  # state trasition matrix
