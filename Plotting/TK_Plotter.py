@@ -21,7 +21,7 @@ class TK_Plotter(object):
         self.object = object
         self.name = name
         self.canvasFig = pltlib.figure(1)
-        self.fig = matplotlib.figure.Figure(figsize=(5, 4), dpi=100)
+        self.fig = matplotlib.figure.Figure(figsize=(3, 2), dpi=100)
         self.ax = self.fig.add_subplot(111)
         self.colors = ['r-', 'g-','b-','k-','m-','c-', 'y-']
         self.value = None

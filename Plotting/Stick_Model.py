@@ -20,7 +20,7 @@ class Stick_Model(TK_Plotter):
         """Retrieve data from the input source and return an object."""
         return 1
 
-    def update(self, ):
+    def update(self):
         """ update the plot"""
         legs_x = data["legs_x"]
         legs_y = data["legs_y"]

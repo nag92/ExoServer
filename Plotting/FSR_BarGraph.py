@@ -5,13 +5,13 @@ from Sensors import FSR
 class FSR_BarGraph(TK_Plotter):
 
 
-    def __init__(self, object, numbars=6):
+    def __init__(self, name, object, numbars=6):
         """
 
         :type object: List(FSR)
         """
         self.num_bars = np.arange(numbars)
-        super(FSR_BarGraph, self).__init__(object)
+        super(FSR_BarGraph, self).__init__(object,name)
 
     def initilize(self,root, position):
         self.ax.set_ylim([0,1])

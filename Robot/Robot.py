@@ -162,26 +162,39 @@ class Robot(object):
     def sensors(self, value):
         self._sensors = value
 
+
+    def get_imus(self):
+        return self._imus
+
     def get_accel(self):
-        data = []
+        data = {}
         for key, value in self._sensors.iteritems():
             if "Accel" in key:
-                data.append(value)
+                data[key] = value
 
         return data
 
     def get_gyro(self):
-        data = []
+        data = {}
         for key, value in self._sensors.iteritems():
             if "Gyro" in key:
-                data.append(value)
+                data[key] = value
 
         return data
 
     def get_pot(self):
-        data = []
+        data = {}
         for key, value in self._sensors.iteritems():
             if "POT" in key:
-                data.append(value)
+                data[key] = value
+
+        return data
+
+
+    def get_fsr(self):
+        data = {}
+        for key, value in self._sensors.iteritems():
+            if "FSR" in key:
+                data[key] = value
 
         return data
