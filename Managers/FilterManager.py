@@ -11,8 +11,7 @@ class FilterManager(Manager.Manager):
         self._filters = {}
         super(FilterManager, self).__init__()
 
-    def notify(self, observable, *args, **kwargs):
-        self.update()
+
 
     def registar(self, filters, sensor=Sensor):
         """
