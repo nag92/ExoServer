@@ -31,7 +31,7 @@ class Sensor(object):
         self._offset = 0
         self._orientation = None
         self._error = 0
-        self.filtered_values = []
+        self._filtered_values = []
         self._filtered = False
         pass
 

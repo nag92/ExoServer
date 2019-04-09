@@ -8,8 +8,9 @@ class Manager(object):
         self.publisher = Publisher.Publisher()
         self.subscriber = None
 
-    def register_pub(self, pub):
-        self.pub = pub
+    def register_sub(self, manager):
+
+        self.publisher.register(manager, manager.generate_subscriber().callback)
 
     def update(self, data):
         pass

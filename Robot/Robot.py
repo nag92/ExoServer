@@ -7,7 +7,7 @@ import Leg, Joint
 
 class Robot(object):
 
-    def __init__(self, SM):
+    def __init__(self, SM, FM):
         self._sensor_names = []
         self._sensors = {}
         self._pots = {}
@@ -16,14 +16,11 @@ class Robot(object):
         self.right_leg = None
         self.left_leg = None
         assert isinstance(SM, SensorManager.SensorManager)
-
+        assert isinstance(FM, FilterManager.FilterManager)
         self._sensor_manager = SM
-        self._filter_manager = FilterManager.FilterManager()
-        self._filter_manager.register_observer(self._filter_manager)
+        self._filter_manager = FM
+        self._sensor_manager.register_sub(FM)
         self.__setup_sensors()
-
-
-
 
     def __setup_sensors(self):
 
@@ -189,7 +186,6 @@ class Robot(object):
                 data[key] = value
 
         return data
-
 
     def get_fsr(self):
         data = {}

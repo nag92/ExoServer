@@ -2,14 +2,15 @@ import abc
 import Queue
 import threading
 
-from typing import List, Any
+
 
 import Manager
 
 
 class CommunicationManager(Manager.Manager):
 
-    def __init__(self, sensor_list ):
+    def __init__(self):
+
         self.setup()
         self.thread = threading.Thread(target=self.read)
         self.connected = False
@@ -18,7 +19,6 @@ class CommunicationManager(Manager.Manager):
         self._outgoing_messages = Queue.Queue(maxsize=20)
         # tread for reading the serial port
         self._server = None
-        self._sensor_list = sensor_list
         super(CommunicationManager, self).__init__()
 
     @abc.abstractmethod
