@@ -12,6 +12,8 @@ sock.listen(1)
 unpacker = struct.Struct('I 2s f')
 
 while True:
+    MESSAGE = b"000010010000000000001001"
+    sock.send(MESSAGE)
     print >> sys.stderr, '\nwaiting for a connection'
     connection, client_address = sock.accept()
     try:

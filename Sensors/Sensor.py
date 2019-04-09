@@ -9,14 +9,7 @@ class Sensor(object):
     FSR = "FSR"
     CLIFF = "CLIFF"
 
-    word_length = {}
-    word_length[ACCEl] = 3
-    word_length[GYRO] = 3
-    word_length[MAG] = 3
-    word_length[POT] = 1
-    word_length[FSR] = 1
-
-    def __init__(self, name, size=100):
+    def __init__(self, name, byte_list, size=10):
         """
         This class handles a sensor.
         :param name: name of the sensor
@@ -33,6 +26,9 @@ class Sensor(object):
         self._error = 0
         self._filtered_values = []
         self._filtered = False
+        self._byte_list = byte_list
+        self._packet = 0
+        self._packet_order = None
         pass
 
     @property
@@ -108,6 +104,7 @@ class Sensor(object):
     def reset(self):
         pass
 
+
     @property
     def raw_values(self):
         """
@@ -115,14 +112,16 @@ class Sensor(object):
         """
         return self._raw_values
 
+
     @abc.abstractmethod
-    def raw_values(self, values):
+    def set_raw_values(self, values):
         """
         set the values for the sensor
         :param values: value of the sensor
         """
-        self.queue.put(values)
-        self._raw_values = values
+        pass
+        # self.queue.put(values)
+        # self._raw_values = values
 
     @property
     def filtered_values(self):
@@ -162,7 +161,7 @@ class Sensor(object):
         """
         return self._filtered
 
-    @time.setter
+    @filtered.setter
     def filtered(self, value):
         """
         set the values for the sensor
@@ -176,3 +175,23 @@ class Sensor(object):
             return self._filtered_values
         else:
             return self.raw_values
+
+    @property
+    def byte_list(self):
+        return self._byte_list
+
+    @property
+    def packet(self):
+        return self.queue.get()
+
+
+    @packet.setter
+    def packet(self, packet):
+        self.queue.put(packet)
+        self._packet = packet
+        self.set_raw_values(self._packet)
+
+
+    def parse(self, value):
+        pass
+

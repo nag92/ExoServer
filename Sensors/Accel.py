@@ -9,6 +9,7 @@ class Accel(Sensor.Sensor):
         super(Accel, self).__init__(name)
         self._type = Sensor.Sensor.ACCEl
 
+
     @property
     def offset(self):
         return super(Accel, self).offset()

@@ -85,11 +85,19 @@ class SensorManager(Manager.Manager):
         """
         #data = self.listener.get_data()
 
-        readings = self.parse(data)
 
-        for key, items in self.types:
-            for sensor_id in items:
-                self.sensors[(type, sensor_id)] = readings[key][sensor_id]
+        # put the raw packets in the sensors
+        for key, sensor in self.sensors.iteritems():
+
+            start, stop = sensor.byte_list
+            packet = data[start:stop]
+            sensor.packet = packet
+
+        # readings = self.parse(data)
+        #
+        # for key, items in self.types:
+        #     for sensor_id in items:
+        #         self.sensors[(type, sensor_id)] = readings[key][sensor_id]
 
         self.publisher.publish(self.sensors)
 
