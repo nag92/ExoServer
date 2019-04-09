@@ -1,4 +1,4 @@
-import Manager
+import Manager, SensorManager
 from Sensors.Sensor import Sensor
 from copy import deepcopy
 
@@ -13,7 +13,7 @@ class FilterManager(Manager.Manager):
 
 
 
-    def registar(self, filters, sensor=Sensor):
+    def registar(self, filters, name):
         """
         Register a sensor with the manager. Each sensor is given an numeric ID.
         The IDs are created by the counting number of the occurance of the sensor type.
@@ -21,8 +21,7 @@ class FilterManager(Manager.Manager):
         :return:
         """
 
-        self._sensors[sensor.name] = sensor
-        self._filters[sensor.name] = filters
+        self._filters[name] = filters
 
 
     def get_sensor(self, name):
@@ -35,11 +34,14 @@ class FilterManager(Manager.Manager):
         # TODO write method to update the IDs
         del self._sensors[key]
 
-    def update(self):
+    def update(self, SM):
+        """
 
-        for name, sensor in self._sensors.iteritems():  # type: (str, Sensor)
+        :type SM: dict
+        """
+        for key, sensor in SM.iteritems():
 
-            filters = self._filters[name]
+            filters = self._filters[sensor.name]
             reading = sensor.raw_values()
 
             for filter in filters:

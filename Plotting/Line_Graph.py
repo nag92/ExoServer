@@ -34,7 +34,7 @@ class Line_Graph(TK_Plotter):
     def update(self):
 
         # read the sensor and put it into the queue
-        values = self.object.filtered_values()
+        values = self.object.raw_values()
         self.queue.put(values)
 
         # get the x axis numbers

@@ -1,15 +1,12 @@
 import Sensors.Sensor
 import Sensors.RepeatedTimer
 from Managers import SerialManager
-import Manager
+import Manager,FilterManager
 
 class SensorManager(Manager.Manager):
 
     def __init__(self):
         """
-
-        :param listener:
-        :type listener: SerialListener.SerialListener
         """
 
         self.sensors = {}
@@ -93,6 +90,7 @@ class SensorManager(Manager.Manager):
         for key, items in self.types:
             for sensor_id in items:
                 self.sensors[(type, sensor_id)] = readings[key][sensor_id]
+
         self.publisher.publish(self.sensors)
 
 

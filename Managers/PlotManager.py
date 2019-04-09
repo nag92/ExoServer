@@ -1,5 +1,6 @@
 # import modules that I'm using
 import matplotlib
+from Observer import Subscriber
 matplotlib.use('TKAgg')
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
@@ -50,7 +51,7 @@ class PlotManager(Manager.Manager, Tkinter.Tk):
         else:
             print "NOT HERE"
 
-    def refresh(self):
+    def refresh(self, data):
 
         for obj in self.objects:
             obj.update()
@@ -59,5 +60,6 @@ class PlotManager(Manager.Manager, Tkinter.Tk):
         #self.panel.pack(expand=1, fill="both")
         self.mainloop()
 
-
-
+    def update(self,data):
+        self.subscriber = Subscriber.Subscriber(self.refresh)
+        return self.subscriber

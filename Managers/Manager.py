@@ -1,14 +1,23 @@
 import abc
-from Observer import Publisher
+from Observer import Publisher, Subscriber
 
 class Manager(object):
 
     def __init__(self):
 
-        self.pub = None
-        self.subs = {}
+        self.publisher = None
+        self.subscriber = None
 
 
     def register_pub(self, pub):
         self.pub = pub
+
+    def update(self,data):
+        pass
+
+    def generate_subscriber(self):
+        self.subscriber = Subscriber.Subscriber(self.update)
+        return self.subscriber
+
+
 
