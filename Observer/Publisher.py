@@ -1,3 +1,4 @@
+
 class Publisher:
     def __init__(self):
         self.subscribers = dict()
