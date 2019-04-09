@@ -1,12 +1,9 @@
 
 class Subscriber:
     def __init__(self ,callback):
-        self._callback = callback
+        """
+        Calls to hold a callback function
+        :param callback:
+        """
+        self.callback = callback
 
-    @property
-    def callback(self ,callback):
-        self._callback = callback
-
-    @callback.getter
-    def callback(self):
-        return self._callback
