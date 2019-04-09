@@ -1,18 +1,25 @@
-#!/usr/bin/env python3
-
+import binascii
 import socket
+import struct
+import sys
 
-HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
-PORT = 65432        # Port to listen on (non-privileged ports are > 1023)
+# Create a TCP/IP socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_address = ('localhost', 10000)
+sock.bind(server_address)
+sock.listen(1)
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((HOST, PORT))
-    s.listen()
-    conn, addr = s.accept()
-    with conn:
-        print('Connected by', addr)
-        while True:
-            data = conn.recv(1024)
-            if not data:
-                break
-            conn.sendall(data)
+unpacker = struct.Struct('I 2s f')
+
+while True:
+    print >> sys.stderr, '\nwaiting for a connection'
+    connection, client_address = sock.accept()
+    try:
+        data = connection.recv(unpacker.size)
+        print >> sys.stderr, 'received "%s"' % binascii.hexlify(data)
+
+        unpacked_data = unpacker.unpack(data)
+        print >> sys.stderr, 'unpacked:', unpacked_data
+
+    finally:
+        connection.close()
