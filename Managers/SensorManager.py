@@ -2,7 +2,6 @@ import Sensors.Sensor
 import Sensors.RepeatedTimer
 from Managers import SerialManager
 import Manager
-from Observer import Publisher
 
 class SensorManager(Manager.Manager):
 
@@ -94,7 +93,7 @@ class SensorManager(Manager.Manager):
         for key, items in self.types:
             for sensor_id in items:
                 self.sensors[(type, sensor_id)] = readings[key][sensor_id]
-        self.pub.publish(self.sensors)
+        self.publisher.publish(self.sensors)
 
 
     def parse(self, data):

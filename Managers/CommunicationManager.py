@@ -1,7 +1,7 @@
 import abc
 import Queue
 import threading
-from Observer import Publisher
+
 from typing import List, Any
 
 import Manager
@@ -9,7 +9,7 @@ import Manager
 
 class CommunicationManager(Manager.Manager):
 
-    def __init__(self, sensor_list):
+    def __init__(self, sensor_list ):
         self.setup()
         self.thread = threading.Thread(target=self.read)
         self.connected = False
@@ -19,8 +19,7 @@ class CommunicationManager(Manager.Manager):
         # tread for reading the serial port
         self._server = None
         self._sensor_list = sensor_list
-        self.pub = None
-
+        super(CommunicationManager, self).__init__()
 
     @abc.abstractmethod
     def setup(self):
@@ -78,12 +77,11 @@ class CommunicationManager(Manager.Manager):
         return self._incoming_messages
 
     def read(self):
-
         while not self.connected:
             raw_data = self.read_port()
             data = self.decode(raw_data)
             self._incoming_messages.put(data)
-            self.pub.publish(self.get_data)
+            self.publisher.publish(data)
 
     @abc.abstractmethod
     def send(self, msg):
