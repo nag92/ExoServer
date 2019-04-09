@@ -19,8 +19,6 @@ class SensorManager(Manager.Manager):
         #self.timer = Sensors.RepeatedTimer.RepeatedTimer(0.001, self.update)
         super(SensorManager, self).__init__()
 
-    def register_fitlers(self, FM):
-        self.register_observer(FM)
 
     def get_sensors(self):
         """
@@ -82,9 +80,6 @@ class SensorManager(Manager.Manager):
         for sensor in all_sensors:
             self.registar(sensor)
 
-    def notify(self, observable, *args, **kwargs):
-        self.update(*args[0].get())
-
     def update(self, data):
         """
         Callback function for the timer,
@@ -98,7 +93,7 @@ class SensorManager(Manager.Manager):
         for key, items in self.types:
             for sensor_id in items:
                 self.sensors[(type, sensor_id)] = readings[key][sensor_id]
-        self.notify_observers()
+        self.publisher.publish(self.sensors)
 
 
     def parse(self, data):

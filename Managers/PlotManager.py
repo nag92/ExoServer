@@ -28,10 +28,6 @@ class PlotManager(Manager.Manager, Tkinter.Tk):
         self.panes = {}
 
 
-    def notify(self, observable, *args, **kwargs):
-        self.update()
-
-
     @property
     def parent(self):
         return self

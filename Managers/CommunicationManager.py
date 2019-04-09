@@ -40,12 +40,11 @@ class CommunicationManager(Manager.Manager):
         """
         self.thread.start()
 
-    def connect(self, SM):
+    def connect(self):
         """
         Connect to the device.
         :return:
         """
-        self.register_observer(SM)
         self.connected = True
 
     def disconnect(self):
@@ -82,7 +81,7 @@ class CommunicationManager(Manager.Manager):
             raw_data = self.read_port()
             data = self.decode(raw_data)
             self._incoming_messages.put(data)
-            self.notify_observers(self.get_data)
+            self.publisher.publish(data)
 
     @abc.abstractmethod
     def send(self, msg):

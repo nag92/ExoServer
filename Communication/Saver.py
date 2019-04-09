@@ -25,3 +25,11 @@ def record(name, SM=SensorManager.SensorManager):
                 raise
 
 
+
+
+def record2(name, SM):
+
+
+
+
+
