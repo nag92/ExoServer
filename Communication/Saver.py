@@ -27,7 +27,6 @@ def record(name, SM=SensorManager.SensorManager):
 
 
 
-def record2(name, SM):
 
 
 

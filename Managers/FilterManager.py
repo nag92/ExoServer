@@ -42,8 +42,8 @@ class FilterManager(Manager.Manager):
         for key, sensor in SM.iteritems():
 
             filters = self._filters[sensor.name]
-            reading = sensor.raw_values()
-
+            reading = sensor.values()
+            sensor.filtered = True
             for filter in filters:
                 reading = filter.update(reading)
 

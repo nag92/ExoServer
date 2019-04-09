@@ -10,4 +10,4 @@ class Publisher:
         del self.subscribers[who]
     def publish(self, message):
         for subscriber, callback in self.subscribers.items():
-            callback(message)
+            callback(self, message)

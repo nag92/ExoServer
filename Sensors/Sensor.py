@@ -31,6 +31,8 @@ class Sensor(object):
         self._offset = 0
         self._orientation = None
         self._error = 0
+        self.filtered_values = []
+        self._filtered = False
         pass
 
     @property
@@ -127,6 +129,7 @@ class Sensor(object):
         """
         :return: values of the sensor
         """
+
         return self._filtered_values
 
     @filtered_values.setter
@@ -151,3 +154,25 @@ class Sensor(object):
         :param values: value of the sensor
         """
         self._time = time
+
+    @property
+    def filtered(self):
+        """
+        :return: values of the sensor
+        """
+        return self._filtered
+
+    @time.setter
+    def filtered(self, value):
+        """
+        set the values for the sensor
+        :param values: value of the sensor
+        """
+        self._filtered  = value
+
+    def get_values(self):
+
+        if self._filtered:
+            return self._filtered_values
+        else:
+            return self.raw_values

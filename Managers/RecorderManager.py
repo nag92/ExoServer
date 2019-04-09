@@ -26,7 +26,7 @@ class RecorderManager(Manager.Manager):
         with open(self._name, "a") as f:
             writer = csv.writer(f, delimiter=",")
             for key, sensor in sensors.iteritems():
-                writer.write(sensor.raw_values)
+                writer.write(sensor.values())
 
 
 
