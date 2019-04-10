@@ -1,0 +1,677 @@
+Counter_Left_Foot:
+  block1: 3
+  block2: 4
+  block3: 5
+  type: "Counter"
+  axis: "z"
+  side: "Left"
+  location: "Foot"
+
+Accel_Z_Left_Foot:
+  block1: 6
+  block2: 7
+  block3: -1
+  type: "Accel"
+  axis: "z"
+  side: "Left"
+  location: "Foot"
+
+Accel_Y_Left_Foot:
+  block1: 8
+  block2: 9
+  block3: -1
+  type: "Accel"
+  axis: "y"
+  side: "Left"
+  location: "Foot"
+
+Accel_X_Left_Foot:
+  block1: 10
+  block2: 11
+  block3: -1
+  type: "Accel"
+  axis: "x"
+  side: "Left"
+  location: "Foot"
+
+Gyro_Z_Left_Foot:
+  block1: 12
+  block2: 13
+  block3: -1
+  type: "Gyro"
+  axis: "z"
+  side: "Left"
+  location: "Foot"
+
+Gyro_Y_Left_Foot:
+  block1: 14
+  block2: 15
+  block3: -1
+  type: "Gyro"
+  axis: "y"
+  side: "Left"
+  location: "Foot"
+
+Gyro_X_Left_Foot:
+  block1: 16
+  block2: 17
+  block3: -1
+  type: "Gyro"
+  axis: "x"
+  side: "Left"
+  location: "Foot"
+
+rshal_Left_Foot:
+  block1: 18
+  block2: 19
+  block3: -1
+  type: "rshal"
+  axis: "z"
+  side: "Left"
+  location: "Foot"
+
+Temperature_Left_Foot:
+  block1: 20
+  block2: 21
+  block3: -1
+  type: "Temperature"
+  axis: "z"
+  side: "Left"
+  location: "Foot"
+
+Counter_Right_Foot:
+  block1: 22
+  block2: 23
+  block3: 24
+  type: "Counter"
+  axis: "z"
+  side: "Right"
+  location: "Foot"
+
+Accel_Z_Right_Foot:
+  block1: 25
+  block2: 26
+  block3: -1
+  type: "Accel"
+  axis: "z"
+  side: "Right"
+  location: "Foot"
+
+Accel_Y_Right_Foot:
+  block1: 27
+  block2: 28
+  block3: -1
+  type: "Accel"
+  axis: "y"
+  side: "Right"
+  location: "Foot"
+
+Accel_X_Right_Foot:
+  block1: 29
+  block2: 30
+  block3: -1
+  type: "Accel"
+  axis: "x"
+  side: "Right"
+  location: "Foot"
+
+Gyro_Z_Right_Foot:
+  block1: 31
+  block2: 32
+  block3: -1
+  type: "Gyro"
+  axis: "z"
+  side: "Right"
+  location: "Foot"
+
+Gyro_Y_Right_Foot:
+  block1: 33
+  block2: 34
+  block3: -1
+  type: "Gyro"
+  axis: "y"
+  side: "Right"
+  location: "Foot"
+
+Gyro_X_Right_Foot:
+  block1: 35
+  block2: 36
+  block3: -1
+  type: "Gyro"
+  axis: "x"
+  side: "Right"
+  location: "Foot"
+
+rshal_Right_Foot:
+  block1: 37
+  block2: 38
+  block3: -1
+  type: "rshal"
+  axis: "z"
+  side: "Right"
+  location: "Foot"
+
+Temperature_Right_Foot:
+  block1: 39
+  block2: 40
+  block3: -1
+  type: "Temperature"
+  axis: "z"
+  side: "Right"
+  location: "Foot"
+
+
+Counter_Left_Ankle:
+  block1: 41
+  block2: 42
+  block3: 43
+  type: "Counter"
+  axis: "z"
+  side: "Left"
+  location: "Ankle"
+
+Accel_Z_Left_Ankle:
+  block1: 44
+  block2: 45
+  block3: -1
+  type: "Accel"
+  axis: "z"
+  side: "Left"
+  location: "Ankle"
+
+Accel_Y_Left_Ankle:
+  block1: 46
+  block2: 47
+  block3: -1
+  type: "Accel"
+  axis: "y"
+  side: "Left"
+  location: "Ankle"
+
+Accel_X_Left_Ankle:
+  block1: 48
+  block2: 49
+  block3: -1
+  type: "Accel"
+  axis: "x"
+  side: "Left"
+  location: "Ankle"
+
+Gyro_Z_Left_Ankle:
+  block1: 50
+  block2: 51
+  block3: -1
+  type: "Gyro"
+  axis: "z"
+  side: "Left"
+  location: "Ankle"
+
+Gyro_Y_Left_Ankle:
+  block1: 52
+  block2: 53
+  block3: -1
+  type: "Gyro"
+  axis: "y"
+  side: "Left"
+  location: "Ankle"
+
+Gyro_X_Left_Ankle:
+  block1: 54
+  block2: 55
+  block3: -1
+  type: "Gyro"
+  axis: "x"
+  side: "Left"
+  location: "Ankle"
+
+rshal_Left_Ankle:
+  block1: 56
+  block2: 57
+  block3: -1
+  type: "rshal"
+  axis: "z"
+  side: "Left"
+  location: "Ankle"
+
+Temperature_Left_Ankle:
+  block1: 58
+  block2: 59
+  block3: -1
+  type: "Temperature"
+  axis: "z"
+  side: "Left"
+  location: "Ankle"
+
+Counter_Right_Ankle:
+  block1: 60
+  block2: 61
+  block3: 62
+  type: "Counter"
+  axis: "z"
+  side: "Right"
+  location: "Ankle"
+
+Accel_Z_Right_Ankle:
+  block1: 63
+  block2: 64
+  block3: -1
+  type: "Accel"
+  axis: "z"
+  side: "Right"
+  location: "Ankle"
+
+Accel_Y_Right_Ankle:
+  block1: 65
+  block2: 66
+  block3: -1
+  type: "Accel"
+  axis: "y"
+  side: "Right"
+  location: "Ankle"
+
+Accel_X_Right_Ankle:
+  block1: 67
+  block2: 68
+  block3: -1
+  type: "Accel"
+  axis: "x"
+  side: "Right"
+  location: "Ankle"
+
+Gyro_Z_Right_Ankle:
+  block1: 69
+  block2: 70
+  block3: -1
+  type: "Gyro"
+  axis: "z"
+  side: "Right"
+  location: "Ankle"
+
+Gyro_Y_Right_Ankle:
+  block1: 71
+  block2: 72
+  block3: -1
+  type: "Gyro"
+  axis: "y"
+  side: "Right"
+  location: "Ankle"
+
+Gyro_X_Right_Ankle:
+  block1: 73
+  block2: 74
+  block3: -1
+  type: "Gyro"
+  axis: "x"
+  side: "Right"
+  location: "Ankle"
+
+rshal_Right_Ankle:
+  block1: 75
+  block2: 76
+  block3: -1
+  type: "rshal"
+  axis: "z"
+  side: "Right"
+  location: "Ankle"
+
+Temperature_Right_Ankle:
+  block1: 77
+  block2: 78
+  block3: -1
+  type: "Temperature"
+  axis: "z"
+  side: "Right"
+  location: "Ankle"
+
+
+Counter_Left_Knee:
+  block1: 79
+  block2: 80
+  block3: 81
+  type: "Counter"
+  axis: "z"
+  side: "Left"
+  location: "Knee"
+
+Accel_Z_Left_Knee:
+  block1: 82
+  block2: 83
+  block3: -1
+  type: "Accel"
+  axis: "z"
+  side: "Left"
+  location: "Knee"
+
+Accel_Y_Left_Knee:
+  block1: 84
+  block2: 85
+  block3: -1
+  type: "Accel"
+  axis: "y"
+  side: "Left"
+  location: "Knee"
+
+Accel_X_Left_Knee:
+  block1: 86
+  block2: 87
+  block3: -1
+  type: "Accel"
+  axis: "x"
+  side: "Left"
+  location: "Knee"
+
+Gyro_Z_Left_Knee:
+  block1: 88
+  block2: 89
+  block3: -1
+  type: "Gyro"
+  axis: "z"
+  side: "Left"
+  location: "Knee"
+
+Gyro_Y_Left_Knee:
+  block1: 90
+  block2: 91
+  block3: -1
+  type: "Gyro"
+  axis: "y"
+  side: "Left"
+  location: "Knee"
+
+Gyro_X_Left_Knee:
+  block1: 92
+  block2: 93
+  block3: -1
+  type: "Gyro"
+  axis: "x"
+  side: "Left"
+  location: "Knee"
+
+rshal_Left_Knee:
+  block1: 94
+  block2: 95
+  block3: -1
+  type: "rshal"
+  axis: "z"
+  side: "Left"
+  location: "Knee"
+
+Temperature_Left_Knee:
+  block1: 96
+  block2: 97
+  block3: -1
+  type: "Temperature"
+  axis: "z"
+  side: "Left"
+  location: "Knee"
+
+Counter_Right_Knee:
+  block1: 98
+  block2: 99
+  block3: 100
+  type: "Counter"
+  axis: "z"
+  side: "Right"
+  location: "Knee"
+
+Accel_Z_Right_Knee:
+  block1: 101
+  block2: 102
+  block3: -1
+  type: "Accel"
+  axis: "z"
+  side: "Right"
+  location: "Knee"
+
+Accel_Y_Right_Knee:
+  block1: 103
+  block2: 104
+  block3: -1
+  type: "Accel"
+  axis: "y"
+  side: "Right"
+  location: "Knee"
+
+Accel_X_Right_Knee:
+  block1: 105
+  block2: 106
+  block3: -1
+  type: "Accel"
+  axis: "x"
+  side: "Right"
+  location: "Knee"
+
+Gyro_Z_Right_Knee:
+  block1: 107
+  block2: 108
+  block3: -1
+  type: "Gyro"
+  axis: "z"
+  side: "Right"
+  location: "Knee"
+
+Gyro_Y_Right_Knee:
+  block1: 109
+  block2: 110
+  block3: -1
+  type: "Gyro"
+  axis: "y"
+  side: "Right"
+  location: "Knee"
+
+Gyro_X_Right_Knee:
+  block1: 111
+  block2: 112
+  block3: -1
+  type: "Gyro"
+  axis: "x"
+  side: "Right"
+  location: "Knee"
+
+rshal_Right_Knee:
+  block1: 113
+  block2: 114
+  block3: -1
+  type: "rshal"
+  axis: "z"
+  side: "Right"
+  location: "Knee"
+
+Temperature_Right_Knee:
+  block1: 115
+  block2: 116
+  block3: -1
+  type: "Temperature"
+  axis: "z"
+  side: "Right"
+  location: "Knee"
+
+Counter_Center:
+  block1: 117
+  block2: 118
+  block3: 119
+  type: "Counter"
+  axis: "z"
+  side: "Left"
+  location: "Center"
+
+Accel_Z_Center:
+  block1: 120
+  block2: 121
+  block3: -1
+  type: "Accel"
+  axis: "z"
+  side: "Left"
+  location: "Center"
+
+Accel_Y_Center:
+  block1: 122
+  block2: 123
+  block3: -1
+  type: "Accel"
+  axis: "y"
+  side: "Left"
+  location: "Center"
+
+Accel_X_Center:
+  block1: 124
+  block2: 125
+  block3: -1
+  type: "Accel"
+  axis: "x"
+  side: "Left"
+  location: "Center"
+
+Gyro_Z_Center:
+  block1: 126
+  block2: 127
+  block3: -1
+  type: "Gyro"
+  axis: "z"
+  side: "Left"
+  location: "Center"
+
+Gyro_Y_Center:
+  block1: 128
+  block2: 129
+  block3: -1
+  type: "Gyro"
+  axis: "y"
+  side: "Left"
+  location: "Center"
+
+Gyro_X_Center:
+  block1: 130
+  block2: 131
+  block3: -1
+  type: "Gyro"
+  axis: "x"
+  side: "Left"
+  location: "Center"
+
+rshal_Center:
+  block1: 132
+  block2: 133
+  block3: -1
+  type: "rshal"
+  axis: "z"
+  side: "Left"
+  location: "Center"
+
+Temperature_Center:
+  block1: 134
+  block2: 135
+  block3: -1
+  type: "Temperature"
+  axis: "z"
+  side: "Left"
+  location: "Center"
+
+Pot_Left_Ankle:
+  block1: 136
+  block2: 137
+  block3: -1
+  type: "Pot"
+  axis: "z"
+  side: "Left"
+  location: "Ankle"
+
+Pot_Right_Ankle:
+  block1: 138
+  block2: 139
+  block3: -1
+  type: "Pot"
+  axis: "z"
+  side: "Right"
+  location: "Ankle"
+
+Pot_Left_Knee:
+  block1: 140
+  block2: 141
+  block3: -1
+  type: "Pot"
+  axis: "z"
+  side: "Left"
+  location: "Knee"
+
+Pot_Right_Knee:
+  block1: 142
+  block2: 143
+  block3: -1
+  type: "Pot"
+  axis: "z"
+  side: "Right"
+  location: "Knee"
+
+Pot_Left_Hip:
+  block1: 144
+  block2: 145
+  block3: -1
+  type: "Pot"
+  axis: "z"
+  side: "Left"
+  location: "Hip"
+
+Pot_Right_Hip:
+  block1: 146
+  block2: 147
+  block3: -1
+  type: "Pot"
+  axis: "z"
+  side: "Right"
+  location: "Hip"
+
+FSR1_Right:
+  block1: 148
+  block2: 149
+  block3: -1
+  type: "FSR"
+  axis: "z"
+  side: "Right"
+  location: "Foot"
+
+FSR2_Right:
+  block1: 150
+  block2: 151
+  block3: -1
+  type: "FSR"
+  axis: "z"
+  side: "Right"
+  location: "Foot"
+
+FSR3_Right:
+  block1: 152
+  block2: 153
+  block3: -1
+  type: "FSR"
+  axis: "z"
+  side: "Right"
+  location: "Foot"
+
+
+FSR1_Left:
+  block1: 154
+  block2: 155
+  block3: -1
+  type: "FSR"
+  axis: "z"
+  side: "Left"
+  location: "Foot"
+
+FSR2_Left:
+  block1: 156
+  block2: 157
+  block3: -1
+  type: "FSR"
+  axis: "z"
+  side: "Left"
+  location: "Foot"
+
+FSR3_Left:
+  block1: 158
+  block2: 159
+  block3: -1
+  type: "FSR"
+  axis: "z"
+  side: "Left"
+  location: "Foot"

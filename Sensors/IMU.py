@@ -8,7 +8,7 @@ from Sensors import Accel, Gyro, Mag
 class IMU(object):
 
 
-    def __init__(self, name, accel, gyro, mag=None):
+    def __init__(self, name, accel, gyro, mag=None, temp=None):
         """
 
         :type accel: Accel
@@ -20,6 +20,7 @@ class IMU(object):
         self.accel = accel
         self.gyro = gyro
         self.mag = mag
+        self.temp = temp
         self._orentation = np.array([0, 0, 0])
         self._angular_velocity = np.array([0, 0, 0])
         self._gyro_angle = np.array([0, 0, 0])
@@ -60,7 +61,7 @@ class IMU(object):
         calculate the angles from the accelormeter
         :return: roll and pitch angles
         """
-        x, y, z = self.accel.filtered_values()
+        x, y, z = self.accel.get_values()
         roll = math.atan2(y, z)
         pitch = math.atan2((- x), math.sqrt(y * y + z * z))
         return roll, pitch
@@ -95,7 +96,7 @@ class IMU(object):
         :return: None
         """
         roll, pitch = self.get_accel_angles()
-        xdot, ydot, zdot = self.gyro.filtered_values()
+        xdot, ydot, zdot = self.gyro.get_values()
         dt = self.gyro.dt
         state_x = self.update_imu("x", xdot, roll, dt)
         state_y = self.update_imu("y", ydot, pitch, dt)

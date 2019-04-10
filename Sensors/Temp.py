@@ -21,8 +21,7 @@ class Temp(Sensor.Sensor):
 
 
     def get_angle(self):
-
-        return self.filtered_values - self.offset
+        return self.get_values() - self.offset
 
     def _raw_value_setter(self, blocks):
         values = 1 * [0]
