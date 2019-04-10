@@ -3,11 +3,13 @@ from Filters import BaseFilter
 from Sensors import Accel, Gyro, Pot, FSR
 from Sensors import IMU
 import Leg, Joint
+import yaml
 
 
 class Robot(object):
 
-    def __init__(self, SM, FM):
+    def __init__(self, config, SM, FM):
+        self.config = config
         self._sensor_names = []
         self._sensors = {}
         self._pots = {}
@@ -23,6 +25,8 @@ class Robot(object):
         self.__setup_sensors()
 
     def __setup_sensors(self):
+
+        #TODO: add yaml config setup  here
 
         self._sensor_names = ("IMU_Accel_Left_Foot",
                               "IMU_Gyro_Left_Foot",
