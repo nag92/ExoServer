@@ -29,6 +29,7 @@ class Sensor(object):
         self._byte_list = byte_list
         self._packet = 0
         self._packet_order = None
+        self._order = None
         pass
 
     @property
@@ -112,16 +113,17 @@ class Sensor(object):
         """
         return self._raw_values
 
-
-    @abc.abstractmethod
-    def set_raw_values(self, values):
+    @raw_values.setter
+    def raw_values(self, values):
         """
         set the values for the sensor
         :param values: value of the sensor
         """
+        self._raw_values = values
+
+    @abc.abstractmethod
+    def _raw_value_setter(self, value):
         pass
-        # self.queue.put(values)
-        # self._raw_values = values
 
     @property
     def filtered_values(self):
@@ -167,7 +169,7 @@ class Sensor(object):
         set the values for the sensor
         :param values: value of the sensor
         """
-        self._filtered  = value
+        self._filtered = value
 
     def get_values(self):
 
@@ -192,6 +194,6 @@ class Sensor(object):
         self.set_raw_values(self._packet)
 
 
-    def parse(self, value):
-        pass
+    def parse(self, block1, block2):
 
+        return block1 | block2 << 8

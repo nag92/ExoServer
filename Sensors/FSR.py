@@ -19,9 +19,12 @@ class FSR(Sensor.Sensor):
     def reset(self):
         pass
 
-    def raw_values(self, values):
-        super(FSR, self).raw_values(values)
-        # TODO other offset stuff
+    def _raw_value_setter(self, blocks):
+        values = 1 * [0]
+        values[0] = self.parse(block1=blocks[0], block2=blocks[1])
+        self.raw_values = values
+
+
 
 
 

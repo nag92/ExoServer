@@ -19,9 +19,13 @@ class Gyro(Sensor.Sensor):
     def reset(self):
         pass
 
-    def raw_values(self, values):
-        super(Gyro, self).raw_values(values)
-        # TODO other offset stuff
+    def _raw_value_setter(self, blocks):
+        values = 3 * [0]
+        values[0] = self.parse(block1=blocks[4], block2=blocks[5])
+        values[1] = self.parse(block1=blocks[2], block2=blocks[3])
+        values[2] = self.parse(block1=blocks[0], block2=blocks[1])
+        self.raw_values = values
+
 
 
 
