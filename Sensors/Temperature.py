@@ -1,20 +1,20 @@
 import Sensor
 
 
-class Temp(Sensor.Sensor):
+class Temperature(Sensor.Sensor):
 
-    def __init__(self, name):
-        super(Temp, self).__init__(name)
+    def __init__(self, name,byte_list, side):
+        super(Temperature, self).__init__(name,byte_list, side)
         self._type = Sensor.Sensor.POT
 
 
     @property
     def offset(self):
-        return super(Temp, self).offset()
+        return super(Temperature, self).offset()
 
     @property
     def orientation(self):
-        return super(Temp, self).orientation()
+        return super(Temperature, self).orientation()
 
     def reset(self):
         pass

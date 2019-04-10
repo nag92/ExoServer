@@ -9,7 +9,7 @@ class Sensor(object):
     FSR = "FSR"
     CLIFF = "CLIFF"
 
-    def __init__(self, name, byte_list, size=10):
+    def __init__(self, name, byte_list, side, size=10):
         """
         This class handles a sensor.
         :param name: name of the sensor
@@ -30,6 +30,7 @@ class Sensor(object):
         self._packet = 0
         self._packet_order = None
         self._order = None
+        self._side = side
         pass
 
     @property
@@ -46,6 +47,24 @@ class Sensor(object):
         """
 
         self._name = name
+
+    @property
+    def side(self):
+        return self._side
+
+    @side.setter
+    def side(self, side):
+        """
+        set the name of the sensor
+
+        :param name: name of sensor
+        :type name: str
+        """
+
+        self._side = side
+
+
+
 
     @property
     def type(self):

@@ -3,8 +3,8 @@ import Sensor
 
 class Gyro(Sensor.Sensor):
 
-    def __init__(self, name):
-        super(Gyro, self).__init__(name)
+    def __init__(self, name,byte_list, side):
+        super(Gyro, self).__init__(name,byte_list, side)
         self._type = Sensor.Sensor.GYRO
 
 

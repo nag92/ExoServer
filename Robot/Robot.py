@@ -8,8 +8,8 @@ import yaml
 
 class Robot(object):
 
-    def __init__(self, config, SM, FM):
-        self.config = config
+    def __init__(self, config_path, SM, FM):
+        config = yaml.load(config_path)
         self._sensor_names = []
         self._sensors = {}
         self._pots = {}
@@ -22,11 +22,31 @@ class Robot(object):
         self._sensor_manager = SM
         self._filter_manager = FM
         self._sensor_manager.register_sub(FM)
-        self.__setup_sensors()
+        self.__setup_sensors(config)
 
-    def __setup_sensors(self):
+    def __setup_sensors(self,config):
 
         #TODO: add yaml config setup  here
+
+        for name, item in config:
+            byte_list = [item.block1, item.block2]
+            type = item.type
+            location = item.location
+            side = item.side
+            axis = item.axis
+            if name is "Accel":
+                pass
+            elif name is "Gyro":
+                pass
+            elif name is "FSR":
+                pass
+            elif name is "Pot":
+                pass
+            elif name is "Temperture":
+                pass
+            elif name is "rshal":
+                pass
+            pass
 
         self._sensor_names = ("IMU_Accel_Left_Foot",
                               "IMU_Gyro_Left_Foot",

@@ -3,8 +3,8 @@ import Sensor
 
 class Mag(Sensor.Sensor):
 
-    def __init__(self, name):
-        super(Mag, self).__init__(name)
+    def __init__(self, name,byte_list, side):
+        super(Mag, self).__init__(name,byte_list, side)
         self._type = Sensor.Sensor.MAG
 
     @property
