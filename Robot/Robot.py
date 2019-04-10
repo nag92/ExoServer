@@ -1,6 +1,6 @@
 from Managers import SensorManager, FilterManager
 from Filters import BaseFilter
-from Sensors import Accel, Gyro, Pot, FSR
+from Sensors import Accel, Gyro, Pot, FSR,Temperature
 from Sensors import IMU
 import Leg, Joint
 import yaml
@@ -35,15 +35,15 @@ class Robot(object):
             side = item.side
             axis = item.axis
             if name is "Accel":
-                pass
+                self._sensors[name] = Accel.Accel(name,byte_list, side)
             elif name is "Gyro":
-                pass
+                self._sensors[name] = Gyro.Gyro(name, byte_list, side)
             elif name is "FSR":
-                pass
+                self._sensors[name] = FSR.FSR(name, byte_list, side)
             elif name is "Pot":
-                pass
+                self._sensors[name] = Pot.Pot(name, byte_list, side)
             elif name is "Temperture":
-                pass
+                self._sensors[name] = Temperature.Temperature(name, byte_list, side)
             elif name is "rshal":
                 pass
             pass

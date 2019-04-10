@@ -19,7 +19,6 @@ class Temperature(Sensor.Sensor):
     def reset(self):
         pass
 
-
     def get_angle(self):
         return self.get_values() - self.offset
 
