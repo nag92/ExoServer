@@ -1,8 +1,8 @@
-
 class Publisher:
     """
     Publisher class to handle the sending of messages
     """
+
     def __init__(self):
         """
         create a list of subsribers

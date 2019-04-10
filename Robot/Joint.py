@@ -1,6 +1,3 @@
-
-
-
 class Joint(object):
 
     def __init__(self, IMU, pot, FSR=None, cliff=None):
@@ -8,4 +5,3 @@ class Joint(object):
         self._pot = pot
         self._FSR = FSR
         self._cliff = cliff
-

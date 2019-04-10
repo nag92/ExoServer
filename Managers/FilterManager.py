@@ -1,6 +1,4 @@
-import Manager, SensorManager
-from Sensors.Sensor import Sensor
-from copy import deepcopy
+import Manager
 
 
 class FilterManager(Manager.Manager):
@@ -11,8 +9,6 @@ class FilterManager(Manager.Manager):
         self._filters = {}
         super(FilterManager, self).__init__()
 
-
-
     def registar(self, filters, name):
         """
         Register a sensor with the manager. Each sensor is given an numeric ID.
@@ -22,7 +18,6 @@ class FilterManager(Manager.Manager):
         """
 
         self._filters[name] = filters
-
 
     def get_sensor(self, name):
         return self._sensors[name]

@@ -1,12 +1,12 @@
-import serial
-import Queue
-import threading
 import datetime
-import struct
+import threading
+
 import Manager
+import Queue
+import serial
+
 
 class SerialManager(Manager.Manager):
-
 
     def __init__(self, port, baud):
         """
@@ -30,8 +30,6 @@ class SerialManager(Manager.Manager):
         self.thread = threading.Thread(target=self.read)
 
         super(SerialManager, self).__init__()
-
-
 
     def start(self):
         """

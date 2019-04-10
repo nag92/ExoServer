@@ -6,14 +6,13 @@ from Sensors.Sensor import Sensor
 
 matplotlib.use('TKAgg')
 from Sensors import Sensor
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
 import matplotlib.pyplot as pltlib
 
+
 class TK_Plotter(object):
 
-
-    def __init__(self, object,name):
+    def __init__(self, object, name):
         """
 
         :type object: Sensor.Sensor
@@ -23,15 +22,13 @@ class TK_Plotter(object):
         self.canvasFig = pltlib.figure(1)
         self.fig = matplotlib.figure.Figure(figsize=(3, 2), dpi=100)
         self.ax = self.fig.add_subplot(111)
-        self.colors = ['r-', 'g-','b-','k-','m-','c-', 'y-']
+        self.colors = ['r-', 'g-', 'b-', 'k-', 'm-', 'c-', 'y-']
         self.value = None
         self.root = None
-        self.position = (0,0)
-
+        self.position = (0, 0)
 
     @abc.abstractmethod
     def initilize(self, root, position):
-
         """Retrieve data from the input source and return an object."""
         self.root = root
         self.position = position
@@ -42,26 +39,21 @@ class TK_Plotter(object):
         self.canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(self.fig, master=self.frame)
         self.canvas.show()
         self.canvas.get_tk_widget().grid(row=0, column=0)
-        #self.set_fitler_menu()
+        # self.set_fitler_menu()
         return
 
     @abc.abstractmethod
     def update(self):
-
         """Save the data object to the output."""
 
         pass
 
-
     def set_fitler_menu(self, filters=None):
-
         pass
-
 
     def set_title(self, title="some_graph"):
         self.ax.set_title(title)
         return
-
 
     def set_axis_names(self, x="x", y="y"):
         self.ax.set_xlabel(x)
@@ -70,4 +62,3 @@ class TK_Plotter(object):
     def flush(self):
         self.fig.canvas.draw()
         self.fig.canvas.flush_events()
-

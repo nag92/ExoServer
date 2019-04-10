@@ -1,6 +1,5 @@
-from Robot import Robot
 from Managers import SensorManager, PlotManager, CommunicationManager, FilterManager
-from Plotting import Line_Graph
+from Robot import Robot
 
 comm = CommunicationManager.CommunicationManager()
 SM = SensorManager.SensorManager()
@@ -10,7 +9,7 @@ SM.register_sub(FM)
 
 plotter = PlotManager.PlotManager()
 window = PlotManager.PlotManager()
-robot = Robot.Robot(SM,FM)
+robot = Robot.Robot(SM, FM)
 
 #
 #

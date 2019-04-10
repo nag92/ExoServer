@@ -1,4 +1,3 @@
-import numpy as np
 import BaseFilter
 
 
@@ -11,8 +10,6 @@ class HighPass(BaseFilter.BaseFilter):
         super(HighPass, self).__init__()
 
     def update(self, value):
-
-        self._y = self._alpha * (self._y + value - self._x )
+        self._y = self._alpha * (self._y + value - self._x)
         self._x = value
         return self._y
-

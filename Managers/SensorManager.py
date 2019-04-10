@@ -1,7 +1,8 @@
-import Sensors.Sensor
+import Manager
+
 import Sensors.RepeatedTimer
-from Managers import SerialManager
-import Manager,FilterManager
+import Sensors.Sensor
+
 
 class SensorManager(Manager.Manager):
 
@@ -13,9 +14,8 @@ class SensorManager(Manager.Manager):
 
         self.types = {}
         # Tread to call the serial read at each time step
-        #self.timer = Sensors.RepeatedTimer.RepeatedTimer(0.001, self.update)
+        # self.timer = Sensors.RepeatedTimer.RepeatedTimer(0.001, self.update)
         super(SensorManager, self).__init__()
-
 
     def get_sensors(self):
         """
@@ -43,7 +43,7 @@ class SensorManager(Manager.Manager):
     def calibrate(self):
 
         for sensor in self.sensors:
-            sensor.offset = sum(sensor.queue)/len(sensor.queue)
+            sensor.offset = sum(sensor.queue) / len(sensor.queue)
 
     def registar(self, sensor):
         """
@@ -61,11 +61,9 @@ class SensorManager(Manager.Manager):
         self.types[sensor.type].append(id)
         self.sensors[(sensor.type, id)] = sensor
 
-
     def unregistar(self, key):
-        #TODO write method to update the IDs
-       del self.sensors[key]
-
+        # TODO write method to update the IDs
+        del self.sensors[key]
 
     def registar_all_sensors(self, all_sensors):
         """
@@ -73,7 +71,8 @@ class SensorManager(Manager.Manager):
         :param all_sensors: a list of sensors
         :return:
         """
-        print all_sensors
+        print
+        all_sensors
         for sensor in all_sensors:
             self.registar(sensor)
 
@@ -83,12 +82,10 @@ class SensorManager(Manager.Manager):
         reads the serial port and parses the sensor packet into each sensor
         :return:
         """
-        #data = self.listener.get_data()
-
+        # data = self.listener.get_data()
 
         # put the raw packets in the sensors
         for key, sensor in self.sensors.iteritems():
-
             start, stop = sensor.byte_list
             packet = data[start:stop]
             sensor.packet = packet
@@ -100,7 +97,6 @@ class SensorManager(Manager.Manager):
         #         self.sensors[(type, sensor_id)] = readings[key][sensor_id]
 
         self.publisher.publish(self.sensors)
-
 
     def parse(self, data):
         """
@@ -129,4 +125,3 @@ class SensorManager(Manager.Manager):
                 readings[type].append(data[index:(index + length)])
 
         return readings
-

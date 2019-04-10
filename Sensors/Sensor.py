@@ -1,5 +1,7 @@
 import abc
+
 import Queue
+
 
 class Sensor(object):
     ACCEl = "ACCEl"
@@ -63,9 +65,6 @@ class Sensor(object):
 
         self._side = side
 
-
-
-
     @property
     def type(self):
         """
@@ -123,7 +122,6 @@ class Sensor(object):
     @abc.abstractmethod
     def reset(self):
         pass
-
 
     @property
     def raw_values(self):
@@ -205,13 +203,11 @@ class Sensor(object):
     def packet(self):
         return self.queue.get()
 
-
     @packet.setter
     def packet(self, packet):
         self.queue.put(packet)
         self._packet = packet
         self.set_raw_values(self._packet)
-
 
     def parse(self, block1, block2):
 

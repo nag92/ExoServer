@@ -1,10 +1,8 @@
 import abc
-import Queue
 import threading
 
-
-
 import Manager
+import Queue
 
 
 class CommunicationManager(Manager.Manager):
@@ -93,14 +91,14 @@ class CommunicationManager(Manager.Manager):
 
         :rtype: List[float]
         """
-        if bin( int(msg[0], base=16)) == '0b11111111' and bin(int(msg[1], base=16)) == '0b0':
+        if bin(int(msg[0], base=16)) == '0b11111111' and bin(int(msg[1], base=16)) == '0b0':
 
             raise Exception
 
         else:
 
             decoded_data = []  # type: List[float]
-            for index in xrange(3, len(msg)-1):
-                decoded_data.append(msg[index:index+2])
+            for index in xrange(3, len(msg) - 1):
+                decoded_data.append(msg[index:index + 2])
 
         return decoded_data

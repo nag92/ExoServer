@@ -1,9 +1,10 @@
-from Managers import SensorManager, FilterManager
-from Filters import BaseFilter
-from Sensors import Accel, Gyro, Pot, FSR,Temperature
-from Sensors import IMU
-import Leg, Joint
 import yaml
+
+from Filters import BaseFilter
+from Managers import SensorManager, FilterManager
+from Robot import Leg, Joint
+from Sensors import Accel, Gyro, Pot, FSR, Temperature
+from Sensors import IMU
 
 
 class Robot(object):
@@ -24,9 +25,9 @@ class Robot(object):
         self._sensor_manager.register_sub(FM)
         self.__setup_sensors(config)
 
-    def __setup_sensors(self,config):
+    def __setup_sensors(self, config):
 
-        #TODO: add yaml config setup  here
+        # TODO: add yaml config setup  here
 
         for name, item in config:
             byte_list = [item.block1, item.block2]
@@ -35,7 +36,7 @@ class Robot(object):
             side = item.side
             axis = item.axis
             if name is "Accel":
-                self._sensors[name] = Accel.Accel(name,byte_list, side)
+                self._sensors[name] = Accel.Accel(name, byte_list, side)
             elif name is "Gyro":
                 self._sensors[name] = Gyro.Gyro(name, byte_list, side)
             elif name is "FSR":
@@ -97,10 +98,10 @@ class Robot(object):
         self._sensors[self._sensor_names[7]] = Gyro.Gyro(self._sensor_names[7])
 
         imu_left_knee = IMU.IMU("IMU_Left_Ankle", self._sensors[self._sensor_names[4]],
-                                                  self._sensors[self._sensor_names[5]])
+                                self._sensors[self._sensor_names[5]])
 
         imu_right_knee = IMU.IMU("IMU_Right_Ankle", self._sensors[self._sensor_names[6]],
-                                                    self._sensors[self._sensor_names[7]])
+                                 self._sensors[self._sensor_names[7]])
 
         self._imus["IMU_Left_Knee"] = imu_left_knee
         self._imus["IMU_Right_Knee"] = imu_right_knee
@@ -112,10 +113,10 @@ class Robot(object):
         self._sensors[self._sensor_names[11]] = Gyro.Gyro(self._sensor_names[11])
 
         imu_left_hip = IMU.IMU("IMU_Left_Hip", self._sensors[self._sensor_names[8]],
-                                               self._sensors[self._sensor_names[9]])
+                               self._sensors[self._sensor_names[9]])
 
         imu_right_hip = IMU.IMU("IMU_Right_Hip", self._sensors[self._sensor_names[10]],
-                                                 self._sensors[self._sensor_names[11]])
+                                self._sensors[self._sensor_names[11]])
 
         self._imus["IMU_Left_Hip"] = imu_left_hip
         self._imus["IMU_Right_Hip"] = imu_right_hip
@@ -125,7 +126,7 @@ class Robot(object):
         self._sensors[self._sensor_names[13]] = Gyro.Gyro(self._sensor_names[13])
 
         imu_center = IMU.IMU("IMU_Center", self._sensors[self._sensor_names[12]],
-                                           self._sensors[self._sensor_names[13]])
+                             self._sensors[self._sensor_names[13]])
 
         self._imus["IMU_Center"] = imu_center
 
@@ -148,18 +149,15 @@ class Robot(object):
         self._sensor_manager.registar_all_sensors(self._sensors.values())
 
         for key, sensor in self._sensors.iteritems():
-            print "sensor", sensor
             self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor)
-
-
 
     def __setup_robot(self):
 
-        right_hip = Joint.Joint(self._imus["IMU_Right_Hip"], self._sensors["POT_Right_Hip"] )
+        right_hip = Joint.Joint(self._imus["IMU_Right_Hip"], self._sensors["POT_Right_Hip"])
         right_knee = Joint.Joint(self._imus["IMU_Right_Knee"], self._sensors["POT_Right_Knee"])
         fsr = [self._sensors["FSR_Right_01"], self._sensors["FSR_Right_02"], self._sensors["FSR_Right_03"]]
         right_ankle = Joint.Joint(self._imus["IMU_Right_Ankle"], self._sensors["POT_Right_Ankle"], fsr)
-        self.right_leg = Leg.Leg(right_hip,right_knee,right_ankle)
+        self.right_leg = Leg.Leg(right_hip, right_knee, right_ankle)
 
         left_hip = Joint.Joint(self._imus["IMU_Left_Hip"], self._sensors["POT_Left_Hip"])
         left_knee = Joint.Joint(self._imus["IMU_Left_Knee"], self._sensors["POT_Left_Knee"])
@@ -182,7 +180,6 @@ class Robot(object):
     @sensors.setter
     def sensors(self, value):
         self._sensors = value
-
 
     def get_imus(self):
         return self._imus

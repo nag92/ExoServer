@@ -1,8 +1,7 @@
-import abc
-from Tkinter import *
-from TK_Plotter import TK_Plotter
-import numpy as np
 import Queue
+import numpy as np
+from TK_Plotter import TK_Plotter
+from Tkinter import *
 
 
 class Line_Graph(TK_Plotter):
@@ -16,9 +15,9 @@ class Line_Graph(TK_Plotter):
         self.queue_size = 100
         self.ticks = 0
         self.queue = Queue.Queue()
-        super(Line_Graph, self).__init__(object,name)
+        super(Line_Graph, self).__init__(object, name)
 
-    def initilize(self, root,position):
+    def initilize(self, root, position):
 
         for ii in xrange(self.num):
             self.lines.append(self.ax.plot([], [], self.colors[ii], lw=2))
@@ -51,7 +50,7 @@ class Line_Graph(TK_Plotter):
         # update the graph
         for ii, line in enumerate(self.labels):
             line.set_xdata(x_data)
-            line.set_ydata(items[:,ii])
+            line.set_ydata(items[:, ii])
 
         self.flush()
 

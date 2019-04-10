@@ -1,12 +1,12 @@
-import numpy as np
 import math
+
+import numpy as np
 
 from Filters import Kalman
 from Sensors import Accel, Gyro, Mag
 
 
 class IMU(object):
-
 
     def __init__(self, name, accel, gyro, mag=None, temp=None):
         """
@@ -66,7 +66,6 @@ class IMU(object):
         pitch = math.atan2((- x), math.sqrt(y * y + z * z))
         return roll, pitch
 
-
     @property
     def orentation(self):
         """
@@ -88,7 +87,6 @@ class IMU(object):
     def angular_velocity(self, angular_velocity):
         self._angular_velocity = angular_velocity
 
-
     def update(self):
         """
         updat the angular velcity and orentation of the IMU
@@ -101,9 +99,8 @@ class IMU(object):
         state_x = self.update_imu("x", xdot, roll, dt)
         state_y = self.update_imu("y", ydot, pitch, dt)
         state_z = self.update_imu("z", zdot, 0, dt)
-        self._orentation = np.array([state_x[0],state_y[0],state_z[0] ])
+        self._orentation = np.array([state_x[0], state_y[0], state_z[0]])
         self._angular_velocity = np.array([state_x[1], state_y[1], state_z[1]])
-
 
     def update_imu(self, imu_axis, gyro, accel, dt):
         """

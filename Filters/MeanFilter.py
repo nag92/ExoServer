@@ -1,6 +1,8 @@
-import numpy as np
-import BaseFilter
 from collections import deque
+
+import BaseFilter
+import numpy as np
+
 
 class MeanFilter(BaseFilter.BaseFilter):
 
@@ -9,7 +11,5 @@ class MeanFilter(BaseFilter.BaseFilter):
         super(MeanFilter, self).__init__()
 
     def update(self, value):
-
         self._sample_window.append(value)
-        return np.sum(self._sample_window, 0)/len(self._sample_window)
-
+        return np.sum(self._sample_window, 0) / len(self._sample_window)

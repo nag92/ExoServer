@@ -3,10 +3,9 @@ import Sensor
 
 class FSR(Sensor.Sensor):
 
-    def __init__(self, name,byte_list, side):
-        super(FSR, self).__init__(name,byte_list, side)
+    def __init__(self, name, byte_list, side):
+        super(FSR, self).__init__(name, byte_list, side)
         self._type = Sensor.Sensor.GYRO
-
 
     @property
     def offset(self):
@@ -23,8 +22,3 @@ class FSR(Sensor.Sensor):
         values = 1 * [0]
         values[0] = self.parse(block1=blocks[0], block2=blocks[1])
         self.raw_values = values
-
-
-
-
-

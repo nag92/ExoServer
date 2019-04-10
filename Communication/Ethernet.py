@@ -1,6 +1,6 @@
-from Managers import CommunicationManager
-
 import socket
+
+from Managers import CommunicationManager
 
 
 class Ethernet(CommunicationManager.CommunicationManager):

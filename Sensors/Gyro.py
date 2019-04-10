@@ -3,10 +3,9 @@ import Sensor
 
 class Gyro(Sensor.Sensor):
 
-    def __init__(self, name,byte_list, side):
-        super(Gyro, self).__init__(name,byte_list, side)
+    def __init__(self, name, byte_list, side):
+        super(Gyro, self).__init__(name, byte_list, side)
         self._type = Sensor.Sensor.GYRO
-
 
     @property
     def offset(self):
@@ -25,7 +24,3 @@ class Gyro(Sensor.Sensor):
         values[1] = self.parse(block1=blocks[2], block2=blocks[3])
         values[2] = self.parse(block1=blocks[0], block2=blocks[1])
         self.raw_values = values
-
-
-
-
