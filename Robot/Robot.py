@@ -2,7 +2,7 @@ import yaml
 
 from Filters import BaseFilter
 from Managers import SensorManager, FilterManager
-from Robot import Leg, Joint
+import Leg, Joint
 from Sensors import Accel, Gyro, Pot, FSR, Temperature
 from Sensors import IMU
 
@@ -31,11 +31,11 @@ class Robot(object):
 
         # set up raw sensors
         for name, item in config:
-            byte_list = [item.block1, item.block2]
-            type = item.type
-            location = item.location
-            side = item.side
-            axis = item.axis
+            byte_list = [item["block1"], item["block2"]]
+            type = item["type"]
+            location = item["location"]
+            side = item["side"]
+            axis = item["axis"]
             if type is "Accel":
                 self._sensors[name] = Accel.Accel(name, byte_list, side)
             elif type is "Gyro":
@@ -55,11 +55,11 @@ class Robot(object):
         for name, item in config:
 
             if name is "IMU":
-                accel = item.accel
-                gyro = item.gyro
-                temp = item.temp
-                counter = item.counter
-                rshal = item.rshal
+                accel = item["accel"]
+                gyro = item["gyro"]
+                temp = item["temp"]
+                counter = None  # item["counter"]
+                rshal = None  # item["rshal"]
                 imu = IMU.IMU(name,
                               self._sensors[accel],
                               self._sensors[gyro],
@@ -77,16 +77,16 @@ class Robot(object):
 
     def __setup_robot(self):
 
-        right_hip = Joint.Joint(self._imus["IMU_Right_Hip"], self._sensors["POT_Right_Hip"])
-        right_knee = Joint.Joint(self._imus["IMU_Right_Knee"], self._sensors["POT_Right_Knee"])
-        fsr = [self._sensors["FSR_Right_01"], self._sensors["FSR_Right_02"], self._sensors["FSR_Right_03"]]
-        right_ankle = Joint.Joint(self._imus["IMU_Right_Ankle"], self._sensors["POT_Right_Ankle"], fsr)
+        right_hip = Joint.Joint(self._imus["IMU_Right_Hip"], self._sensors["Pot_Right_Hip"])
+        right_knee = Joint.Joint(self._imus["IMU_Right_Knee"], self._sensors["Pot_Right_Knee"])
+        fsr = [self._sensors["FSR1_Right"], self._sensors["FSR2_Right"], self._sensors["FSR3_Right"]]
+        right_ankle = Joint.Joint(self._imus["IMU_Right_Ankle"], self._sensors["Pot_Right_Ankle"], fsr)
         self.right_leg = Leg.Leg(right_hip, right_knee, right_ankle)
 
-        left_hip = Joint.Joint(self._imus["IMU_Left_Hip"], self._sensors["POT_Left_Hip"])
-        left_knee = Joint.Joint(self._imus["IMU_Left_Knee"], self._sensors["POT_Left_Knee"])
-        fsr = [self._sensors["FSR_Left_01"], self._sensors["FSR_Left_02"], self._sensors["FSR_Left_03"]]
-        left_ankle = Joint.Joint(self._imus["IMU_Left_Ankle"], self._sensors["POT_Left_Ankle"], fsr)
+        left_hip = Joint.Joint(self._imus["IMU_Left_Hip"], self._sensors["Pot_Left_Hip"])
+        left_knee = Joint.Joint(self._imus["IMU_Left_Knee"], self._sensors["Pot_Left_Knee"])
+        fsr = [self._sensors["FSR1_Left"], self._sensors["FSR2_Left"], self._sensors["FSR3_Left"]]
+        left_ankle = Joint.Joint(self._imus["IMU_Left_Ankle"], self._sensors["Pot_Left_Ankle"], fsr)
         self.left_leg = Leg.Leg(left_hip, left_knee, left_ankle)
 
     @property
