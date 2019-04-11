@@ -7,57 +7,21 @@ Counter_Left_Foot:
   side: "Left"
   location: "Foot"
 
-Accel_Z_Left_Foot:
+Accel_Left_Foot:
   block1: 6
-  block2: 7
-  block3: -1
-  type: "Accel"
-  axis: "z"
-  side: "Left"
-  location: "Foot"
-
-Accel_Y_Left_Foot:
-  block1: 8
-  block2: 9
-  block3: -1
-  type: "Accel"
-  axis: "y"
-  side: "Left"
-  location: "Foot"
-
-Accel_X_Left_Foot:
-  block1: 10
   block2: 11
   block3: -1
   type: "Accel"
-  axis: "x"
+  axis: "zyx"
   side: "Left"
   location: "Foot"
 
-Gyro_Z_Left_Foot:
+Gyro_Left_Foot:
   block1: 12
-  block2: 13
-  block3: -1
-  type: "Gyro"
-  axis: "z"
-  side: "Left"
-  location: "Foot"
-
-Gyro_Y_Left_Foot:
-  block1: 14
-  block2: 15
-  block3: -1
-  type: "Gyro"
-  axis: "y"
-  side: "Left"
-  location: "Foot"
-
-Gyro_X_Left_Foot:
-  block1: 16
   block2: 17
   block3: -1
   type: "Gyro"
-  axis: "x"
+  axis: "zyx"
   side: "Left"
   location: "Foot"
 
@@ -88,57 +52,21 @@ Counter_Right_Foot:
   side: "Right"
   location: "Foot"
 
-Accel_Z_Right_Foot:
+Accel_Right_Foot:
   block1: 25
-  block2: 26
-  block3: -1
-  type: "Accel"
-  axis: "z"
-  side: "Right"
-  location: "Foot"
-
-Accel_Y_Right_Foot:
-  block1: 27
-  block2: 28
-  block3: -1
-  type: "Accel"
-  axis: "y"
-  side: "Right"
-  location: "Foot"
-
-Accel_X_Right_Foot:
-  block1: 29
   block2: 30
   block3: -1
   type: "Accel"
-  axis: "x"
+  axis: "zyx"
   side: "Right"
   location: "Foot"
 
-Gyro_Z_Right_Foot:
+Gyro_Right_Foot:
   block1: 31
-  block2: 32
-  block3: -1
-  type: "Gyro"
-  axis: "z"
-  side: "Right"
-  location: "Foot"
-
-Gyro_Y_Right_Foot:
-  block1: 33
-  block2: 34
-  block3: -1
-  type: "Gyro"
-  axis: "y"
-  side: "Right"
-  location: "Foot"
-
-Gyro_X_Right_Foot:
-  block1: 35
   block2: 36
   block3: -1
   type: "Gyro"
-  axis: "x"
+  axis: "zyx"
   side: "Right"
   location: "Foot"
 
@@ -170,57 +98,21 @@ Counter_Left_Ankle:
   side: "Left"
   location: "Ankle"
 
-Accel_Z_Left_Ankle:
+Accel_Left_Ankle:
   block1: 44
-  block2: 45
-  block3: -1
-  type: "Accel"
-  axis: "z"
-  side: "Left"
-  location: "Ankle"
-
-Accel_Y_Left_Ankle:
-  block1: 46
-  block2: 47
-  block3: -1
-  type: "Accel"
-  axis: "y"
-  side: "Left"
-  location: "Ankle"
-
-Accel_X_Left_Ankle:
-  block1: 48
   block2: 49
   block3: -1
   type: "Accel"
-  axis: "x"
+  axis: "zyx"
   side: "Left"
   location: "Ankle"
 
-Gyro_Z_Left_Ankle:
+Gyro_Left_Ankle:
   block1: 50
-  block2: 51
-  block3: -1
-  type: "Gyro"
-  axis: "z"
-  side: "Left"
-  location: "Ankle"
-
-Gyro_Y_Left_Ankle:
-  block1: 52
-  block2: 53
-  block3: -1
-  type: "Gyro"
-  axis: "y"
-  side: "Left"
-  location: "Ankle"
-
-Gyro_X_Left_Ankle:
-  block1: 54
   block2: 55
   block3: -1
   type: "Gyro"
-  axis: "x"
+  axis: "zyx"
   side: "Left"
   location: "Ankle"
 
@@ -251,57 +143,21 @@ Counter_Right_Ankle:
   side: "Right"
   location: "Ankle"
 
-Accel_Z_Right_Ankle:
+Accel_Right_Ankle:
   block1: 63
-  block2: 64
+  block2: 74
   block3: -1
   type: "Accel"
-  axis: "z"
+  axis: "zyx"
   side: "Right"
   location: "Ankle"
 
-Accel_Y_Right_Ankle:
-  block1: 65
-  block2: 66
-  block3: -1
-  type: "Accel"
-  axis: "y"
-  side: "Right"
-  location: "Ankle"
-
-Accel_X_Right_Ankle:
-  block1: 67
-  block2: 68
-  block3: -1
-  type: "Accel"
-  axis: "x"
-  side: "Right"
-  location: "Ankle"
-
-Gyro_Z_Right_Ankle:
+Gyro_Right_Ankle:
   block1: 69
-  block2: 70
-  block3: -1
-  type: "Gyro"
-  axis: "z"
-  side: "Right"
-  location: "Ankle"
-
-Gyro_Y_Right_Ankle:
-  block1: 71
-  block2: 72
-  block3: -1
-  type: "Gyro"
-  axis: "y"
-  side: "Right"
-  location: "Ankle"
-
-Gyro_X_Right_Ankle:
-  block1: 73
   block2: 74
   block3: -1
   type: "Gyro"
-  axis: "x"
+  axis: "zyx"
   side: "Right"
   location: "Ankle"
 
@@ -333,57 +189,21 @@ Counter_Left_Knee:
   side: "Left"
   location: "Knee"
 
-Accel_Z_Left_Knee:
+Accel_Left_Knee:
   block1: 82
-  block2: 83
-  block3: -1
-  type: "Accel"
-  axis: "z"
-  side: "Left"
-  location: "Knee"
-
-Accel_Y_Left_Knee:
-  block1: 84
-  block2: 85
-  block3: -1
-  type: "Accel"
-  axis: "y"
-  side: "Left"
-  location: "Knee"
-
-Accel_X_Left_Knee:
-  block1: 86
   block2: 87
   block3: -1
   type: "Accel"
-  axis: "x"
+  axis: "zyx"
   side: "Left"
   location: "Knee"
 
-Gyro_Z_Left_Knee:
+Gyro_Left_Knee:
   block1: 88
-  block2: 89
-  block3: -1
-  type: "Gyro"
-  axis: "z"
-  side: "Left"
-  location: "Knee"
-
-Gyro_Y_Left_Knee:
-  block1: 90
-  block2: 91
-  block3: -1
-  type: "Gyro"
-  axis: "y"
-  side: "Left"
-  location: "Knee"
-
-Gyro_X_Left_Knee:
-  block1: 92
   block2: 93
   block3: -1
   type: "Gyro"
-  axis: "x"
+  axis: "zyx"
   side: "Left"
   location: "Knee"
 
@@ -414,57 +234,21 @@ Counter_Right_Knee:
   side: "Right"
   location: "Knee"
 
-Accel_Z_Right_Knee:
+Accel_Right_Knee:
   block1: 101
-  block2: 102
-  block3: -1
-  type: "Accel"
-  axis: "z"
-  side: "Right"
-  location: "Knee"
-
-Accel_Y_Right_Knee:
-  block1: 103
-  block2: 104
-  block3: -1
-  type: "Accel"
-  axis: "y"
-  side: "Right"
-  location: "Knee"
-
-Accel_X_Right_Knee:
-  block1: 105
   block2: 106
   block3: -1
   type: "Accel"
-  axis: "x"
+  axis: "zxy"
   side: "Right"
   location: "Knee"
 
-Gyro_Z_Right_Knee:
+Gyro_Right_Knee:
   block1: 107
-  block2: 108
-  block3: -1
-  type: "Gyro"
-  axis: "z"
-  side: "Right"
-  location: "Knee"
-
-Gyro_Y_Right_Knee:
-  block1: 109
-  block2: 110
-  block3: -1
-  type: "Gyro"
-  axis: "y"
-  side: "Right"
-  location: "Knee"
-
-Gyro_X_Right_Knee:
-  block1: 111
   block2: 112
   block3: -1
   type: "Gyro"
-  axis: "x"
+  axis: "zyx"
   side: "Right"
   location: "Knee"
 
@@ -492,61 +276,25 @@ Counter_Center:
   block3: 119
   type: "Counter"
   axis: "z"
-  side: "Left"
+  side: "Center"
   location: "Center"
 
-Accel_Z_Center:
+Accel_Center:
   block1: 120
-  block2: 121
-  block3: -1
-  type: "Accel"
-  axis: "z"
-  side: "Left"
-  location: "Center"
-
-Accel_Y_Center:
-  block1: 122
-  block2: 123
-  block3: -1
-  type: "Accel"
-  axis: "y"
-  side: "Left"
-  location: "Center"
-
-Accel_X_Center:
-  block1: 124
   block2: 125
   block3: -1
   type: "Accel"
-  axis: "x"
-  side: "Left"
+  axis: "zyx"
+  side: "Center"
   location: "Center"
 
-Gyro_Z_Center:
+Gyro_Center:
   block1: 126
-  block2: 127
-  block3: -1
-  type: "Gyro"
-  axis: "z"
-  side: "Left"
-  location: "Center"
-
-Gyro_Y_Center:
-  block1: 128
-  block2: 129
-  block3: -1
-  type: "Gyro"
-  axis: "y"
-  side: "Left"
-  location: "Center"
-
-Gyro_X_Center:
-  block1: 130
   block2: 131
   block3: -1
   type: "Gyro"
-  axis: "x"
-  side: "Left"
+  axis: "z"
+  side: "Center"
   location: "Center"
 
 rshal_Center:
@@ -555,7 +303,7 @@ rshal_Center:
   block3: -1
   type: "rshal"
   axis: "z"
-  side: "Left"
+  side: "Center"
   location: "Center"
 
 Temperature_Center:
@@ -564,7 +312,7 @@ Temperature_Center:
   block3: -1
   type: "Temperature"
   axis: "z"
-  side: "Left"
+  side: "Center"
   location: "Center"
 
 Pot_Left_Ankle:
@@ -676,6 +424,72 @@ FSR3_Left:
   side: "Left"
   location: "Foot"
 
-
 IMU_Left_Ankle:
-  accel: ""
+  accel: "Accel_Left_Ankle"
+  gyro: "Gyro_Left_Ankle"
+  temp: "Temperature_Left_Ankle"
+  count: "Counter_Left_Ankle"
+  rshal: "rshal_Left_Ankle"
+  side: "Left"
+  location: "Foot"
+  type: "IMU"
+
+IMU_Right_Ankle:
+  accel: "Accel_Right_Ankle"
+  gyro: "Gyro_Right_Ankle"
+  temp: "Temperature_Right_Ankle"
+  count: "Counter_Right_Ankle"
+  rshal: "rshal_Right_Ankle"
+  side: "Right"
+  location: "Foot"
+  type: "IMU"
+
+IMU_Left_Knee:
+  accel: "Accel_Left_Knee"
+  gyro: "Gyro_Left_Knee"
+  temp: "Temperature_Left_Knee"
+  count: "Counter_Left_Knee"
+  rshal: "rshal_Left_Knee"
+  side: "Left"
+  location: "Knee"
+  type: "IMU"
+
+IMU_Right_Knee:
+  accel: "Accel_Right_Knee"
+  gyro: "Gyro_Right_Knee"
+  temp: "Temperature_Right_Knee"
+  count: "Counter_Right_Knee"
+  rshal: "rshal_Right_Knee"
+  side: "Right"
+  location: "Knee"
+  type: "IMU"
+
+IMU_Left_Hip:
+  accel: "Accel_Left_Hip"
+  gyro: "Gyro_Left_Hip"
+  temp: "Temperature_Left_Hip"
+  count: "Counter_Left_Hip"
+  rshal: "rshal_Left_Hip"
+  side: "Left"
+  location: "Hip"
+  type: "IMU"
+
+IMU_Right_Hip:
+  accel: "Accel_Right_Hip"
+  gyro: "Gyro_Right_Hip"
+  temp: "Temperature_Right_Hip"
+  count: "Counter_Right_Hip"
+  rshal: "rshal_Right_Hip"
+  side: "Right"
+  location: "Hip"
+  type: "IMU"
+
+IMU_Center:
+  accel: "Accel_Center"
+  gyro: "Gyro_Center"
+  temp: "Temperature_Center"
+  count: "Counter_Center"
+  rshal: "rshal_Center"
+  side: "Center"
+  location: "Center"
+  type: "IMU"

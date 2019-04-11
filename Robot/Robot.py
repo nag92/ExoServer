@@ -29,122 +29,46 @@ class Robot(object):
 
         # TODO: add yaml config setup  here
 
+        # set up raw sensors
         for name, item in config:
             byte_list = [item.block1, item.block2]
             type = item.type
             location = item.location
             side = item.side
             axis = item.axis
-            if name is "Accel":
+            if type is "Accel":
                 self._sensors[name] = Accel.Accel(name, byte_list, side)
-            elif name is "Gyro":
+            elif type is "Gyro":
                 self._sensors[name] = Gyro.Gyro(name, byte_list, side)
-            elif name is "FSR":
+            elif type is "FSR":
                 self._sensors[name] = FSR.FSR(name, byte_list, side)
-            elif name is "Pot":
+            elif type is "Pot":
                 self._sensors[name] = Pot.Pot(name, byte_list, side)
-            elif name is "Temperture":
+            elif type is "Temperture":
                 self._sensors[name] = Temperature.Temperature(name, byte_list, side)
-            elif name is "rshal":
+            elif type is "rshal":
                 pass
             pass
 
-        self._sensor_names = ("IMU_Accel_Left_Foot",
-                              "IMU_Gyro_Left_Foot",
-                              "IMU_Accel_Right_Foot",
-                              "IMU_Gyro_Right_Foot",
-                              "IMU_Accel_Left_Knee",
-                              "IMU_Gyro_Left_Knee",
-                              "IMU_Accel_Right_Knee",
-                              "IMU_Gyro_Right_Knee",
-                              "IMU_Accel_Left_Knee",
-                              "IMU_Gyro_Left_Knee",
-                              "IMU_Accel_Right_Hip",
-                              "IMU_Gyro_Right_Hip",
-                              "IMU_Accel_Center",
-                              "IMU_Gyro_Center",
-                              "POT_Left_Ankle",
-                              "POT_Right_Ankle",
-                              "POT_Left_Knee",
-                              "POT_Right_Knee",
-                              "POT_Left_Hip",
-                              "POT_Right_Hip",
-                              "FSR_Right_01",
-                              "FSR_Right_02",
-                              "FSR_Right_03",
-                              "FSR_Left_01",
-                              "FSR_Left_02",
-                              "FSR_Left_03"
-                              )
 
-        # IMU Ankle
-        self._sensors[self._sensor_names[0]] = Accel.Accel(self._sensor_names[0])
-        self._sensors[self._sensor_names[1]] = Gyro.Gyro(self._sensor_names[1])
-        self._sensors[self._sensor_names[2]] = Accel.Accel(self._sensor_names[2])
-        self._sensors[self._sensor_names[3]] = Gyro.Gyro(self._sensor_names[3])
+        # set up IMUs
+        for name, item in config:
 
-        imu_left_ankle = IMU.IMU("IMU_Left_Ankle", self._sensors[self._sensor_names[0]],
-                                 self._sensors[self._sensor_names[1]])
-        imu_right_ankle = IMU.IMU("IMU_Right_Ankle", self._sensors[self._sensor_names[0]],
-                                  self._sensors[self._sensor_names[1]])
+            if name is "IMU":
+                accel = item.accel
+                gyro = item.gyro
+                temp = item.temp
+                counter = item.counter
+                rshal = item.rshal
+                imu = IMU.IMU(name,
+                              self._sensors[accel],
+                              self._sensors[gyro],
+                              self._sensors[temp],
+                              self._sensors[counter],
+                              self._sensors[rshal])
 
-        self._imus["IMU_Left_Ankle"] = imu_left_ankle
-        self._imus["IMU_Right_Ankle"] = imu_right_ankle
+                self._imus[name] = imu
 
-        # IMU Knee
-        self._sensors[self._sensor_names[4]] = Accel.Accel(self._sensor_names[4])
-        self._sensors[self._sensor_names[5]] = Gyro.Gyro(self._sensor_names[5])
-        self._sensors[self._sensor_names[6]] = Accel.Accel(self._sensor_names[6])
-        self._sensors[self._sensor_names[7]] = Gyro.Gyro(self._sensor_names[7])
-
-        imu_left_knee = IMU.IMU("IMU_Left_Ankle", self._sensors[self._sensor_names[4]],
-                                self._sensors[self._sensor_names[5]])
-
-        imu_right_knee = IMU.IMU("IMU_Right_Ankle", self._sensors[self._sensor_names[6]],
-                                 self._sensors[self._sensor_names[7]])
-
-        self._imus["IMU_Left_Knee"] = imu_left_knee
-        self._imus["IMU_Right_Knee"] = imu_right_knee
-
-        # IMU Hip
-        self._sensors[self._sensor_names[8]] = Accel.Accel(self._sensor_names[8])
-        self._sensors[self._sensor_names[9]] = Gyro.Gyro(self._sensor_names[9])
-        self._sensors[self._sensor_names[10]] = Accel.Accel(self._sensor_names[10])
-        self._sensors[self._sensor_names[11]] = Gyro.Gyro(self._sensor_names[11])
-
-        imu_left_hip = IMU.IMU("IMU_Left_Hip", self._sensors[self._sensor_names[8]],
-                               self._sensors[self._sensor_names[9]])
-
-        imu_right_hip = IMU.IMU("IMU_Right_Hip", self._sensors[self._sensor_names[10]],
-                                self._sensors[self._sensor_names[11]])
-
-        self._imus["IMU_Left_Hip"] = imu_left_hip
-        self._imus["IMU_Right_Hip"] = imu_right_hip
-
-        # IMU Center
-        self._sensors[self._sensor_names[12]] = Accel.Accel(self._sensor_names[12])
-        self._sensors[self._sensor_names[13]] = Gyro.Gyro(self._sensor_names[13])
-
-        imu_center = IMU.IMU("IMU_Center", self._sensors[self._sensor_names[12]],
-                             self._sensors[self._sensor_names[13]])
-
-        self._imus["IMU_Center"] = imu_center
-
-        # Pots
-        self._sensors[self._sensor_names[14]] = Pot.Pot(self._sensor_names[14])
-        self._sensors[self._sensor_names[15]] = Pot.Pot(self._sensor_names[15])
-        self._sensors[self._sensor_names[16]] = Pot.Pot(self._sensor_names[16])
-        self._sensors[self._sensor_names[17]] = Pot.Pot(self._sensor_names[17])
-        self._sensors[self._sensor_names[18]] = Pot.Pot(self._sensor_names[18])
-        self._sensors[self._sensor_names[19]] = Pot.Pot(self._sensor_names[19])
-
-        # FSR
-        self._sensors[self._sensor_names[20]] = FSR.FSR(self._sensor_names[20])
-        self._sensors[self._sensor_names[21]] = FSR.FSR(self._sensor_names[21])
-        self._sensors[self._sensor_names[22]] = FSR.FSR(self._sensor_names[22])
-        self._sensors[self._sensor_names[23]] = FSR.FSR(self._sensor_names[23])
-        self._sensors[self._sensor_names[24]] = FSR.FSR(self._sensor_names[24])
-        self._sensors[self._sensor_names[25]] = FSR.FSR(self._sensor_names[25])
 
         self._sensor_manager.registar_all_sensors(self._sensors.values())
 

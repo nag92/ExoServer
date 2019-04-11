@@ -8,7 +8,7 @@ from Sensors import Accel, Gyro, Mag
 
 class IMU(object):
 
-    def __init__(self, name, accel, gyro, mag=None, temp=None):
+    def __init__(self, name, accel, gyro, temp, counter,rshal):
         """
 
         :type accel: Accel
@@ -19,8 +19,9 @@ class IMU(object):
         self._name = name
         self.accel = accel
         self.gyro = gyro
-        self.mag = mag
         self.temp = temp
+        self.counter = counter
+        self.rshal = rshal
         self._orentation = np.array([0, 0, 0])
         self._angular_velocity = np.array([0, 0, 0])
         self._gyro_angle = np.array([0, 0, 0])
