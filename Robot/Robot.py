@@ -10,7 +10,7 @@ from Sensors import IMU
 class Robot(object):
 
     def __init__(self, config_path, SM, FM):
-        config = yaml.load(config_path)
+
         self._sensor_names = []
         self._sensors = {}
         self._pots = {}
@@ -23,52 +23,56 @@ class Robot(object):
         self._sensor_manager = SM
         self._filter_manager = FM
         self._sensor_manager.register_sub(FM)
-        self.__setup_sensors(config)
+        self.__setup_sensors(config_path)
 
-    def __setup_sensors(self, config):
+    def __setup_sensors(self, config_path):
 
         # TODO: add yaml config setup  here
 
-        # set up raw sensors
-        for name, item in config:
-            byte_list = [item["block1"], item["block2"]]
-            type = item["type"]
-            location = item["location"]
-            side = item["side"]
-            axis = item["axis"]
-            if type is "Accel":
-                self._sensors[name] = Accel.Accel(name, byte_list, side)
-            elif type is "Gyro":
-                self._sensors[name] = Gyro.Gyro(name, byte_list, side)
-            elif type is "FSR":
-                self._sensors[name] = FSR.FSR(name, byte_list, side)
-            elif type is "Pot":
-                self._sensors[name] = Pot.Pot(name, byte_list, side)
-            elif type is "Temperture":
-                self._sensors[name] = Temperature.Temperature(name, byte_list, side)
-            elif type is "rshal":
+        with open(config_path, "r") as loader:
+            config = yaml.load(loader)
+            # set up raw sensors
+
+            for name in config:
+
+                item = config[name]
+                byte_list = [item.get("block1"), item.get("block2")]
+                type = item.get("type")
+                location = item.get("location")
+                side = item.get("side")
+                axis = item.get("axis")
+
+                if type is "Accel":
+                    self._sensors[name] = Accel.Accel(name, byte_list, side)
+                elif type is "Gyro":
+                    self._sensors[name] = Gyro.Gyro(name, byte_list, side)
+                elif type is "FSR":
+                    self._sensors[name] = FSR.FSR(name, byte_list, side)
+                elif type is "Pot":
+                    self._sensors[name] = Pot.Pot(name, byte_list, side)
+                elif type is "Temperture":
+                    self._sensors[name] = Temperature.Temperature(name, byte_list, side)
+                elif type is "rshal":
+                    pass
                 pass
-            pass
 
+            # set up IMUs
+            for name in config:
+                item = config[name]
+                if name is "IMU":
+                    accel = item.get("accel")
+                    gyro = item.get("gyro")
+                    temp = item.get("temp")
+                    counter = item.get("counter")
+                    rshal = item.get("rshal")
+                    imu = IMU.IMU(name,
+                                  self._sensors[accel],
+                                  self._sensors[gyro],
+                                  self._sensors[temp],
+                                  self._sensors[counter],
+                                  self._sensors[rshal])
 
-        # set up IMUs
-        for name, item in config:
-
-            if name is "IMU":
-                accel = item["accel"]
-                gyro = item["gyro"]
-                temp = item["temp"]
-                counter = None  # item["counter"]
-                rshal = None  # item["rshal"]
-                imu = IMU.IMU(name,
-                              self._sensors[accel],
-                              self._sensors[gyro],
-                              self._sensors[temp],
-                              self._sensors[counter],
-                              self._sensors[rshal])
-
-                self._imus[name] = imu
-
+                    self._imus[name] = imu
 
         self._sensor_manager.registar_all_sensors(self._sensors.values())
 

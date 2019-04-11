@@ -1,6 +1,7 @@
 from Managers import SensorManager, PlotManager, CommunicationManager, FilterManager
 from Robot import Robot
 
+path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
 comm = CommunicationManager.CommunicationManager()
 SM = SensorManager.SensorManager()
 FM = FilterManager.FilterManager()
@@ -9,7 +10,7 @@ SM.register_sub(FM)
 
 plotter = PlotManager.PlotManager()
 window = PlotManager.PlotManager()
-robot = Robot.Robot(SM, FM)
+robot = Robot.Robot(path, SM, FM)
 
 #
 #
