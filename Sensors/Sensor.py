@@ -209,6 +209,7 @@ class Sensor(object):
         self._packet = packet
         self.set_raw_values(self._packet)
 
+    @abc.abstractmethod
     def parse(self, block1, block2):
 
         return block1 | block2 << 8
