@@ -20,7 +20,7 @@
 #     finally:
 #         connection.close()
 import socket
-
+from struct import *
 host = ''  # Symbolic name meaning all available interfaces
 port = 12345  # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -38,7 +38,8 @@ while True:
         if not data: break
 
         print "Client Says: " + data
-        MESSAGE = b'\x09\x00\x09'
+        MESSAGE = b'\xe'
+        print type(MESSAGE)
         conn.sendall(MESSAGE)
 
     except socket.error:
