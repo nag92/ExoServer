@@ -38,8 +38,8 @@ while True:
         if not data: break
 
         print "Client Says: " + data
-        MESSAGE = b'\xe'
-        print type(MESSAGE)
+        MESSAGE = pack('dd', -1, -1)
+
         conn.sendall(MESSAGE)
 
     except socket.error:
