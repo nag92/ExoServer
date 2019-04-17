@@ -1,8 +1,9 @@
-from Managers import SensorManager, PlotManager, CommunicationManager, FilterManager
+from Managers import SensorManager, PlotManager, FilterManager
 from Robot import Robot
+from Communication import Ethernet
 
 path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
-comm = CommunicationManager.CommunicationManager()
+comm = Ethernet.Ethernet()
 SM = SensorManager.SensorManager()
 FM = FilterManager.FilterManager()
 comm.register_sub(SM)
@@ -11,6 +12,8 @@ SM.register_sub(FM)
 plotter = PlotManager.PlotManager()
 window = PlotManager.PlotManager()
 robot = Robot.Robot(path, SM, FM)
+comm.start()
+
 
 #
 #

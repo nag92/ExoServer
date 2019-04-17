@@ -9,7 +9,7 @@ class CommunicationManager(Manager.Manager):
 
     def __init__(self):
 
-        self.setup()
+
         self.thread = threading.Thread(target=self.read)
         self.connected = False
         # queue holding the data
@@ -17,6 +17,7 @@ class CommunicationManager(Manager.Manager):
         self._outgoing_messages = Queue.Queue(maxsize=20)
         # tread for reading the serial port
         self._server = None
+        self.setup()
         super(CommunicationManager, self).__init__()
 
     @abc.abstractmethod
@@ -36,6 +37,7 @@ class CommunicationManager(Manager.Manager):
         Starts the tread to read from the sensor.
         :return:
         """
+        self.connect()
         self.thread.start()
 
     def connect(self):
@@ -75,11 +77,12 @@ class CommunicationManager(Manager.Manager):
         return self._incoming_messages
 
     def read(self):
-        while not self.connected:
-            raw_data = self.read_port()
-            data = self.decode(raw_data)
-            self._incoming_messages.put(data)
-            self.publisher.publish(data)
+        while 1:
+            if self.connected:
+                raw_data = self.read_port()
+                # data = self.decode(raw_data)
+                self._incoming_messages.put(raw_data)
+                self.publisher.publish(self._incoming_messages.get())
 
     @abc.abstractmethod
     def send(self, msg):

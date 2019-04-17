@@ -35,4 +35,4 @@ class Publisher:
         :return:
         """
         for subscriber, callback in self.subscribers.items():
-            callback(self, message)
+            callback(message)
