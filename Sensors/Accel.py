@@ -6,7 +6,7 @@ class Accel(Sensor.Sensor):
     def __init__(self, name, byte_list, side, ):
         super(Accel, self).__init__(name, byte_list, side)
         self._type = Sensor.Sensor.ACCEl
-        self.raw_values(3 * [0])
+
 
     @property
     def offset(self):

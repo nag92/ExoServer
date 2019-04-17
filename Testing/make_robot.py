@@ -3,16 +3,21 @@ from Robot import Robot
 from Communication import Ethernet
 
 path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
-comm = Ethernet.Ethernet()
 SM = SensorManager.SensorManager()
 FM = FilterManager.FilterManager()
-comm.register_sub(SM)
+
 SM.register_sub(FM)
 
 plotter = PlotManager.PlotManager()
 window = PlotManager.PlotManager()
 robot = Robot.Robot(path, SM, FM)
+comm = Ethernet.Ethernet()
+comm.register_sub(SM)
 comm.start()
+
+while 1:
+    for name, sensor in SM.get_sensors().iteritems():
+        print sensor.raw_values
 
 
 #

@@ -77,12 +77,13 @@ class CommunicationManager(Manager.Manager):
         return self._incoming_messages
 
     def read(self):
+
         while 1:
+
             if self.connected:
+
                 raw_data = self.read_port()
-                # data = self.decode(raw_data)
-                self._incoming_messages.put(raw_data)
-                self.publisher.publish(self._incoming_messages.get())
+                self.publisher.publish(raw_data)
 
     @abc.abstractmethod
     def send(self, msg):

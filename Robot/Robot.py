@@ -12,7 +12,7 @@ class Robot(object):
     def __init__(self, config_path, SM, FM):
 
         self._sensor_names = []
-        self._sensors = {}
+        self.sensors = {}
         self._pots = {}
         self._imus = {}
         self._fsr = {}
@@ -32,89 +32,80 @@ class Robot(object):
         with open(config_path, "r") as loader:
             config = yaml.load(loader)
             # set up raw sensors
+            print config
 
             for name in config:
 
                 item = config[name]
                 byte_list = [item.get("block1"), item.get("block2")]
-                type = item.get("type")
+                sensor_type = item.get("type")
                 location = item.get("location")
                 side = item.get("side")
                 axis = item.get("axis")
 
-                if type is "Accel":
-                    self._sensors[name] = Accel.Accel(name, byte_list, side)
-                elif type is "Gyro":
-                    self._sensors[name] = Gyro.Gyro(name, byte_list, side)
-                elif type is "FSR":
-                    self._sensors[name] = FSR.FSR(name, byte_list, side)
-                elif type is "Pot":
-                    self._sensors[name] = Pot.Pot(name, byte_list, side)
-                elif type is "Temperture":
-                    self._sensors[name] = Temperature.Temperature(name, byte_list, side)
-                elif type is "rshal":
+
+                if sensor_type == "Accel":
+
+                    self.sensors[name] = Accel.Accel(name, byte_list, side)
+                elif sensor_type == "Gyro":
+                    self.sensors[name] = Gyro.Gyro(name, byte_list, side)
+                elif sensor_type == "FSR":
+                    self.sensors[name] = FSR.FSR(name, byte_list, side)
+                elif sensor_type == "Pot":
+                    self.sensors[name] = Pot.Pot(name, byte_list, side)
+                elif sensor_type == "Temperture":
+                    self.sensors[name] = Temperature.Temperature(name, byte_list, side)
+                elif sensor_type == "rshal":
                     pass
                 pass
 
             # set up IMUs
             for name in config:
                 item = config[name]
-                if name is "IMU":
+                if name == "IMU":
                     accel = item.get("accel")
                     gyro = item.get("gyro")
                     temp = item.get("temp")
                     counter = item.get("counter")
                     rshal = item.get("rshal")
                     imu = IMU.IMU(name,
-                                  self._sensors[accel],
-                                  self._sensors[gyro],
-                                  self._sensors[temp],
-                                  self._sensors[counter],
-                                  self._sensors[rshal])
+                                  self.sensors[accel],
+                                  self.sensors[gyro],
+                                  self.sensors[temp],
+                                  self.sensors[counter],
+                                  self.sensors[rshal])
 
                     self._imus[name] = imu
-
-        self._sensor_manager.registar_all_sensors(self._sensors.values())
-
-        for key, sensor in self._sensors.iteritems():
-            self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor)
+        self._sensor_manager.registar_all_sensors(self.sensors.values())
+        print self._sensor_manager.get_sensors()
+        # for key, sensor in self.sensors.iteritems():
+        #     self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor)
 
     def __setup_robot(self):
 
-        right_hip = Joint.Joint(self._imus["IMU_Right_Hip"], self._sensors["Pot_Right_Hip"])
-        right_knee = Joint.Joint(self._imus["IMU_Right_Knee"], self._sensors["Pot_Right_Knee"])
-        fsr = [self._sensors["FSR1_Right"], self._sensors["FSR2_Right"], self._sensors["FSR3_Right"]]
-        right_ankle = Joint.Joint(self._imus["IMU_Right_Ankle"], self._sensors["Pot_Right_Ankle"], fsr)
+        right_hip = Joint.Joint(self._imus["IMU_Right_Hip"], self.sensors["Pot_Right_Hip"])
+        right_knee = Joint.Joint(self._imus["IMU_Right_Knee"], self.sensors["Pot_Right_Knee"])
+        fsr = [self.sensors["FSR1_Right"], self.sensors["FSR2_Right"], self.sensors["FSR3_Right"]]
+        right_ankle = Joint.Joint(self._imus["IMU_Right_Ankle"], self.sensors["Pot_Right_Ankle"], fsr)
         self.right_leg = Leg.Leg(right_hip, right_knee, right_ankle)
 
-        left_hip = Joint.Joint(self._imus["IMU_Left_Hip"], self._sensors["Pot_Left_Hip"])
-        left_knee = Joint.Joint(self._imus["IMU_Left_Knee"], self._sensors["Pot_Left_Knee"])
-        fsr = [self._sensors["FSR1_Left"], self._sensors["FSR2_Left"], self._sensors["FSR3_Left"]]
-        left_ankle = Joint.Joint(self._imus["IMU_Left_Ankle"], self._sensors["Pot_Left_Ankle"], fsr)
+        left_hip = Joint.Joint(self._imus["IMU_Left_Hip"], self.sensors["Pot_Left_Hip"])
+        left_knee = Joint.Joint(self._imus["IMU_Left_Knee"], self.sensors["Pot_Left_Knee"])
+        fsr = [self.sensors["FSR1_Left"], self.sensors["FSR2_Left"], self.sensors["FSR3_Left"]]
+        left_ankle = Joint.Joint(self._imus["IMU_Left_Ankle"], self.sensors["Pot_Left_Ankle"], fsr)
         self.left_leg = Leg.Leg(left_hip, left_knee, left_ankle)
 
     @property
     def sensor_names(self):
         return self._sensor_names
 
-    @sensor_names.setter
-    def sensor_names(self, value):
-        self._sensor_names = value
-
-    @property
-    def sensors(self):
-        return self._sensor_names
-
-    @sensors.setter
-    def sensors(self, value):
-        self._sensors = value
 
     def get_imus(self):
         return self._imus
 
     def get_accel(self):
         data = {}
-        for key, value in self._sensors.iteritems():
+        for key, value in self.sensors.iteritems():
             if "Accel" in key:
                 data[key] = value
 
@@ -122,7 +113,7 @@ class Robot(object):
 
     def get_gyro(self):
         data = {}
-        for key, value in self._sensors.iteritems():
+        for key, value in self.sensors.iteritems():
             if "Gyro" in key:
                 data[key] = value
 
@@ -130,7 +121,7 @@ class Robot(object):
 
     def get_pot(self):
         data = {}
-        for key, value in self._sensors.iteritems():
+        for key, value in self.sensors.iteritems():
             if "POT" in key:
                 data[key] = value
 
@@ -138,7 +129,7 @@ class Robot(object):
 
     def get_fsr(self):
         data = {}
-        for key, value in self._sensors.iteritems():
+        for key, value in self.sensors.iteritems():
             if "FSR" in key:
                 data[key] = value
 

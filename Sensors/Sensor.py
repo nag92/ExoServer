@@ -20,7 +20,7 @@ class Sensor(object):
         self.queue = Queue.Queue(maxsize=size)
         self._name = name
         self._type = None
-        self._raw_values = 0
+        self._raw_values = None
         self._filtred_values = 0
         self._time = 0
         self._offset = 0
@@ -205,9 +205,8 @@ class Sensor(object):
 
     @packet.setter
     def packet(self, packet):
-        self.queue.put(packet)
         self._packet = packet
-        self.set_raw_values(self._packet)
+        self._raw_values = self._packet
 
     @abc.abstractmethod
     def parse(self, block1, block2):
