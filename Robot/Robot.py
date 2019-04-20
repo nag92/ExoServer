@@ -53,7 +53,7 @@ class Robot(object):
                     self.sensors[name] = FSR.FSR(name, byte_list, side)
                 elif sensor_type == "Pot":
                     self.sensors[name] = Pot.Pot(name, byte_list, side)
-                elif sensor_type == "Temperture":
+                elif sensor_type == "Temperature":
                     self.sensors[name] = Temperature.Temperature(name, byte_list, side)
                 elif sensor_type == "rshal":
                     pass

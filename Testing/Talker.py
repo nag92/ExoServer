@@ -20,7 +20,9 @@
 #     finally:
 #         connection.close()
 import socket
-from struct import *
+import time
+import struct
+
 host = ''  # Symbolic name meaning all available interfaces
 port = 12345  # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -30,17 +32,61 @@ print host, port
 s.listen(1)
 conn, addr = s.accept()
 print('Connected by', addr)
+
+MESSAGE = ''
+msg = struct.pack('B', 0)
+MESSAGE += msg
+MESSAGE += msg
+
+for j in xrange(7):
+    msg = struct.pack('B', 0)
+    MESSAGE += msg
+    MESSAGE += msg
+    MESSAGE += msg
+
+    for i in xrange(1, 9):
+        msg = struct.pack('h', i)
+        print msg
+        MESSAGE = MESSAGE + msg
+
+for j in xrange(3):
+    msg = struct.pack('h', j)
+    print msg
+    MESSAGE = MESSAGE + msg
+
+for j in xrange(3):
+    msg = struct.pack('h', j)
+    print msg
+    MESSAGE = MESSAGE + msg
+
+for j in xrange(3):
+    msg = struct.pack('h', j)
+    print msg
+    MESSAGE = MESSAGE + msg
+
+for j in xrange(3):
+    msg = struct.pack('h', j)
+    print msg
+    MESSAGE = MESSAGE + msg
+
+print MESSAGE
 while True:
 
     try:
         data = conn.recv(2048)
-
-        if not data: break
-
         print "Client Says: " + data
-        MESSAGE = pack('dd', -1, -1)
+        if not data:
+            break
+        else:
 
-        conn.sendall(MESSAGE)
+            # MESSAGE = bytearray([0x00, 0x00, 0x01, 0x01, 0x02, 0x02, ])
+            # MESSAGE.append()
+            while 1:
+                conn.sendall(MESSAGE)
+                print MESSAGE
+                time.sleep(1)
+
+                pass
 
     except socket.error:
         print "Error Occured."

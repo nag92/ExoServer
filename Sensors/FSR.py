@@ -19,6 +19,5 @@ class FSR(Sensor.Sensor):
         pass
 
     def _raw_value_setter(self, blocks):
-        values = 1 * [0]
-        values[0] = self.parse(block1=blocks[0], block2=blocks[1])
+        values = self.parse(block1=blocks[0], block2=blocks[1])
         self.raw_values = values

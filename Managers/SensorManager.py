@@ -83,12 +83,12 @@ class SensorManager(Manager.Manager):
         reads the serial port and parses the sensor packet into each sensor
         :return:
         """
-
+        print len(data)
         self.count+=1
         # # put the raw packets in the sensors
         for key, sensor in self.sensors.iteritems():
-            #start, stop = sensor.byte_list
-            packet = self.count#data[start:stop]
+            start, stop = sensor.byte_list
+            packet = data[start - 1:stop]
             sensor.packet = packet
 
 

@@ -1,7 +1,7 @@
 import abc
 
 import Queue
-
+import struct
 
 class Sensor(object):
     ACCEl = "ACCEl"
@@ -206,7 +206,8 @@ class Sensor(object):
     @packet.setter
     def packet(self, packet):
         self._packet = packet
-        self._raw_values = self._packet
+        # print "length", len(packet)
+        self._raw_value_setter(packet)
 
     @abc.abstractmethod
     def parse(self, block1, block2):

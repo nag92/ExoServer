@@ -1,7 +1,8 @@
 from Managers import SensorManager, PlotManager, FilterManager
 from Robot import Robot
 from Communication import Ethernet
-
+import time
+from Plotting import Line_Graph
 path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
 SM = SensorManager.SensorManager()
 FM = FilterManager.FilterManager()
@@ -14,10 +15,10 @@ robot = Robot.Robot(path, SM, FM)
 comm = Ethernet.Ethernet()
 comm.register_sub(SM)
 comm.start()
-
-while 1:
-    for name, sensor in SM.get_sensors().iteritems():
-        print sensor.raw_values
+time.sleep(3)
+print "\n\n"
+for name, sensor in SM.get_sensors().iteritems():
+    print sensor.name, sensor.raw_values
 
 
 #
@@ -39,10 +40,10 @@ while 1:
 # for ii, sensor in enumerate(gyro):
 #     gyro = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x","y", "z"])
 #     plotter.add_window(gyro,"Accel",(1,ii) )
-#
-# # for ii, sensor in enumerate(pot):
-# #     pot = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
-# #     plotter.add_window(pot,"POT",(0,ii) )
-#
-#
+
+# for ii, sensor in enumerate(pot):
+#     pot = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
+#     plotter.add_window(pot,"POT",(0,ii) )
+
+
 # plotter.start()

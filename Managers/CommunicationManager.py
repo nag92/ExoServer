@@ -81,9 +81,9 @@ class CommunicationManager(Manager.Manager):
         while 1:
 
             if self.connected:
-
                 raw_data = self.read_port()
-                self.publisher.publish(raw_data)
+                print bytearray(raw_data)
+                self.publisher.publish(bytearray(raw_data))
 
     @abc.abstractmethod
     def send(self, msg):
