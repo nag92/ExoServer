@@ -16,7 +16,6 @@ class SensorManager(Manager.Manager):
         # Tread to call the serial read at each time step
         # self.timer = Sensors.RepeatedTimer.RepeatedTimer(0.001, self.update)
         super(SensorManager, self).__init__()
-        self.count = 0
 
     def get_sensors(self):
         """
@@ -83,8 +82,7 @@ class SensorManager(Manager.Manager):
         reads the serial port and parses the sensor packet into each sensor
         :return:
         """
-        print len(data)
-        self.count+=1
+
         # # put the raw packets in the sensors
         for key, sensor in self.sensors.iteritems():
             start, stop = sensor.byte_list

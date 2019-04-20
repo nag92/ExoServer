@@ -77,7 +77,7 @@ class Robot(object):
 
                     self._imus[name] = imu
         self._sensor_manager.registar_all_sensors(self.sensors.values())
-        print self._sensor_manager.get_sensors()
+
         # for key, sensor in self.sensors.iteritems():
         #     self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor)
 

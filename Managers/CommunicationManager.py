@@ -82,7 +82,6 @@ class CommunicationManager(Manager.Manager):
 
             if self.connected:
                 raw_data = self.read_port()
-                print bytearray(raw_data)
                 self.publisher.publish(bytearray(raw_data))
 
     @abc.abstractmethod

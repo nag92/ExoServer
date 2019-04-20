@@ -36,7 +36,7 @@ class PlotManager(Manager.Manager, Tkinter.Tk):
 
         :type position: tuple
         """
-        print
+
         self.panes.keys()
         if panel_name in self.panes.keys():
             graph.initilize(self.panes[panel_name], position)
