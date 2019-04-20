@@ -1,8 +1,5 @@
 import Manager
 
-import Sensors.RepeatedTimer
-import Sensors.Sensor
-
 
 class SensorManager(Manager.Manager):
 
@@ -88,40 +85,3 @@ class SensorManager(Manager.Manager):
             start, stop = sensor.byte_list
             packet = data[start - 1:stop]
             sensor.packet = packet
-
-
-        # readings = self.parse(data)
-        #
-        # for key, items in self.types:
-        #     for sensor_id in items:
-        #         self.sensors[(type, sensor_id)] = readings[key][sensor_id]
-
-        #self.publisher.publish(self.sensors)
-
-    def parse(self, data):
-        """
-        Parse the sensor packet
-        :param data: packet of the data
-        :type data: array
-        :return:
-        """
-
-        readings = {}
-        next = 0
-
-        while next < len(data) - 2:
-
-            type = data[next]
-            num_sensors = data[next + 1]
-            start = next + 1
-            length = Sensors.Sensor.Sensor.word_length[type]
-            last_element = start + num_sensors * length + 1
-            next = last_element
-            mydata = data[start:last_element]
-
-            readings[type] = []
-
-            for index in xrange(start, last_element - 1, length):
-                readings[type].append(data[index:(index + length)])
-
-        return readings

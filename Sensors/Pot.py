@@ -26,5 +26,10 @@ class Pot(Sensor.Sensor):
         return self.filtered_values - self.offset
 
     def _raw_value_setter(self, blocks):
+        """
+        Fills in the components of the array
+        :param blocks: byte array
+        :return:
+        """
         values = self.parse(block1=blocks[0], block2=blocks[1])
         self.raw_values = values

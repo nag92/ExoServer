@@ -4,14 +4,26 @@ from Managers import CommunicationManager
 
 
 class Ethernet(CommunicationManager.CommunicationManager):
+    """
+    implements the communucation class
+    """
 
     def __init__(self, host='', port=12345):
+        """
+
+        :param host: name of host
+        :param port: name of port
+        """
         self.host = host
         self.port = port
         self.conn = None
         super(Ethernet, self).__init__()
 
     def setup(self):
+        """
+        set up the communication server
+        :return:
+        """
         self._server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._server.connect((self.host, self.port))
         self._server.sendall(b'Hello, world')

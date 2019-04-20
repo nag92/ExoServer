@@ -1,8 +1,8 @@
+import Queue
 import abc
 import threading
 
 import Manager
-import Queue
 
 
 class CommunicationManager(Manager.Manager):
@@ -77,12 +77,16 @@ class CommunicationManager(Manager.Manager):
         return self._incoming_messages
 
     def read(self):
+        """
+        continually read the server
+        :return:
+        """
 
         while 1:
-
+            # only read if connected
             if self.connected:
                 raw_data = self.read_port()
-                self.publisher.publish(bytearray(raw_data))
+                self.publisher.publish(bytearray(raw_data))  # publish the data
 
     @abc.abstractmethod
     def send(self, msg):
@@ -91,7 +95,7 @@ class CommunicationManager(Manager.Manager):
     @abc.abstractmethod
     def decode(self, msg):
         """
-
+        Not using this
         :rtype: List[float]
         """
         if bin(int(msg[0], base=16)) == '0b11111111' and bin(int(msg[1], base=16)) == '0b0':

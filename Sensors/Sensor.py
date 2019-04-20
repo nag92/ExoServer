@@ -1,7 +1,6 @@
+import Queue
 import abc
 
-import Queue
-import struct
 
 class Sensor(object):
     ACCEl = "ACCEl"
@@ -189,7 +188,11 @@ class Sensor(object):
         self._filtered = value
 
     def get_values(self):
-
+        """
+        Get the values of the sensor, it returns the filtered value only
+        if the sensor is being filtered, else it returns the raw value
+        :return:
+        """
         if self._filtered:
             return self._filtered_values
         else:
@@ -205,11 +208,24 @@ class Sensor(object):
 
     @packet.setter
     def packet(self, packet):
+        """
+        takes in the raw packet and converts it into a decmial
+        and stores its
+        :param packet:
+        :return:
+        """
         self._packet = packet
-        # print "length", len(packet)
         self._raw_value_setter(packet)
 
     @abc.abstractmethod
     def parse(self, block1, block2):
+        """
+        convers the bytes to a decimal value
 
+        :param block1: byte 1
+        :param block2: byte 2
+        :type block1: byte
+        :type block2: byte
+        :return:
+        """
         return block1 | block2 << 8

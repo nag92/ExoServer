@@ -24,6 +24,11 @@ class Accel(Sensor.Sensor):
         return super(Accel, self).filtered_values()
 
     def _raw_value_setter(self, blocks):
+        """
+        Fills in the x,y,z components of the array
+        :param blocks: byte array
+        :return:
+        """
         values = 3 * [0]
         values[0] = self.parse(block1=blocks[4], block2=blocks[5])
         values[1] = self.parse(block1=blocks[2], block2=blocks[3])
