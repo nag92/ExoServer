@@ -17,7 +17,7 @@ comm = Ethernet.Ethernet()
 comm.register_sub(SM)
 SM.register_sub(plotter)
 comm.start()
-time.sleep(3)
+
 
 print "\n\n"
 for name, sensor in SM.get_sensors().iteritems():
@@ -31,11 +31,12 @@ print accel
 gyro = robot.get_gyro()
 pot = robot.get_pot()
 print pot
+time.sleep(3)
 print accel
 plotter.add_pane("Accel", (1, 0))
 plotter.add_pane("Gyro", (0, 0))
-# plotter.add_pane("POT", (0,0))
-plotter.add_pane("FSR", (0, 1))
+plotter.add_pane("Pot", (2, 0))
+# plotter.add_pane("FSR", (0, 1))
 
 for ii, (key, sensor) in enumerate(accel.iteritems()):
     print type(sensor)
@@ -44,10 +45,11 @@ for ii, (key, sensor) in enumerate(accel.iteritems()):
 
 for ii, (key, sensor) in enumerate(gyro.iteritems()):
     gyro = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
-    plotter.add_window(gyro, "Accel", (1, ii))
+    plotter.add_window(gyro, "Gyro", (1, ii))
 
 for ii, (key, sensor) in enumerate(pot.iteritems()):
-    pot = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
-    plotter.add_window(pot, "POT", (0, ii))
+    print sensor
+    item = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
+    plotter.add_window(item, "Pot", (2, ii))
 
 plotter.start()

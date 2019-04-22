@@ -1,8 +1,8 @@
 import yaml
 
-from Filters import BaseFilter
+import Joint
+import Leg
 from Managers import SensorManager, FilterManager
-import Leg, Joint
 from Sensors import Accel, Gyro, Pot, FSR, Temperature
 from Sensors import IMU
 
@@ -122,7 +122,7 @@ class Robot(object):
     def get_pot(self):
         data = {}
         for key, value in self.sensors.iteritems():
-            if "POT" in key:
+            if "Pot" in key:
                 data[key] = value
 
         return data

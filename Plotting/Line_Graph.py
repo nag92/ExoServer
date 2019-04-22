@@ -18,9 +18,9 @@ class Line_Graph(TK_Plotter):
         self.name = name
         self.labels = labels
         self.lines = []
-        self.queue_size = 100
+        self.queue_size = 5
         self.ticks = 0
-        self.queue = Queue.Queue()
+        self.queue = Queue.Queue(self.queue_size)
         super(Line_Graph, self).__init__(object, name)
 
     def initilize(self, root, position):
@@ -41,7 +41,8 @@ class Line_Graph(TK_Plotter):
 
         # read the sensor and put it into the queue
         values = self.object.get_values()
-
+        if self.queue.qsize() >= self.queue_size:
+            self.queue.get()
         self.queue.put(values)
 
         # get the x axis numbers
@@ -55,7 +56,8 @@ class Line_Graph(TK_Plotter):
             start = self.ticks - self.queue_size
 
         x_data = range(start, self.ticks)
-        print items[:, 0]
+        print "x", len(x_data)
+        print "y", len(items[:, 0])
         # update the graph
         for ii, line in enumerate(self.lines):
             line.set_xdata(x_data)

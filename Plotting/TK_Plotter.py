@@ -59,8 +59,9 @@ class TK_Plotter(object):
         self.ax.set_ylabel(y)
 
     def flush(self):
+        # update the axis limits
         self.ax.relim()
-        # update ax.viewLim using the new dataLim
         self.ax.autoscale_view()
+        #redraw
         self.fig.canvas.draw()
         self.fig.canvas.flush_events()
