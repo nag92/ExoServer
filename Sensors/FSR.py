@@ -24,5 +24,6 @@ class FSR(Sensor.Sensor):
         :param blocks: byte array
         :return:
         """
-        values = self.parse(block1=blocks[0], block2=blocks[1])
+        values = [0]
+        values[0] = self.parse(block1=blocks[0], block2=blocks[1])
         self.raw_values = values

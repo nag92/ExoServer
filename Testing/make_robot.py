@@ -2,7 +2,7 @@ import time
 
 from Communication import Ethernet
 from Managers import SensorManager, PlotManager, FilterManager
-from Plotting import Line_Graph
+from Plotting import Line_Graph, FSR_BarGraph
 from Robot import Robot
 
 path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
@@ -30,13 +30,13 @@ accel = robot.get_accel()
 print accel
 gyro = robot.get_gyro()
 pot = robot.get_pot()
-print pot
+fsr = robot.get_fsr()
 time.sleep(3)
 print accel
-plotter.add_pane("Accel", (1, 0))
+plotter.add_pane("Accel", (0, 0))
 plotter.add_pane("Gyro", (0, 0))
-plotter.add_pane("Pot", (2, 0))
-# plotter.add_pane("FSR", (0, 1))
+plotter.add_pane("Pot", (0, 0))
+plotter.add_pane("FSR", (1, 0))
 
 for ii, (key, sensor) in enumerate(accel.iteritems()):
     print type(sensor)
@@ -51,5 +51,9 @@ for ii, (key, sensor) in enumerate(pot.iteritems()):
     print sensor
     item = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
     plotter.add_window(item, "Pot", (2, ii))
+
+item = FSR_BarGraph.FSR_BarGraph("FSR", fsr.values())
+plotter.add_window(item, "FSR", (2, 6))
+
 
 plotter.start()

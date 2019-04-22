@@ -1,4 +1,5 @@
 import numpy as np
+
 from TK_Plotter import TK_Plotter
 
 
@@ -24,7 +25,8 @@ class FSR_BarGraph(TK_Plotter):
     def update(self):
         data = []
         for sensor in self.object:
-            data.append(sensor.values())
+            data.append(sensor.get_values()[0])
 
+        print data
         [rect.set_height(h) for rect, h in zip(self.bars, data)]
         self.flush()

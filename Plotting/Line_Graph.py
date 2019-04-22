@@ -18,7 +18,7 @@ class Line_Graph(TK_Plotter):
         self.name = name
         self.labels = labels
         self.lines = []
-        self.queue_size = 5
+        self.queue_size = 20
         self.ticks = 0
         self.queue = Queue.Queue(self.queue_size)
         super(Line_Graph, self).__init__(object, name)
