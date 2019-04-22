@@ -1,13 +1,19 @@
 import Queue
-import numpy as np
-from TK_Plotter import TK_Plotter
 from Tkinter import *
+
+import numpy as np
+
+from Sensors import Sensor
+from TK_Plotter import TK_Plotter
 
 
 class Line_Graph(TK_Plotter):
 
     def __init__(self, name, object, num, labels):
+        """
 
+        :type object: Sensor.Sensor
+        """
         self.num = num
         self.name = name
         self.labels = labels
@@ -20,7 +26,8 @@ class Line_Graph(TK_Plotter):
     def initilize(self, root, position):
 
         for ii in xrange(self.num):
-            self.lines.append(self.ax.plot([], [], self.colors[ii], lw=2))
+            line, = self.ax.plot([], [], self.colors[ii], lw=2)
+            self.lines.append(line)
 
         self.ax.legend(self.labels, loc='upper left')
 
@@ -33,7 +40,8 @@ class Line_Graph(TK_Plotter):
     def update(self):
 
         # read the sensor and put it into the queue
-        values = self.object.values()
+        values = self.object.get_values()
+
         self.queue.put(values)
 
         # get the x axis numbers
@@ -42,17 +50,19 @@ class Line_Graph(TK_Plotter):
         self.ticks = self.ticks + 1
         start = 0
         items = np.array(list(self.queue.queue))
+
         if self.ticks - self.queue_size > 0:
             start = self.ticks - self.queue_size
 
         x_data = range(start, self.ticks)
-
+        print items[:, 0]
         # update the graph
-        for ii, line in enumerate(self.labels):
+        for ii, line in enumerate(self.lines):
             line.set_xdata(x_data)
             line.set_ydata(items[:, ii])
-
-        self.flush()
+            # line.set_xdata([0,.1,.2])
+            # line.set_ydata([0, 0.05, .01])
+            self.flush()
 
     def set_fitler_menu(self, filters=None):
         self.value = StringVar()

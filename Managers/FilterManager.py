@@ -34,12 +34,14 @@ class FilterManager(Manager.Manager):
 
         :type SM: dict
         """
-        for key, sensor in SM.iteritems():
-
-            filters = self._filters[sensor.name]
-            reading = sensor.values()
-            sensor.filtered = True
-            for filter in filters:
-                reading = filter.update(reading)
-
-            sensor.filtered_values = reading
+        pass
+        #
+        # for key, sensor in SM.iteritems():
+        #
+        #     filters = self._filters[sensor.name]
+        #     reading = sensor.values()
+        #     sensor.filtered = True
+        #     for filter in filters:
+        #         reading = filter.update(reading)
+        #
+        #     sensor.filtered_values = reading

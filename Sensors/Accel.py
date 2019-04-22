@@ -3,10 +3,9 @@ import Sensor
 
 class Accel(Sensor.Sensor):
 
-    def __init__(self, name, byte_list, side, ):
+    def __init__(self, name, byte_list, side):
         super(Accel, self).__init__(name, byte_list, side)
         self._type = Sensor.Sensor.ACCEl
-
 
     @property
     def offset(self):

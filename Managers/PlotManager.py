@@ -1,10 +1,8 @@
 # import modules that I'm using
 import matplotlib
-from Observer import Subscriber
 
 matplotlib.use('TKAgg')
 import Tkinter
-from Tkinter import *
 # import matplotlib.pyplot as pltlib
 # lmfit is imported becuase parameters are allowed to depend on each other along with bounds, etc.
 # from lmfit import minimize, Parameters, Minimizer
@@ -40,21 +38,19 @@ class PlotManager(Manager.Manager, Tkinter.Tk):
         self.panes.keys()
         if panel_name in self.panes.keys():
             graph.initilize(self.panes[panel_name], position)
-            self.objects.append(graph.object)
+            self.objects.append(graph)
 
         else:
             print
             "NOT HERE"
 
-    def refresh(self, data):
-
+    def update(self, data):
+        print "updating"
         for obj in self.objects:
+            print type(obj)
             obj.update()
 
     def start(self):
         # self.panel.pack(expand=1, fill="both")
         self.mainloop()
 
-    def update(self, data):
-        self.subscriber = Subscriber.Subscriber(self.refresh)
-        return self.subscriber

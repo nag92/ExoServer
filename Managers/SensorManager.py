@@ -85,3 +85,4 @@ class SensorManager(Manager.Manager):
             start, stop = sensor.byte_list
             packet = data[start - 1:stop]
             sensor.packet = packet
+        self.publisher.publish(self.sensors)

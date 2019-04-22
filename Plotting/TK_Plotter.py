@@ -1,12 +1,10 @@
-from Tkinter import *
 import abc
 import matplotlib
-
-from Sensors.Sensor import Sensor
+from Tkinter import *
 
 matplotlib.use('TKAgg')
 from Sensors import Sensor
-from matplotlib.figure import Figure
+import matplotlib.figure
 import matplotlib.pyplot as pltlib
 
 
@@ -22,6 +20,7 @@ class TK_Plotter(object):
         self.canvasFig = pltlib.figure(1)
         self.fig = matplotlib.figure.Figure(figsize=(3, 2), dpi=100)
         self.ax = self.fig.add_subplot(111)
+        self.ax.autoscale(True, tight=True)
         self.colors = ['r-', 'g-', 'b-', 'k-', 'm-', 'c-', 'y-']
         self.value = None
         self.root = None
@@ -60,5 +59,8 @@ class TK_Plotter(object):
         self.ax.set_ylabel(y)
 
     def flush(self):
+        self.ax.relim()
+        # update ax.viewLim using the new dataLim
+        self.ax.autoscale_view()
         self.fig.canvas.draw()
         self.fig.canvas.flush_events()
