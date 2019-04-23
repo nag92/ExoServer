@@ -194,10 +194,8 @@ class Sensor(object):
         :return:
         """
         if self._filtered:
-            print self._filtered_values
             return self._filtered_values
         else:
-            print self.raw_values
             return self.raw_values
 
     @property

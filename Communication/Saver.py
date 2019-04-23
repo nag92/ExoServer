@@ -9,8 +9,7 @@ def watch(SM=SensorManager.SensorManager):
             for key, sensor in SM.get_sensors().iteritems():
                 sensor.name, " ", sensor.type, " ", sensor.raw_values()
         except KeyboardInterrupt:
-            print
-            'All done'
+            print 'All done'
             # If you actually want the program to exit
             raise
 

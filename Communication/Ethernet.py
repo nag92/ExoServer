@@ -26,7 +26,7 @@ class Ethernet(CommunicationManager.CommunicationManager):
         """
         self._server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._server.connect((self.host, self.port))
-        self._server.sendall(b'Hello, world')
+        self._server.sendall(b'')
 
     def start(self):
         super(Ethernet, self).start()

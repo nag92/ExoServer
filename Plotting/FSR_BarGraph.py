@@ -27,6 +27,5 @@ class FSR_BarGraph(TK_Plotter):
         for sensor in self.object:
             data.append(sensor.get_values()[0])
 
-        print data
         [rect.set_height(h) for rect, h in zip(self.bars, data)]
         self.flush()
