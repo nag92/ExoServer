@@ -1,3 +1,5 @@
+from threading import Thread
+
 class Publisher:
     """
     Publisher class to handle the sending of messages
@@ -35,4 +37,5 @@ class Publisher:
         :return:
         """
         for subscriber, callback in self.subscribers.items():
-            callback(message)
+            t = Thread(target=callback(message))
+            t.start()

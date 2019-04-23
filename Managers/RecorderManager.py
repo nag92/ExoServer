@@ -11,7 +11,7 @@ class RecorderManager(Manager.Manager):
 
         with open(self._name, "a") as f:
             writer = csv.writer(f, delimiter=",")
-            writer.writerpw(sensor_names)
+            writer.writerow(sensor_names)
 
     def update(self, sensors):
         """
@@ -20,5 +20,7 @@ class RecorderManager(Manager.Manager):
         """
         with open(self._name, "a") as f:
             writer = csv.writer(f, delimiter=",")
+            data = []
             for key, sensor in sensors.iteritems():
-                writer.write(sensor.values())
+                data.append(sensor.get_values())
+            writer.writerow(data)

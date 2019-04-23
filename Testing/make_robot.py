@@ -1,7 +1,7 @@
 import time
 
 from Communication import Ethernet
-from Managers import SensorManager, PlotManager, FilterManager
+from Managers import SensorManager, PlotManager, FilterManager, RecorderManager
 from Plotting import Line_Graph, FSR_BarGraph
 from Robot import Robot
 
@@ -13,10 +13,13 @@ SM.register_sub(FM)
 
 plotter = PlotManager.PlotManager()
 robot = Robot.Robot(path, SM, FM)
+names = SM.get_sensor_names()
+recorder = RecorderManager.RecorderManager("test01.cvs", names)
 comm = Ethernet.Ethernet()
 comm.register_sub(SM)
 SM.register_sub(plotter)
-comm.start()
+SM.register_sub(recorder)
+
 
 
 print "\n\n"
@@ -31,7 +34,7 @@ print accel
 gyro = robot.get_gyro()
 pot = robot.get_pot()
 fsr = robot.get_fsr()
-time.sleep(3)
+
 print accel
 plotter.add_pane("Accel", (0, 0))
 plotter.add_pane("Gyro", (0, 0))
@@ -55,5 +58,6 @@ for ii, (key, sensor) in enumerate(pot.iteritems()):
 item = FSR_BarGraph.FSR_BarGraph("FSR", fsr.values())
 plotter.add_window(item, "FSR", (2, 6))
 
-
+time.sleep(3)
+comm.start()
 plotter.start()

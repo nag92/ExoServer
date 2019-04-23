@@ -73,16 +73,23 @@ class SensorManager(Manager.Manager):
 
             self.registar(sensor)
 
-    def update(self, data):
+    def update(self, packet):
         """
         Callback function for the timer,
         reads the serial port and parses the sensor packet into each sensor
         :return:
         """
-
+        data = packet.get()
         # # put the raw packets in the sensors
         for key, sensor in self.sensors.iteritems():
             start, stop = sensor.byte_list
             packet = data[start - 1:stop]
             sensor.packet = packet
         self.publisher.publish(self.sensors)
+
+    def get_sensor_names(self):
+        names = []
+
+        for name, sensor in self.get_sensors().iteritems():
+            names.append(sensor.name)
+        return names

@@ -43,6 +43,7 @@ class Ethernet(CommunicationManager.CommunicationManager):
         return super(Ethernet, self).get_data()
 
     def read_port(self):
+        self._server.sendall(b'Hello, world')
         data = self._server.recv(2048)
         return data
 

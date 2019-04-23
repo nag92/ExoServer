@@ -56,8 +56,7 @@ class Line_Graph(TK_Plotter):
             start = self.ticks - self.queue_size
 
         x_data = range(start, self.ticks)
-        print "x", len(x_data)
-        print "y", len(items[:, 0])
+
         # update the graph
         for ii, line in enumerate(self.lines):
             line.set_xdata(x_data)

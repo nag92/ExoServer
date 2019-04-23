@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a40d6a-0c34-4a82-bb9f-8109db5d49e3" name="Default Changelist" comment="">
+    <list default="true" id="87a40d6a-0c34-4a82-bb9f-8109db5d49e3" name="Default Changelist" comment="EXO-363 added comments to the comms">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Communication/Ethernet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Communication/Ethernet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/Saver.py" beforeDir="false" afterPath="$PROJECT_DIR$/Communication/Saver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/CommunicationManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/CommunicationManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/PlotManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/PlotManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/RecorderManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/RecorderManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/SensorManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/SensorManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robot/Robot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robot/Robot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sensors/Accel.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sensors/Accel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Observer/Publisher.py" beforeDir="false" afterPath="$PROJECT_DIR$/Observer/Publisher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plotting/Line_Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plotting/Line_Graph.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sensors/Sensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sensors/Sensor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/make_robot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/make_robot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/serial_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/serial_test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,39 +25,41 @@
     <session id="1768423061">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="32" />
+          <entry key="csv" value="2" />
+          <entry key="py" value="94" />
           <entry key="sensor_list" value="1" />
-          <entry key="yaml" value="1" />
+          <entry key="yaml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CSV" value="2" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="32" />
-          <entry key="YAML" value="1" />
+          <entry key="Python" value="94" />
+          <entry key="YAML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="208" />
-          <entry key="py" value="2656" />
-          <entry key="txt" value="1189" />
-          <entry key="yaml" value="1075" />
+          <entry key="Python Console" value="467" />
+          <entry key="py" value="5372" />
+          <entry key="txt" value="1715" />
+          <entry key="yaml" value="1079" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="1189" />
-          <entry key="Python" value="2864" />
-          <entry key="YAML" value="1075" />
+          <entry key="PLAIN_TEXT" value="1715" />
+          <entry key="Python" value="5839" />
+          <entry key="YAML" value="1079" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.4" value="5" />
-          <entry key="project.open.time.5" value="3" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.4" value="11" />
+          <entry key="project.open.time.5" value="10" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
     </session>
@@ -60,10 +67,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robot/Robot.py">
+        <entry file="file://$PROJECT_DIR$/Testing/make_robot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="77" column="42" lean-forward="true" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+            <state relative-caret-position="342">
+              <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -72,46 +79,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Sensors/Accel.py">
+        <entry file="file://$PROJECT_DIR$/Testing/Listener.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="304">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Managers/SensorManager.py">
+        <entry file="file://$PROJECT_DIR$/Testing/listener_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="91" column="34" lean-forward="true" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Managers/CommunicationManager.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Communication/Saver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Communication/Ethernet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="456">
+              <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,29 +102,65 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sensors/Sensor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="207" selection-start-line="207" selection-end-line="207" />
+            <state relative-caret-position="383">
+              <caret line="199" column="33" selection-start-line="199" selection-start-column="33" selection-end-line="199" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Testing/make_robot.py">
+        <entry file="file://$PROJECT_DIR$/Managers/SensorManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+            <state relative-caret-position="288">
+              <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Communication/Ethernet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="33">
+              <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Observer/Publisher.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="489">
+              <caret line="27" column="37" lean-forward="true" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Managers/CommunicationManager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
               <folding>
-                <element signature="e#0#63#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Managers/FilterManager.py">
+        <entry file="file://$PROJECT_DIR$/Managers/RecorderManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="19">
+              <caret line="1" selection-start-column="10" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Plotting/FSR_BarGraph.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -158,6 +177,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Foot</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>Ankle</replace>
@@ -170,7 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Testing/Testing.py" />
         <option value="$PROJECT_DIR$/Exoskeleton/IMU.py" />
         <option value="$PROJECT_DIR$/Communication/SerialListener.py" />
         <option value="$PROJECT_DIR$/Sensors/SensorManager.py" />
@@ -192,43 +211,44 @@
         <option value="$PROJECT_DIR$/Main/Monitoring_GUI.py" />
         <option value="$PROJECT_DIR$/Plotting/Stick_Model.py" />
         <option value="$PROJECT_DIR$/Managers/Publisher.py" />
-        <option value="$PROJECT_DIR$/Managers/PlotManager.py" />
-        <option value="$PROJECT_DIR$/Managers/FilterManager.py" />
-        <option value="$PROJECT_DIR$/Managers/RecorderManager.py" />
-        <option value="$PROJECT_DIR$/Plotting/Line_Graph.py" />
-        <option value="$PROJECT_DIR$/Plotting/FSR_BarGraph.py" />
         <option value="$PROJECT_DIR$/Communication/Saver.py" />
-        <option value="$PROJECT_DIR$/Managers/Manager.py" />
-        <option value="$PROJECT_DIR$/Observer/Subscriber.py" />
         <option value="$PROJECT_DIR$/Sensors/IMU.py" />
         <option value="$PROJECT_DIR$/Config/sensors.yaml" />
-        <option value="$PROJECT_DIR$/Sensors/Gyro.py" />
-        <option value="$PROJECT_DIR$/Sensors/FSR.py" />
-        <option value="$PROJECT_DIR$/Sensors/Pot.py" />
-        <option value="$PROJECT_DIR$/Sensors/Mag.py" />
         <option value="$PROJECT_DIR$/Sensors/Temp.py" />
         <option value="$PROJECT_DIR$/Sensors/Temperature.py" />
         <option value="$PROJECT_DIR$/Sensors/Counter.py" />
-        <option value="$PROJECT_DIR$/Plotting/TK_Plotter.py" />
         <option value="$PROJECT_DIR$/Config/sensor_list.yaml" />
-        <option value="$PROJECT_DIR$/Testing/Listener.py" />
         <option value="$PROJECT_DIR$/Testing/Talker.py" />
-        <option value="$PROJECT_DIR$/Observer/Publisher.py" />
+        <option value="$PROJECT_DIR$/Managers/Manager.py" />
+        <option value="$PROJECT_DIR$/Sensors/Gyro.py" />
+        <option value="$PROJECT_DIR$/Sensors/Mag.py" />
         <option value="$PROJECT_DIR$/Sensors/Accel.py" />
+        <option value="$PROJECT_DIR$/Observer/Subscriber.py" />
+        <option value="$PROJECT_DIR$/Managers/FilterManager.py" />
         <option value="$PROJECT_DIR$/Robot/Robot.py" />
-        <option value="$PROJECT_DIR$/Communication/Ethernet.py" />
+        <option value="$PROJECT_DIR$/Sensors/Pot.py" />
+        <option value="$PROJECT_DIR$/Plotting/Line_Graph.py" />
+        <option value="$PROJECT_DIR$/Sensors/FSR.py" />
+        <option value="$PROJECT_DIR$/Plotting/FSR_BarGraph.py" />
+        <option value="$PROJECT_DIR$/Managers/RecorderManager.py" />
+        <option value="$PROJECT_DIR$/Managers/PlotManager.py" />
+        <option value="$PROJECT_DIR$/Plotting/TK_Plotter.py" />
         <option value="$PROJECT_DIR$/Testing/make_robot.py" />
-        <option value="$PROJECT_DIR$/Managers/SensorManager.py" />
+        <option value="$PROJECT_DIR$/Testing/Listener.py" />
+        <option value="$PROJECT_DIR$/Testing/listener_test.py" />
         <option value="$PROJECT_DIR$/Sensors/Sensor.py" />
+        <option value="$PROJECT_DIR$/Observer/Publisher.py" />
+        <option value="$PROJECT_DIR$/Managers/SensorManager.py" />
         <option value="$PROJECT_DIR$/Managers/CommunicationManager.py" />
+        <option value="$PROJECT_DIR$/Communication/Ethernet.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1877" />
-    <option name="y" value="-4" />
-    <option name="width" value="1922" />
-    <option name="height" value="1085" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1920" />
+    <option name="y" value="24" />
+    <option name="width" value="1920" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -252,12 +272,42 @@
             <path>
               <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
               <item name="exoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="Filters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exoserver" type="462c0819:PsiDirectoryNode" />
               <item name="Main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
               <item name="exoserver" type="462c0819:PsiDirectoryNode" />
               <item name="Managers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="Observer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="Plotting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="Robot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="Sensors" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
@@ -362,8 +412,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gui_testomg" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="ExoServer" />
+    <configuration name="listener_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="exoserver" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -374,7 +424,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/gui_testomg.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/listener_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -407,17 +457,17 @@
     <list>
       <item itemvalue="Python.IMU" />
       <item itemvalue="Python.Monitoring_GUI" />
-      <item itemvalue="Python.gui_testomg" />
       <item itemvalue="Python.make_robot" />
       <item itemvalue="Python.Talker" />
+      <item itemvalue="Python.listener_test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.make_robot" />
+        <item itemvalue="Python.listener_test" />
         <item itemvalue="Python.Talker" />
         <item itemvalue="Python.Monitoring_GUI" />
         <item itemvalue="Python.IMU" />
-        <item itemvalue="Python.gui_testomg" />
       </list>
     </recent_temporary>
   </component>
@@ -729,29 +779,72 @@
       <option name="project" value="LOCAL" />
       <updated>1555461572192</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="EXO-354 everything is working.">
+      <created>1555724619987</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1555724619987</updated>
+    </task>
+    <task id="LOCAL-00044" summary="removed print statements">
+      <created>1555725548390</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1555725548390</updated>
+    </task>
+    <task id="LOCAL-00045" summary="EXO-363 added comments to the comms">
+      <created>1555727444676</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1555727444676</updated>
+    </task>
+    <task id="LOCAL-00046" summary="EXO-362 line plots update">
+      <created>1555898909969</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1555898909969</updated>
+    </task>
+    <task id="LOCAL-00047" summary="EXO-362 pots can now be plotted and the queue does not throw an error">
+      <created>1555956971337</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1555956971337</updated>
+    </task>
+    <task id="LOCAL-00048" summary="EXO-362 FSR now plot">
+      <created>1555967579857</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1555967579858</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1919" y="-11" width="1922" height="1092" extended-state="6" />
+    <frame x="1920" y="24" width="1920" height="1049" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7848276" visible="true" weight="0.19472295" />
-      <window_info id="Structure" order="1" sideWeight="0.21517241" side_tool="true" weight="0.115972586" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.76744187" visible="true" weight="0.1447438" />
+      <window_info id="Structure" order="1" sideWeight="0.23255815" side_tool="true" visible="true" weight="0.1447438" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32842106" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34135666" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.22" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32947367" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.33157894" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.33052632" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.33006537" />
       <window_info anchor="bottom" id="Statistic" order="11" weight="0.28526315" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32947367" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32947367" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -782,13 +875,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed so that the sensor keeps the filtered values." />
-    <MESSAGE value="updating Plotting to work with new style of sensor." />
-    <MESSAGE value="tested the robot class. Working on getting the plotting window to work" />
-    <MESSAGE value="Modified Plotting manager to handle the plotting window." />
-    <MESSAGE value="working on added plotting windows" />
-    <MESSAGE value="EXO-351 add propeties to the kalman filter so that the A and B matrix can be updated on the file. This will allow for the time step to be updated." />
-    <MESSAGE value="EXO-351 add kalman filter to the IMU class." />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="EXO-353 added low and high pass filters" />
     <MESSAGE value="EXO-353 updated the gui to have the pots/imus/fsr in gui" />
     <MESSAGE value="EXO-356 moved the sub and pub class out of the manager folder. All the manager import reflect the update" />
@@ -807,24 +894,19 @@
     <MESSAGE value="working on talker" />
     <MESSAGE value="talker and listener are working, need to use bytearray to convert data" />
     <MESSAGE value="client is talkering to server" />
-    <option name="LAST_COMMIT_MESSAGE" value="client is talkering to server" />
+    <MESSAGE value="it is reading from the server now. However, the queues had to be removed form some reason. It was causing blocking issues and now allowing it to update. this might be cause it was not poping the queue and it was getting block." />
+    <MESSAGE value="EXO-354 everything is working." />
+    <MESSAGE value="removed print statements" />
+    <MESSAGE value="EXO-363 added comments to the comms" />
+    <MESSAGE value="EXO-362 line plots update" />
+    <MESSAGE value="EXO-362 pots can now be plotted and the queue does not throw an error" />
+    <MESSAGE value="EXO-362 FSR now plot" />
+    <option name="LAST_COMMIT_MESSAGE" value="EXO-362 FSR now plot" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Plotting/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Testing/serial_test.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Testing/Testing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-1247972723/__builtin__.py" />
     <entry file="file:///usr/lib/python2.7/lib-tk/Tkinter.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -854,13 +936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Filters/BaseFilter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -918,52 +993,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/PlotManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="53" column="15" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Plotting/Line_Graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="44" column="48" lean-forward="true" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Plotting/IMU_Graph.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="35" column="46" lean-forward="true" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/RecorderManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Plotting/FSR_BarGraph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/Manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Observer/Subscriber.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -974,45 +1007,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sensors/IMU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Config/sensors.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2736">
           <caret line="144" selection-start-line="144" selection-end-line="144" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sensors/Temperature.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sensors/Mag.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sensors/Gyro.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sensors/Pot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" selection-end-line="31" />
         </state>
       </provider>
     </entry>
@@ -1023,127 +1021,238 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sensors/FSR.py">
+    <entry file="file://$PROJECT_DIR$/Sensors/Temperature.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
+        <state relative-caret-position="475">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Plotting/TK_Plotter.py">
+    <entry file="file://$PROJECT_DIR$/Config/sensor_list.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="31">
+          <caret line="470" column="25" lean-forward="true" selection-start-line="470" selection-start-column="25" selection-end-line="470" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Testing/Talker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="31" selection-end-column="27" />
+        <state relative-caret-position="867">
+          <caret line="85" column="29" lean-forward="true" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sensors/Gyro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sensors/IMU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1102">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Filters/BaseFilter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Observer/Subscriber.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sensors/Mag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/FilterManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/dist-packages/matplotlib/lines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11343">
+          <caret line="624" selection-start-line="624" selection-end-line="624" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4085">
+          <caret line="218" column="75" selection-start-line="218" selection-start-column="75" selection-end-line="218" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/Manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sensors/Pot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sensors/Accel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robot/Robot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1827">
+          <caret line="121" column="8" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Plotting/Line_Graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding>
-            <element signature="e#484#497#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sensors/FSR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Plotting/TK_Plotter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1083">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testing/test01.cvs.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="csv-text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="132" selection-start-line="4" selection-start-column="131" selection-end-line="4" selection-end-column="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/PlotManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Communication/Saver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Plotting/FSR_BarGraph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Testing/Listener.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config/sensor_list.yaml">
+    <entry file="file://$PROJECT_DIR$/Testing/listener_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7961">
-          <caret line="419" column="13" selection-start-line="419" selection-start-column="13" selection-end-line="419" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Observer/Publisher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Communication/Saver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sensors/Accel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/FilterManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robot/Robot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="77" column="42" lean-forward="true" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+        <state relative-caret-position="456">
+          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Communication/Ethernet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python2.7/socket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Testing/make_robot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+        <state relative-caret-position="342">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           <folding>
-            <element signature="e#0#63#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/SensorManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="91" column="34" lean-forward="true" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sensors/Sensor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="207" selection-start-line="207" selection-end-line="207" />
+        <state relative-caret-position="383">
+          <caret line="199" column="33" selection-start-line="199" selection-start-column="33" selection-end-line="199" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/RecorderManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-column="10" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/SensorManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Observer/Publisher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="27" column="37" lean-forward="true" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Communication/Ethernet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Managers/CommunicationManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
+        <state relative-caret-position="220">
           <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

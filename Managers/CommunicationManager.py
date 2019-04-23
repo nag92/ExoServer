@@ -82,11 +82,17 @@ class CommunicationManager(Manager.Manager):
         :return:
         """
 
+
         while 1:
             # only read if connected
             if self.connected:
                 raw_data = self.read_port()
-                self.publisher.publish(bytearray(raw_data))  # publish the data
+                data = bytearray(raw_data)
+                self._incoming_messages.put(data)
+                self.publisher.publish(self._incoming_messages)  # publish the data
+
+
+
 
     @abc.abstractmethod
     def send(self, msg):

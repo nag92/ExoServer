@@ -7,7 +7,6 @@ def watch(SM=SensorManager.SensorManager):
     while True:
         try:
             for key, sensor in SM.get_sensors().iteritems():
-                print
                 sensor.name, " ", sensor.type, " ", sensor.raw_values()
         except KeyboardInterrupt:
             print

@@ -41,8 +41,7 @@ class PlotManager(Manager.Manager, Tkinter.Tk):
             self.objects.append(graph)
 
         else:
-            print
-            "NOT HERE"
+            print "NOT HERE"
 
     def update(self, data):
 
