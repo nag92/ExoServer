@@ -19,6 +19,13 @@ class IMU_Graph(TK_Plotter):
         super(IMU_Graph, self).__init__(object, name)
 
     def initilize(self, root, position):
+        """
+        Create the plot
+
+        :param root: window to put the plot
+        :param position: position in window to put the plot
+        :return: None
+        """
 
         for ii in xrange(self.num):
             self.lines.append(self.ax.plot([], [], self.colors[ii], lw=2))
@@ -32,7 +39,10 @@ class IMU_Graph(TK_Plotter):
         return 1
 
     def update(self):
-
+        """
+        callback for to update the plot with new data
+        :return:
+        """
         # read the sensor and put it into the queue
         values = self.object.orentation()
         self.queue.put(values)

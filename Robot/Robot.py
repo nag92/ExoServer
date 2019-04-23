@@ -1,4 +1,5 @@
 import yaml
+from typing import Dict, Any
 
 import Joint
 import Leg
@@ -8,32 +9,45 @@ from Sensors import IMU
 
 
 class Robot(object):
+    _imus = None  # type: Dict[Any, Any]
 
     def __init__(self, config_path, SM, FM):
-
-        self._sensor_names = []
+        """
+        Sets up the robot
+        :param config_path:
+        :param SM: Sensor Mangager
+        :param FM: Filter Manager
+        :type config_path: str
+        :type SM: SensorManger.SensorManger
+        :type FM: FilterManager.FilterManger
+        """
+        assert isinstance(SM, SensorManager.SensorManager)
+        assert isinstance(FM, FilterManager.FilterManager)
+        self._sensor_names = []  # names of senors
         self.sensors = {}
         self._pots = {}
         self._imus = {}
         self._fsr = {}
         self.right_leg = None
         self.left_leg = None
-        assert isinstance(SM, SensorManager.SensorManager)
-        assert isinstance(FM, FilterManager.FilterManager)
         self._sensor_manager = SM
         self._filter_manager = FM
         self._sensor_manager.register_sub(FM)
         self.__setup_sensors(config_path)
 
     def __setup_sensors(self, config_path):
+        """
+        This sets up the sensors and adds it up to the SM
+        :param config_path: config yaml file
+        :type config_path: str
+        :return:
+        """
 
-        # TODO: add yaml config setup  here
-
+        # open and load the yaml file
         with open(config_path, "r") as loader:
             config = yaml.load(loader)
-            # set up raw sensors
-            print config
 
+            # loop through the config and set up the sensors
             for name in config:
 
                 item = config[name]
@@ -76,13 +90,16 @@ class Robot(object):
                                   self.sensors[rshal])
 
                     self._imus[name] = imu
-        self._sensor_manager.registar_all_sensors(self.sensors.values())
+            self._sensor_manager.registar_all_sensors(self.sensors.values())
 
         # for key, sensor in self.sensors.iteritems():
         #     self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor)
 
     def __setup_robot(self):
-
+        """
+        create all the joints and link in the robot
+        :return:
+        """
         right_hip = Joint.Joint(self._imus["IMU_Right_Hip"], self.sensors["Pot_Right_Hip"])
         right_knee = Joint.Joint(self._imus["IMU_Right_Knee"], self.sensors["Pot_Right_Knee"])
         fsr = [self.sensors["FSR1_Right"], self.sensors["FSR2_Right"], self.sensors["FSR3_Right"]]
@@ -97,13 +114,26 @@ class Robot(object):
 
     @property
     def sensor_names(self):
+        """
+        get the sensor names
+        :return:
+        """
         return self._sensor_names
 
-
+    @property
     def get_imus(self):
+        """
+        Get the imus
+        :return:
+        """
         return self._imus
 
+    @property
     def get_accel(self):
+        """
+        Get the Accelormeters
+        :return: dict of the accelometers
+        """
         data = {}
         for key, value in self.sensors.iteritems():
             if "Accel" in key:
@@ -111,7 +141,12 @@ class Robot(object):
 
         return data
 
+    @property
     def get_gyro(self):
+        """
+        Get the Gyros
+        :return: dict of the gyros
+        """
         data = {}
         for key, value in self.sensors.iteritems():
             if "Gyro" in key:
@@ -119,7 +154,12 @@ class Robot(object):
 
         return data
 
+    @property
     def get_pot(self):
+        """
+        Get the pots
+        :return: dict of the pots
+        """
         data = {}
         for key, value in self.sensors.iteritems():
             if "Pot" in key:
@@ -127,7 +167,12 @@ class Robot(object):
 
         return data
 
+    @property
     def get_fsr(self):
+        """
+        Get the fsr
+        :return: dict of the fsr
+        """
         data = {}
         for key, value in self.sensors.iteritems():
             if "FSR" in key:

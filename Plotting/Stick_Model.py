@@ -7,6 +7,13 @@ class Stick_Model(TK_Plotter):
         super(Stick_Model, self).__init__(object)
 
     def initilize(self, root, position):
+        """
+        Create the plot
+
+        :param root: window to put the plot
+        :param position: position in window to put the plot
+        :return: None
+        """
         self.ax = self.fig.add_subplot(111, autoscale_on=False, xlim=(-1, 1), ylim=(-2, 2))
         self.back_leg, = self.ax.plot([], [], 'bo-', lw=2)
         self.front_leg, = self.ax.plot([], [], 'ro-', lw=2)
@@ -19,6 +26,7 @@ class Stick_Model(TK_Plotter):
 
     def update(self):
         """ update the plot"""
+        raise NotImplementedError
         legs_x = data["legs_x"]
         legs_y = data["legs_y"]
         self.trunk.set_xdata([legs_x[1], legs_x[2]])

@@ -2,7 +2,9 @@ import BaseFilter
 
 
 class HighPass(BaseFilter.BaseFilter):
-
+    """
+    implementation of a high pass filter
+    """
     def __init__(self, alpha):
         self._alpha = alpha
         self._x = 0

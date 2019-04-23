@@ -1,11 +1,14 @@
 from collections import deque
 
-import BaseFilter
 import numpy as np
+
+import BaseFilter
 
 
 class MeanFilter(BaseFilter.BaseFilter):
-
+    """
+    implementation of a mean filter
+    """
     def __init__(self, size=10):
         self._sample_window = deque([], size)
         super(MeanFilter, self).__init__()

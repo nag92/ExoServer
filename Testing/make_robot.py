@@ -26,11 +26,11 @@ print "\n\n"
 for name, sensor in SM.get_sensors().iteritems():
     print sensor.name, sensor.raw_values
 
-accel = robot.get_accel()
+accel = robot.get_accel
 print accel
-gyro = robot.get_gyro()
-pot = robot.get_pot()
-fsr = robot.get_fsr()
+gyro = robot.get_gyro
+pot = robot.get_pot
+fsr = robot.get_fsr
 
 # print accel
 plotter.add_pane("Accel", (0, 0))

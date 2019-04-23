@@ -29,3 +29,7 @@ class Gyro(Sensor.Sensor):
         values[1] = self.parse(block1=blocks[2], block2=blocks[3])
         values[2] = self.parse(block1=blocks[0], block2=blocks[1])
         self.raw_values = values
+
+    def parse(self, block1, block2):
+        data = super(Gyro, self).parse(block1, block2)
+        return data

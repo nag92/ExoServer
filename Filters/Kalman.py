@@ -12,30 +12,72 @@ import numpy as np
 class Kalman:
     # take in all the parameters of the linear kalman filter
     def __init__(self, A, B, C, Q, P, R, x):
-        self._A = A  # state trasition matrix
-        self._B = B  # control matrix
-        self._C = C  # measurement model
-        self._Q = Q  # proccess noise covariance
-        self._P = P  # predeciton
-        self._R = R  ##measurement noise covariance
+        """
+
+        :param A: state trasition matrix
+        :param B: control matrix
+        :param C: measurement model
+        :param Q: proccess noise covariance
+        :param P: predeciton
+        :param R: measurement noise covariance
+        :param x: state vector
+        :type A: numpy.matrix
+        :type B: numpy.matrix
+        :type C: numpy.matrix
+        :type Q: numpy.matrix
+        :type P: numpy.matrix
+        :type R: numpy.matrix
+        :type x: numpy.matrix
+        """
+        self._A = A
+        self._B = B
+        self._C = C
+        self._Q = Q
+        self._P = P
+        self._R = R
         self._state = x
 
-    # move to the  next position
     def move(self, u, z):
+        """
+        move the system forward
+
+        :param u: cmd to the system
+        :param z: sensor update
+        :type u: numpy.matrix
+        :type z: numpy.matrix
+        :return: None
+        """
+
         self.__predict(u)
         self.__update(z)
 
     # get the current state
     def getState(self):
+        """
+        get the state of the system
+        :return: state
+        :type: numpy.matrix
+        """
         return self.state
 
-    # predict the next state
+
     def __predict(self, u):
+        """
+        predict the next state
+        :param u: cmd for the system
+        :type u: numpy.matrix
+        :return: None
+        """
         self.state = self._A * self.state + self._B * u
         self.P = self._A * self._P * self._A.T + self._Q
 
-    # update the model
     def __update(self, z):
+        """
+        update the system
+        :param z: sensor update
+        :type z: numpy.matrix
+        :return: None
+        """
         # find the kalman gain
         K = self.P * (self._C.T) * np.linalg.inv((self._C * self.P * (self._C.T) + self._R))
         # get the current state

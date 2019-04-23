@@ -2,16 +2,19 @@ from Managers import SensorManager, PlotManager
 from Plotting import Line_Graph, IMU_Graph, FSR_BarGraph
 from Robot import Robot
 
+"""
+NOT USED
+"""
 SM = SensorManager.SensorManager()
 plotter = PlotManager.PlotManager()
 window = PlotManager.PlotManager()
 robot = Robot.Robot(SM)
 
-accel = robot.get_accel()
-gyro = robot.get_gyro()
-pot = robot.get_pot()
-imus = robot.get_imus()
-fsr = robot.get_fsr()
+accel = robot.get_accel
+gyro = robot.get_gyro
+pot = robot.get_pot
+imus = robot.get_imus
+fsr = robot.get_fsr
 
 plotter.add_pane("Hip", (0, 0))
 plotter.add_pane("Knee", (1, 0))

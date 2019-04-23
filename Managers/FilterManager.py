@@ -29,19 +29,3 @@ class FilterManager(Manager.Manager):
         # TODO write method to update the IDs
         del self._sensors[key]
 
-    def update(self, SM):
-        """
-
-        :type SM: dict
-        """
-        pass
-        #
-        # for key, sensor in SM.iteritems():
-        #
-        #     filters = self._filters[sensor.name]
-        #     reading = sensor.values()
-        #     sensor.filtered = True
-        #     for filter in filters:
-        #         reading = filter.update(reading)
-        #
-        #     sensor.filtered_values = reading

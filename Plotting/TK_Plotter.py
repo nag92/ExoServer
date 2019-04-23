@@ -28,7 +28,14 @@ class TK_Plotter(object):
 
     @abc.abstractmethod
     def initilize(self, root, position):
-        """Retrieve data from the input source and return an object."""
+        """
+        This function is used to set up the windows
+        set up a window to plot
+        :param root: window to put the plot in
+        :param position: where to put the window
+        :return: None
+        """
+
         self.root = root
         self.position = position
         self.frame = Frame(self.root)
@@ -43,22 +50,39 @@ class TK_Plotter(object):
 
     @abc.abstractmethod
     def update(self):
-        """Save the data object to the output."""
-
-        pass
-
-    def set_fitler_menu(self, filters=None):
+        """
+        override function to be called to update the plot
+        :return:
+        """
         pass
 
     def set_title(self, title="some_graph"):
+        """
+        set the title of the plot
+        :param title: name of the plot
+        :type: str
+        :return:
+        """
         self.ax.set_title(title)
         return
 
     def set_axis_names(self, x="x", y="y"):
+        """
+        set the axis names
+        :param x: name of x axis
+        :param y: name of y axis
+        :type x: str
+        :type y: str
+        :return:
+        """
         self.ax.set_xlabel(x)
         self.ax.set_ylabel(y)
 
     def flush(self):
+        """
+        Update the plot graphics
+        :return:
+        """
         # update the axis limits
         self.ax.relim()
         self.ax.autoscale_view()

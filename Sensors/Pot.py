@@ -30,3 +30,7 @@ class Pot(Sensor.Sensor):
         values = [0]
         values[0] = self.parse(block1=blocks[0], block2=blocks[1])
         self.raw_values = values
+
+    def parse(self, block1, block2):
+        data = super(Pot, self).parse(block1, block2)
+        return data

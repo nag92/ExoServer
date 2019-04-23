@@ -3,6 +3,7 @@ import Sensor
 
 class Accel(Sensor.Sensor):
 
+
     def __init__(self, name, byte_list, side):
         super(Accel, self).__init__(name, byte_list, side)
         self._type = Sensor.Sensor.ACCEl
@@ -33,3 +34,7 @@ class Accel(Sensor.Sensor):
         values[1] = self.parse(block1=blocks[2], block2=blocks[3])
         values[2] = self.parse(block1=blocks[0], block2=blocks[1])
         self.raw_values = values
+
+    def parse(self, block1, block2):
+        data = super(Accel, self).parse(block1, block2)
+        return data

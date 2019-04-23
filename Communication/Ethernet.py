@@ -26,16 +26,27 @@ class Ethernet(CommunicationManager.CommunicationManager):
         """
         self._server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._server.connect((self.host, self.port))
-        self._server.sendall(b'g')
+        self._server.sendall(b'hello')  # need to send a message to start
 
     def start(self):
+        """
+        starts the communication
+        :return:
+        """
         super(Ethernet, self).start()
 
-
     def disconnect(self):
+        """
+        stop the communication
+        :return:
+        """
         super(Ethernet, self).disconnect()
 
     def have_data(self):
+        """
+        not used
+        :return:
+        """
         return super(Ethernet, self).have_data
 
     @property
@@ -43,8 +54,15 @@ class Ethernet(CommunicationManager.CommunicationManager):
         return super(Ethernet, self).get_data()
 
     def read_port(self):
-        # self._server.sendall(b'q')
+        """
+        read from the port
+        :return:
+        """
+        # get the data
         data = self._server.recv(2048)
+        # check is data is avaible and the correct length, this has to be updated with the
+        # correct check method
+
         if data and len(data) == 159:
             return data
         else:
@@ -53,7 +71,3 @@ class Ethernet(CommunicationManager.CommunicationManager):
 
     def send(self, msg):
         raise NotImplementedError
-        pass
-
-    def decode(self, msg):
-        return msg

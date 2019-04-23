@@ -1,5 +1,4 @@
 import Queue
-from Tkinter import *
 
 import numpy as np
 
@@ -24,7 +23,13 @@ class Line_Graph(TK_Plotter):
         super(Line_Graph, self).__init__(object, name)
 
     def initilize(self, root, position):
+        """
+        Create the plot
 
+        :param root: window to put the plot
+        :param position: position in window to put the plot
+        :return: None
+        """
         for ii in xrange(self.num):
             line, = self.ax.plot([], [], self.colors[ii], lw=2)
             self.lines.append(line)
@@ -38,7 +43,10 @@ class Line_Graph(TK_Plotter):
         return 1
 
     def update(self):
-
+        """
+        callback to update the plot
+        :return: None
+        """
         # read the sensor and put it into the queue
         values = self.object.get_values()
         if self.queue.qsize() >= self.queue_size:
@@ -61,20 +69,5 @@ class Line_Graph(TK_Plotter):
         for ii, line in enumerate(self.lines):
             line.set_xdata(x_data)
             line.set_ydata(items[:, ii])
-            # line.set_xdata([0,.1,.2])
-            # line.set_ydata([0, 0.05, .01])
-            # self.flush()
 
-    def set_fitler_menu(self, filters=None):
-        self.value = StringVar()
-        #
-        # frame = Frame(self.frame)
-        # frame.grid(row=0, column=1)
-        # for index, filter in enumerate(filters):
-        #     button = Radiobutton(frame, text=filter,
-        #                          variable=self.value,
-        #                          value=filter)
-        #
-        #     button.grid(row=index, column=0)
 
-        # super(Line_Graph, self).set_fitler_menu()

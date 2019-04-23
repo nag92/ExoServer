@@ -9,7 +9,6 @@ class CommunicationManager(Manager.Manager):
 
     def __init__(self):
 
-
         self.thread = threading.Thread(target=self.read)
         self.connected = False
         # queue holding the data
@@ -89,12 +88,11 @@ class CommunicationManager(Manager.Manager):
         :return:
         """
 
-
         while 1:
             # only read if connected
             if self.connected:
                 raw_data = self.read_port()
-
+                # if there is data then send it to the listeners
                 if raw_data is not None:
                     data = bytearray(raw_data)
                     self._incoming_messages.put(data)
