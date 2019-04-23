@@ -14,7 +14,7 @@ SM.register_sub(FM)
 plotter = PlotManager.PlotManager()
 robot = Robot.Robot(path, SM, FM)
 names = SM.get_sensor_names()
-recorder = RecorderManager.RecorderManager("test01.cvs", names)
+recorder = RecorderManager.RecorderManager("test01", names)
 comm = Ethernet.Ethernet()
 comm.register_sub(SM)
 SM.register_sub(plotter)
@@ -26,16 +26,13 @@ print "\n\n"
 for name, sensor in SM.get_sensors().iteritems():
     print sensor.name, sensor.raw_values
 
-
-#
-#
 accel = robot.get_accel()
 print accel
 gyro = robot.get_gyro()
 pot = robot.get_pot()
 fsr = robot.get_fsr()
 
-print accel
+# print accel
 plotter.add_pane("Accel", (0, 0))
 plotter.add_pane("Gyro", (0, 0))
 plotter.add_pane("Pot", (0, 0))
@@ -58,6 +55,9 @@ for ii, (key, sensor) in enumerate(pot.iteritems()):
 item = FSR_BarGraph.FSR_BarGraph("FSR", fsr.values())
 plotter.add_window(item, "FSR", (2, 6))
 
-time.sleep(3)
+time.sleep(5)
 comm.start()
 plotter.start()
+time.sleep(20)
+comm.stop()
+print "done"

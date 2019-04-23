@@ -39,3 +39,4 @@ class Publisher:
         for subscriber, callback in self.subscribers.items():
             t = Thread(target=callback(message))
             t.start()
+            # callback(message)

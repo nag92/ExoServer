@@ -63,7 +63,7 @@ class Line_Graph(TK_Plotter):
             line.set_ydata(items[:, ii])
             # line.set_xdata([0,.1,.2])
             # line.set_ydata([0, 0.05, .01])
-            self.flush()
+            # self.flush()
 
     def set_fitler_menu(self, filters=None):
         self.value = StringVar()

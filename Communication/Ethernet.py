@@ -26,7 +26,7 @@ class Ethernet(CommunicationManager.CommunicationManager):
         """
         self._server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._server.connect((self.host, self.port))
-        self._server.sendall(b'')
+        self._server.sendall(b'g')
 
     def start(self):
         super(Ethernet, self).start()
@@ -43,9 +43,13 @@ class Ethernet(CommunicationManager.CommunicationManager):
         return super(Ethernet, self).get_data()
 
     def read_port(self):
-        self._server.sendall(b'Hello, world')
+        # self._server.sendall(b'q')
         data = self._server.recv(2048)
-        return data
+        if data and len(data) == 159:
+            return data
+        else:
+            return None
+
 
     def send(self, msg):
         raise NotImplementedError

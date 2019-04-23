@@ -1,7 +1,8 @@
 import Queue
+
 import numpy as np
+
 from TK_Plotter import TK_Plotter
-from Tkinter import *
 
 
 class IMU_Graph(TK_Plotter):
@@ -52,4 +53,4 @@ class IMU_Graph(TK_Plotter):
             line.set_xdata(x_data)
             line.set_ydata(items[:, ii])
 
-        self.flush()
+        # self.flush()

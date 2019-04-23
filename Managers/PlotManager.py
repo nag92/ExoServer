@@ -8,6 +8,7 @@ import Tkinter
 # from lmfit import minimize, Parameters, Minimizer
 import ttk
 import Manager
+import time
 
 
 class PlotManager(Manager.Manager, Tkinter.Tk):
@@ -46,9 +47,18 @@ class PlotManager(Manager.Manager, Tkinter.Tk):
     def update(self, data):
 
         for obj in self.objects:
+
             obj.update()
+
+    def update_gui(self):
+        while 1:
+            time.sleep(0.1)
+
+            for obj in self.objects:
+                obj.flush()
 
     def start(self):
         # self.panel.pack(expand=1, fill="both")
+        self.after(2, self.update_gui)
         self.mainloop()
 

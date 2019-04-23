@@ -40,6 +40,13 @@ class CommunicationManager(Manager.Manager):
         self.connect()
         self.thread.start()
 
+    def stop(self):
+        """
+        Starts the tread to read from the sensor.
+        :return:
+        """
+        self.disconnect()
+
     def connect(self):
         """
         Connect to the device.
@@ -87,9 +94,11 @@ class CommunicationManager(Manager.Manager):
             # only read if connected
             if self.connected:
                 raw_data = self.read_port()
-                data = bytearray(raw_data)
-                self._incoming_messages.put(data)
-                self.publisher.publish(self._incoming_messages)  # publish the data
+
+                if raw_data is not None:
+                    data = bytearray(raw_data)
+                    self._incoming_messages.put(data)
+                    self.publisher.publish(self._incoming_messages)  # publish the data
 
 
 
