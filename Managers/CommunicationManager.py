@@ -99,8 +99,6 @@ class CommunicationManager(Manager.Manager):
                     self.publisher.publish(self._incoming_messages)  # publish the data
 
 
-
-
     @abc.abstractmethod
     def send(self, msg):
         pass

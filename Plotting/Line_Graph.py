@@ -49,8 +49,10 @@ class Line_Graph(TK_Plotter):
         """
         # read the sensor and put it into the queue
         values = self.object.get_values()
+
         if self.queue.qsize() >= self.queue_size:
             self.queue.get()
+
         self.queue.put(values)
 
         # get the x axis numbers

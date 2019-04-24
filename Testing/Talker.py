@@ -20,8 +20,8 @@
 #     finally:
 #         connection.close()
 import socket
-import time
 import struct
+import time
 
 host = ''  # Symbolic name meaning all available interfaces
 port = 12345  # Arbitrary non-privileged port
@@ -34,8 +34,9 @@ conn, addr = s.accept()
 print('Connected by', addr)
 
 MESSAGE = ''
-msg = struct.pack('B', 0)
+msg = struct.pack('B', 1)
 MESSAGE += msg
+msg = struct.pack('B', 0)
 MESSAGE += msg
 
 for j in xrange(7):
@@ -82,9 +83,10 @@ while True:
             # MESSAGE = bytearray([0x00, 0x00, 0x01, 0x01, 0x02, 0x02, ])
             # MESSAGE.append()
             while 1:
+                # data = conn.recv(2048)
                 conn.sendall(MESSAGE)
-                print MESSAGE
-                time.sleep(1)
+
+                time.sleep(0.001)
 
                 pass
 

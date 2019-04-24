@@ -25,14 +25,13 @@ class Sensor(object):
         self._offset = 0
         self._orientation = None
         self._error = 0
-        self._filtered_values = []
+        self._filtered_values = None
         self._filtered = False
         self._byte_list = byte_list
         self._packet = 0
         self._packet_order = None
         self._order = None
         self._side = side
-        pass
 
     @property
     def name(self):

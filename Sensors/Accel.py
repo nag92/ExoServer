@@ -19,10 +19,6 @@ class Accel(Sensor.Sensor):
     def reset(self):
         pass
 
-    @property
-    def filtered_values(self):
-        return super(Accel, self).filtered_values()
-
     def _raw_value_setter(self, blocks):
         """
         Fills in the x,y,z components of the array

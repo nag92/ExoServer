@@ -27,7 +27,7 @@ for name, sensor in SM.get_sensors().iteritems():
     print sensor.name, sensor.raw_values
 
 accel = robot.get_accel
-print accel
+
 gyro = robot.get_gyro
 pot = robot.get_pot
 fsr = robot.get_fsr
@@ -58,6 +58,3 @@ plotter.add_window(item, "FSR", (2, 6))
 time.sleep(5)
 comm.start()
 plotter.start()
-time.sleep(20)
-comm.stop()
-print "done"

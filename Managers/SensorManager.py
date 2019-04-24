@@ -22,21 +22,6 @@ class SensorManager(Manager.Manager):
         """
         return self.sensors
 
-    def start(self):
-        """
-        start the tread to get data from the serial port
-        :return:
-        """
-        self.timer.start()
-
-    def stop(self):
-        """
-        start the tread to get data from the serial port
-        :return:
-        """
-
-        self.timer.stop()
-
     def calibrate(self):
 
         for sensor in self.sensors:

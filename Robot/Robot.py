@@ -1,15 +1,13 @@
 import yaml
-from typing import Dict, Any
 
 import Joint
 import Leg
+from Filters import BaseFilter
 from Managers import SensorManager, FilterManager
-from Sensors import Accel, Gyro, Pot, FSR, Temperature
-from Sensors import IMU
+from Sensors import Accel, Gyro, Pot, FSR, Temperature, IMU
 
 
 class Robot(object):
-    _imus = None  # type: Dict[Any, Any]
 
     def __init__(self, config_path, SM, FM):
         """
@@ -57,9 +55,7 @@ class Robot(object):
                 side = item.get("side")
                 axis = item.get("axis")
 
-
                 if sensor_type == "Accel":
-
                     self.sensors[name] = Accel.Accel(name, byte_list, side)
                 elif sensor_type == "Gyro":
                     self.sensors[name] = Gyro.Gyro(name, byte_list, side)
@@ -92,8 +88,8 @@ class Robot(object):
                     self._imus[name] = imu
             self._sensor_manager.registar_all_sensors(self.sensors.values())
 
-        # for key, sensor in self.sensors.iteritems():
-        #     self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor)
+        for key, sensor in self.sensors.iteritems():
+            self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor.name)
 
     def __setup_robot(self):
         """
@@ -105,7 +101,6 @@ class Robot(object):
         fsr = [self.sensors["FSR1_Right"], self.sensors["FSR2_Right"], self.sensors["FSR3_Right"]]
         right_ankle = Joint.Joint(self._imus["IMU_Right_Ankle"], self.sensors["Pot_Right_Ankle"], fsr)
         self.right_leg = Leg.Leg(right_hip, right_knee, right_ankle)
-
         left_hip = Joint.Joint(self._imus["IMU_Left_Hip"], self.sensors["Pot_Left_Hip"])
         left_knee = Joint.Joint(self._imus["IMU_Left_Knee"], self.sensors["Pot_Left_Knee"])
         fsr = [self.sensors["FSR1_Left"], self.sensors["FSR2_Left"], self.sensors["FSR3_Left"]]

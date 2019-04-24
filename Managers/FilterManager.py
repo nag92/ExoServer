@@ -1,5 +1,4 @@
-import Manager
-
+from Managers import Manager
 
 class FilterManager(Manager.Manager):
 
@@ -29,3 +28,17 @@ class FilterManager(Manager.Manager):
         # TODO write method to update the IDs
         del self._sensors[key]
 
+    def update(self, sensors):
+        """
+
+        :type SM: dict
+        """
+
+        for key, sensor in sensors.iteritems():
+
+            filters = self._filters[sensor.name]
+            reading = sensor.raw_values
+            sensor.filtered = True
+            for filter in filters:
+                reading = filter.update(reading)
+            sensor.filtered_values = reading
