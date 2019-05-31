@@ -3,17 +3,13 @@ import Sensor
 
 class FSR(Sensor.Sensor):
 
-    def __init__(self, name, byte_list, side):
+    def __init__(self, name, byte_list, side, ):
         super(FSR, self).__init__(name, byte_list, side)
-        self._type = Sensor.Sensor.GYRO
+        self._type = Sensor.Sensor.FSR
 
     @property
     def offset(self):
         return super(FSR, self).offset()
-
-    @property
-    def orientation(self):
-        return super(FSR, self).orientation()
 
     def reset(self):
         pass

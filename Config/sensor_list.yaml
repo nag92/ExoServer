@@ -376,6 +376,7 @@ FSR1_Right:
   axis: "z"
   side: "Right"
   location: "Foot"
+  orientation: [1 , 1]
 
 FSR2_Right:
   block1: 150
@@ -385,6 +386,7 @@ FSR2_Right:
   axis: "z"
   side: "Right"
   location: "Foot"
+  orientation: [1 , 1]
 
 FSR3_Right:
   block1: 152
@@ -394,6 +396,7 @@ FSR3_Right:
   axis: "z"
   side: "Right"
   location: "Foot"
+  orientation: [1 , 1]
 
 
 FSR1_Left:
@@ -404,6 +407,7 @@ FSR1_Left:
   axis: "z"
   side: "Left"
   location: "Foot"
+  orientation: [1 , 1]
 
 FSR2_Left:
   block1: 156
@@ -413,6 +417,7 @@ FSR2_Left:
   axis: "z"
   side: "Left"
   location: "Foot"
+  orientation: [1 , 1]
 
 FSR3_Left:
   block1: 158
@@ -422,6 +427,7 @@ FSR3_Left:
   axis: "z"
   side: "Left"
   location: "Foot"
+  orientation: [1 , 1]
 
 IMU_Left_Ankle:
   accel: "Accel_Left_Ankle"

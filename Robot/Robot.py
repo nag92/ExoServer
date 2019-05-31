@@ -54,6 +54,7 @@ class Robot(object):
                 location = item.get("location")
                 side = item.get("side")
                 axis = item.get("axis")
+                orientation = item.get("orientation")
 
                 if sensor_type == "Accel":
                     self.sensors[name] = Accel.Accel(name, byte_list, side)
@@ -61,6 +62,8 @@ class Robot(object):
                     self.sensors[name] = Gyro.Gyro(name, byte_list, side)
                 elif sensor_type == "FSR":
                     self.sensors[name] = FSR.FSR(name, byte_list, side)
+                    print orientation
+                    self.sensors[name].orientation = orientation
                 elif sensor_type == "Pot":
                     self.sensors[name] = Pot.Pot(name, byte_list, side)
                 elif sensor_type == "Temperature":

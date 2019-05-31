@@ -103,20 +103,3 @@ class CommunicationManager(Manager.Manager):
     def send(self, msg):
         pass
 
-    @abc.abstractmethod
-    def decode(self, msg):
-        """
-        Not using this
-        :rtype: List[float]
-        """
-        if bin(int(msg[0], base=16)) == '0b11111111' and bin(int(msg[1], base=16)) == '0b0':
-
-            raise Exception
-
-        else:
-
-            decoded_data = []  # type: List[float]
-            for index in xrange(3, len(msg) - 1):
-                decoded_data.append(msg[index:index + 2])
-
-        return decoded_data

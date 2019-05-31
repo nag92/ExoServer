@@ -3,6 +3,7 @@ import abc
 
 
 class Sensor(object):
+
     ACCEl = "ACCEl"
     GYRO = "GYRO"
     MAG = "MAG"
@@ -108,14 +109,13 @@ class Sensor(object):
         return self._orientation
 
     @orientation.setter
-    @abc.abstractmethod
     def orientation(self, orientation):
         """
         set the orentation of the sensor
         :param orientation:
         :return:
         """
-        self.orientation = orientation
+        self._orientation = orientation
 
     @abc.abstractmethod
     def reset(self):
@@ -134,6 +134,7 @@ class Sensor(object):
         set the values for the sensor
         :param values: value of the sensor
         """
+
         self._raw_values = values
 
     @abc.abstractmethod
@@ -154,6 +155,7 @@ class Sensor(object):
         set the values for the sensor
         :param values: value of the sensor
         """
+
         self._filtered_values = values
 
     @property
