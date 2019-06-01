@@ -56,3 +56,20 @@ class Leg(object):
             centerY += sensor.get_values() * sensor.orientation[1]
 
         self._CoP = [centerX / total_force, centerY / total_force]
+
+    @property
+    def ankle(self):
+        """
+        gets the CoP of the foot
+        :return:
+        """
+        return self._ankle
+
+    @ankle.setter
+    def ankle(self, value):
+        """
+        sets the CoP of the foot
+        :param value:
+        :return:
+        """
+        self._ankle = value
