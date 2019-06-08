@@ -1,4 +1,5 @@
 import datetime
+import os
 from PyQt5 import QtWidgets
 
 import yaml
@@ -10,6 +11,7 @@ from Robot import Robot
 
 
 class SessionManager(Manager.Manager):
+
     btns = None  # type: Dict[Any, QtWidgets.QAbstractButton]
     # self.textbox.setText("")
     text_boxes = None  # type: List[QtWidgets.QPlainTextEdit]
@@ -30,7 +32,8 @@ class SessionManager(Manager.Manager):
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)
         self.SM.register_sub(self.recorder)
         self.in_session = False
-        self.txt_boxes = []
+        self.txt_boxes = {}
+        self.lbls = {}
         self.btns = {}
         self.trial_number = 0
         self.session_name = ""
@@ -50,8 +53,8 @@ class SessionManager(Manager.Manager):
 
     def session_callback(self):
         session = {}
-        for box in self.text_boxes:
-            name = box.objectName()
+        for name, box in self.text_boxes:
+
             value = box.textbox.text()
 
             # Check if the box has a value
@@ -62,8 +65,10 @@ class SessionManager(Manager.Manager):
                 session[name] = value
 
         session["date"] = self.date
+        session["trials"] = []
 
         self.session_name = "subject_" + str(session["subject"])
+        path = os.path.dirname(os.path.abspath(__file__))
 
         with open(self.session_name + '.yaml', 'w') as outfile:
             yaml.dump(session, outfile, default_flow_style=False)
@@ -77,12 +82,13 @@ class SessionManager(Manager.Manager):
         if not self.in_session:
             print "Session not started"
             return
+
         if self.recorder.recording:
             print "In the middle of recording. Stop the trial first then you can start again"
             return
 
         trial_name = "trial_" + str(self.trial_number)
-        self.trial_number += 1
+
         self.btns["btnRecording"].setStyleSheet("background-color: red")
         self.recorder.new_file(trial_name)
         self.recorder.start_recording()
@@ -97,7 +103,18 @@ class SessionManager(Manager.Manager):
 
     def stop_callback(self, button):
         self.recorder.stop_recording()
+
+        trial_name = "trial_" + str(self.trial_number)
+
+        with open("my_file.yaml") as f:
+            list_doc = yaml.load(f)
+        list_doc["trials"].append(trial_name)
+        with open(self.session_name + ".yaml", "w") as f:
+            yaml.dump(list_doc, f)
+
+        self.trial_number += 1
+        self.lbls["lblTrialNumber"].setText("Trial " + str(self.trial_number))
+
+
         pass
 
-    def record_callback(self, button):
-        pass
