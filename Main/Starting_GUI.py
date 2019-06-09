@@ -11,7 +11,23 @@ from PyQt5 import QtCore, QtWidgets
 from Managers import SessionManger
 
 
-class Ui_MainWindow(object, SessionManger.SessionManager):
+class Ui_MainWindow(SessionManger.SessionManager):
+
+    def __init__(self):
+        self.MainWindow = QtWidgets.QMainWindow()
+        self.setupUi(self.MainWindow)
+
+        lbl_ = [self.lblAge, self.lblGender, self.lblheight, self.lblLegLength, self.lblheight, self.lblMass,
+                self.lblTrialNumber, self.lblPort]
+        btn_ = [self.btnConnect, self.btnOpenMonitor, self.btnRecord, self.btnStartSession, self.btnStop]
+        txt_ = [self.txtAge, self.txtGender, self.txtHost, self.txtLegLength, self.txtMass, self.txtPort,
+                self.txtSubject]
+
+        super(Ui_MainWindow, self).__init__(btn_, txt_, lbl_)
+
+        self.MainWindow.show()
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1025, 254)
@@ -191,12 +207,7 @@ class Ui_MainWindow(object, SessionManger.SessionManager):
         self.menubar.addAction(self.menuSubject.menuAction())
 
         self.retranslateUi(MainWindow)
-        lbl = [self.lblAge, self.lblGender, self.lblheight, self.lblLegLength, self.lblheight, self.lblMass,
-               self.lblTrialNumber, self.lblPort]
-        btn = [self.btnConnect, self.btnOpenMonitor, self.btnRecord, self.btnStartSession, self.btnStop]
-        txt = [self.txtAge, self.txtGender, self.txtHost, self.txtLegLength, self.txtMass, self.txtPort,
-               self.txtSubject]
-        super(SessionManger, self).__init__(btn, txt, lbl)
+
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -222,9 +233,8 @@ class Ui_MainWindow(object, SessionManger.SessionManager):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
+
     ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+
     sys.exit(app.exec_())
 

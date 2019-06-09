@@ -3,7 +3,6 @@ import os
 from PyQt5 import QtWidgets
 
 import yaml
-from typing import List, Any, Dict
 
 from Communication import Ethernet
 from Managers import Manager, RecorderManager, FilterManager, SensorManager, PlotManager
@@ -13,23 +12,22 @@ from Robot import Robot
 
 class SessionManager(Manager.Manager):
 
-    btns = None  # type: Dict[Any, QtWidgets.QAbstractButton]
+    def __init__(self, btn, txt, lbl):
+        super(SessionManager, self).__init__()
 
-    txt = None  # type: List[QtWidgets.QPlainTextEdit]
-
-    def __int__(self, btn, txt, lbl):
         path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
         self.SM = SensorManager.SensorManager()
-        self.FM = FilterManager.FilterManager()
-
+        self.FM = FilterManager.FilterManager()  # btns = None  # type: Dict[Any, QtWidgets.QAbstractButton]
+        #
+        # txt = None  # type: List[QtWidgets.QPlainTextEdit]
         self.SM.register_sub(self.FM)
 
-        plotter = PlotManager.PlotManager()
+        self.plotter = PlotManager.PlotManager()
         self.robot = Robot.Robot(path, self.SM, self.FM)
         self.sensor_names = self.SM.get_sensor_names()
         self.comm = Ethernet.Ethernet()
         self.comm.register_sub(self.SM)
-        self.SM.register_sub(plotter)
+        self.SM.register_sub(self.plotter)
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)
         self.SM.register_sub(self.recorder)
         self.in_session = False
