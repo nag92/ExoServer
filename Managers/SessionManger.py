@@ -32,13 +32,16 @@ class SessionManager(Manager.Manager):
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)
         self.SM.register_sub(self.recorder)
         self.in_session = False
-        self.txt_boxes = {}
-        self.lbls = {}
-        self.btns = {}
+        self.txt_boxes = self.make_objects(txt)
+        self.lbls = self.make_objects(lbl)
+        self.btns = self.make_objects(btn)
+
+
+        self.click_functions = {}
+
         self.trial_number = 0
         self.session_name = ""
         self.date = datetime.datetime.now()
-
 
     def make_objects(self, objs):
 
@@ -56,12 +59,18 @@ class SessionManager(Manager.Manager):
         General callback that will handle the function calls to the other
         fuctions. This will make it easier to build the front end because
         only one callback in the front end.
-        :param btn:
+        :param btn:  The button that was clicked
+        :type btn:  QtWidgets.QAbstractButton
         :return:
         """
-
-
-        pass
+        if btn.objectName()  is "btnStartSession":
+            self.session_callback()
+        if btn.objectName() is "btnStop":
+            self.stop_callback()
+        if btn.objectName() is "btnRecord":
+            self.record_callback()
+        if btn.objectName() is "btnOpenMonitor":
+            self.monitor_callback()
 
     def session_callback(self):
         session = {}
@@ -89,7 +98,7 @@ class SessionManager(Manager.Manager):
 
         pass
 
-    def record_callback(self, button):
+    def record_callback(self):
 
         if not self.in_session:
             print "Session not started"
@@ -105,7 +114,7 @@ class SessionManager(Manager.Manager):
         self.recorder.new_file(trial_name)
         self.recorder.start_recording()
 
-    def monitor_callback(self, button):
+    def monitor_callback(self):
         """
         Bring up the monitors
         :param button:
@@ -113,7 +122,7 @@ class SessionManager(Manager.Manager):
         """
         pass
 
-    def stop_callback(self, button):
+    def stop_callback(self):
 
         self.recorder.stop_recording()
         trial_name = "trial_" + str(self.trial_number)
