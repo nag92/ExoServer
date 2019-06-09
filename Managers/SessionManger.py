@@ -13,10 +13,10 @@ from Robot import Robot
 class SessionManager(Manager.Manager):
 
     btns = None  # type: Dict[Any, QtWidgets.QAbstractButton]
-    # self.textbox.setText("")
-    text_boxes = None  # type: List[QtWidgets.QPlainTextEdit]
 
-    def __int__(self):
+    txt = None  # type: List[QtWidgets.QPlainTextEdit]
+
+    def __int__(self, btn, txt, lbl):
         path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
         self.SM = SensorManager.SensorManager()
         self.FM = FilterManager.FilterManager()
@@ -24,7 +24,7 @@ class SessionManager(Manager.Manager):
         self.SM.register_sub(self.FM)
 
         plotter = PlotManager.PlotManager()
-        robot = Robot.Robot(path, self.SM, self.FM)
+        self.robot = Robot.Robot(path, self.SM, self.FM)
         self.sensor_names = self.SM.get_sensor_names()
         comm = Ethernet.Ethernet()
         comm.register_sub(self.SM)
@@ -39,7 +39,17 @@ class SessionManager(Manager.Manager):
         self.session_name = ""
         self.date = datetime.datetime.now()
 
-        pass
+
+    def make_objects(self, objs):
+
+        object_dict = {}
+        for obj in objs:
+            name = obj.objectName()
+            if obj is QtWidgets.QAbstractButton:
+                obj.clicked.connect(lambda: self.on_click(obj))
+            object_dict[name] = obj
+
+        return object_dict
 
     def on_click(self, btn):
         """
@@ -49,11 +59,13 @@ class SessionManager(Manager.Manager):
         :param btn:
         :return:
         """
+
+
         pass
 
     def session_callback(self):
         session = {}
-        for name, box in self.text_boxes:
+        for name, box in self.txt:
 
             value = box.textbox.text()
 
@@ -102,8 +114,8 @@ class SessionManager(Manager.Manager):
         pass
 
     def stop_callback(self, button):
-        self.recorder.stop_recording()
 
+        self.recorder.stop_recording()
         trial_name = "trial_" + str(self.trial_number)
 
         with open("my_file.yaml") as f:
@@ -114,7 +126,4 @@ class SessionManager(Manager.Manager):
 
         self.trial_number += 1
         self.lbls["lblTrialNumber"].setText("Trial " + str(self.trial_number))
-
-
-        pass
 
