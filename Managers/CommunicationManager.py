@@ -16,7 +16,7 @@ class CommunicationManager(Manager.Manager):
         self._outgoing_messages = Queue.Queue(maxsize=20)
         # tread for reading the serial port
         self._server = None
-        self.setup()
+
         super(CommunicationManager, self).__init__()
 
     @abc.abstractmethod

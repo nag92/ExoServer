@@ -24,6 +24,18 @@ class Ethernet(CommunicationManager.CommunicationManager):
         set up the communication server
         :return:
         """
+
+        self._server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self._server.connect((self.host, self.port))
+        self._server.sendall(b'hello')  # need to send a message to start
+
+    def setup(self, host="", port=12345):
+        """
+        set up the communication server
+        :return:
+        """
+        self.host = host
+        self.port = port
         self._server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._server.connect((self.host, self.port))
         self._server.sendall(b'hello')  # need to send a message to start

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-       <width>1027</width>
-       <height>295</height>
+       <width>1025</width>
+       <height>254</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -26,15 +26,15 @@
       <x>50</x>
       <y>10</y>
       <width>911</width>
-         <height>213</height>
+         <height>187</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <property name="sizeConstraint">
       <enum>QLayout::SetFixedSize</enum>
      </property>
-     <item row="0" column="1">
-         <layout class="QVBoxLayout" name="boxSession">
+        <item row="0" column="2">
+            <layout class="QVBoxLayout" name="boxSession">
        <property name="sizeConstraint">
            <enum>QLayout::SetNoConstraint</enum>
        </property>
@@ -46,6 +46,9 @@
        </property>
        <item>
         <widget class="QPushButton" name="btnStartSession">
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -58,7 +61,10 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="OpenMonitor">
+           <widget class="QPushButton" name="btnOpenMonitor">
+               <property name="enabled">
+                   <bool>false</bool>
+               </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -85,16 +91,16 @@
        </item>
       </layout>
      </item>
-     <item row="0" column="2">
-         <layout class="QVBoxLayout" name="boxTrial">
+        <item row="0" column="3">
+            <layout class="QVBoxLayout" name="boxTrial">
        <property name="sizeConstraint">
            <enum>QLayout::SetNoConstraint</enum>
        </property>
        <item>
-        <widget class="QPushButton" name="btnStartTrial">
-            <property name="enabled">
-                <bool>false</bool>
-            </property>
+           <widget class="QPushButton" name="btnRecord">
+               <property name="enabled">
+                   <bool>false</bool>
+               </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -236,6 +242,13 @@
          </property>
         </widget>
        </item>
+             <item row="6" column="0">
+                 <widget class="QLabel" name="lblheight">
+                     <property name="text">
+                         <string>Height</string>
+                     </property>
+                 </widget>
+             </item>
        <item row="6" column="1">
         <widget class="QPlainTextEdit" name="xtxHeight">
          <property name="sizePolicy">
@@ -275,10 +288,34 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="lblheight">
+         </layout>
+     </item>
+        <item row="0" column="1">
+            <layout class="QGridLayout" name="gridLayout_2">
+                <item row="1" column="0">
+                    <widget class="QLabel" name="lblPort">
+                        <property name="text">
+                            <string>port</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="1" column="1">
+                    <widget class="QTextEdit" name="txtPort"/>
+                </item>
+                <item row="2" column="1">
+                    <widget class="QPushButton" name="btnConnect">
+                        <property name="text">
+                            <string>Connect to Exo</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="0" column="1">
+                    <widget class="QPlainTextEdit" name="txtHost"/>
+                </item>
+                <item row="0" column="0">
+                    <widget class="QLabel" name="lblost">
          <property name="text">
-          <string>Height</string>
+             <string>host</string>
          </property>
         </widget>
        </item>
@@ -286,21 +323,13 @@
      </item>
     </layout>
    </widget>
-   <zorder>gridLayoutWidget</zorder>
-   <zorder>lblSubject</zorder>
-   <zorder>txtSubject</zorder>
-   <zorder>txtAge</zorder>
-   <zorder>lblAge</zorder>
-   <zorder>plainTextEdit</zorder>
-   <zorder>label</zorder>
-   <zorder>formLayoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-        <width>1027</width>
+        <width>1025</width>
      <height>27</height>
     </rect>
    </property>
