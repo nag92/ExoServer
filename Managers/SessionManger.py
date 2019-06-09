@@ -37,9 +37,7 @@ class SessionManager(Manager.Manager):
         self.lbls = self.make_objects(lbl)
         self.btns = self.make_objects(btn)
 
-
         self.click_functions = {}
-
         self.trial_number = 0
         self.session_name = ""
         self.date = datetime.datetime.now()
@@ -64,6 +62,7 @@ class SessionManager(Manager.Manager):
         :type btn:  QtWidgets.QAbstractButton
         :return:
         """
+
         if btn.objectName() is "btnStartSession":
             self.session_callback()
         if btn.objectName() is "btnStop":
@@ -72,6 +71,8 @@ class SessionManager(Manager.Manager):
             self.record_callback()
         if btn.objectName() is "btnOpenMonitor":
             self.monitor_callback()
+        if btn.objectName() is "btnConnect":
+            self.connect_callback()
 
     def session_callback(self):
         session = {}
@@ -116,11 +117,12 @@ class SessionManager(Manager.Manager):
         :param button:
         :return:
         """
-        pass
+
+        self.plotter.start()
 
     def make_monitor(self):
 
-        print "\n\n"
+
         for name, sensor in self.SM.get_sensors().iteritems():
             print sensor.name, sensor.raw_values
 
@@ -149,7 +151,7 @@ class SessionManager(Manager.Manager):
         for ii, (key, sensor) in enumerate(pot.iteritems()):
             print sensor
             item = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
-            plotter.add_window(item, "Pot", (2, ii))
+            self.plotter.add_window(item, "Pot", (2, ii))
 
         item = FSR_BarGraph.FSR_BarGraph("FSR", fsr.values())
         self.plotter.add_window(item, "FSR", (2, 6))
@@ -175,4 +177,5 @@ class SessionManager(Manager.Manager):
         port = self.txt["txtport"].textbox.text()
 
         self.comm.setup(host, port)
+        self.comm.start()
         self.connected = self.comm.connected
