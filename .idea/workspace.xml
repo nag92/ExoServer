@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="87a40d6a-0c34-4a82-bb9f-8109db5d49e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/RecorderManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/RecorderManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/Starting_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Starting_GUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/SessionManger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/SessionManger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sensors/Pot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sensors/Pot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/make_robot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/make_robot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/test01.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/test01.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,67 +15,26 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Managers/Manager.py">
+        <entry file="file://$PROJECT_DIR$/Main/Starting_GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Managers/SessionManger.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-532">
-              <caret line="118" selection-start-line="118" selection-end-line="118" />
+            <state relative-caret-position="1922">
+              <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Testing/make_robot.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Managers/CommunicationManager.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="93" selection-start-line="93" selection-end-line="93" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Communication/Ethernet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2418">
-              <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#202#237#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Testing/Talker.py">
+        <entry file="file://$PROJECT_DIR$/Managers/SessionManger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1383">
-              <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+            <state relative-caret-position="340">
+              <caret line="90" column="48" lean-forward="true" selection-start-line="90" selection-start-column="48" selection-end-line="90" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#3848#5389#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,29 +42,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Managers/RecorderManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1581">
-              <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="806">
+              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/Starting_GUI.py">
+        <entry file="file://$PROJECT_DIR$/UI/gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="196" column="55" selection-start-line="196" selection-start-column="55" selection-end-line="196" selection-end-column="55" />
+            <state relative-caret-position="372">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python2.7/socket.py">
+        <entry file="file://$PROJECT_DIR$/Testing/Talker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="227" selection-start-line="227" selection-end-line="227" />
+            <state relative-caret-position="31">
+              <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -134,10 +87,17 @@
       <find>btn</find>
       <find>conn</find>
       <find>txthost</find>
+      <find>xtx</find>
+      <find>txtHeight</find>
+      <find>self.trial_number</find>
+      <find>lbl</find>
+      <find>setEnabled</find>
+      <find>connect</find>
     </findStrings>
     <replaceStrings>
       <replace>Ankle</replace>
       <replace>Center</replace>
+      <replace>txt</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -146,8 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Testing/sensor_generation.py" />
-        <option value="$PROJECT_DIR$/Filters/Leg.py" />
         <option value="$PROJECT_DIR$/Testing/gui_testomg.py" />
         <option value="$PROJECT_DIR$/Managers/SerialManager.py" />
         <option value="$PROJECT_DIR$/Sensors/RepeatedTimer.py" />
@@ -190,13 +148,15 @@
         <option value="$PROJECT_DIR$/Main/gui.py" />
         <option value="$PROJECT_DIR$/Managers/GUIManger.py" />
         <option value="$PROJECT_DIR$/Managers/CommunicationManager.py" />
-        <option value="$PROJECT_DIR$/Communication/Ethernet.py" />
         <option value="$PROJECT_DIR$/Sensors/Pot.py" />
-        <option value="$PROJECT_DIR$/Main/Starting_GUI.py" />
         <option value="$PROJECT_DIR$/Testing/Talker.py" />
-        <option value="$PROJECT_DIR$/Managers/SessionManger.py" />
-        <option value="$PROJECT_DIR$/Managers/RecorderManager.py" />
+        <option value="$PROJECT_DIR$/Communication/Ethernet.py" />
         <option value="$PROJECT_DIR$/Testing/make_robot.py" />
+        <option value="$PROJECT_DIR$/UI/export.sh" />
+        <option value="$PROJECT_DIR$/UI/gui.py" />
+        <option value="$PROJECT_DIR$/Managers/RecorderManager.py" />
+        <option value="$PROJECT_DIR$/Main/Starting_GUI.py" />
+        <option value="$PROJECT_DIR$/Managers/SessionManger.py" />
       </list>
     </option>
   </component>
@@ -211,7 +171,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-1" />
-    <option name="y" value="-1084" />
+    <option name="y" value="-4" />
     <option name="width" value="1922" />
     <option name="height" value="1085" />
   </component>
@@ -252,12 +212,7 @@
             <path>
               <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
               <item name="exoserver" type="462c0819:PsiDirectoryNode" />
-              <item name="Observer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exoserver" type="462c0819:PsiDirectoryNode" />
-              <item name="Sensors" type="462c0819:PsiDirectoryNode" />
+              <item name="Managers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="exoserver" type="b2602c69:ProjectViewProjectNode" />
@@ -310,20 +265,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.make_robot">
-    <configuration name="Monitoring_GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="ExoServer" />
+  <component name="RunManager" selected="Python.Starting_GUI">
+    <configuration name="SessionManger" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="exoserver" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Main" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Managers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main/Monitoring_GUI.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Managers/SessionManger.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -374,7 +329,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Testing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="gui" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="exoserver" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -382,11 +337,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UI" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing/Testing.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UI/gui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -417,19 +372,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Monitoring_GUI" />
       <item itemvalue="Python.Talker" />
-      <item itemvalue="Python.Testing" />
       <item itemvalue="Python.make_robot" />
       <item itemvalue="Python.Starting_GUI" />
+      <item itemvalue="Python.gui" />
+      <item itemvalue="Python.SessionManger" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.make_robot" />
-        <item itemvalue="Python.Talker" />
         <item itemvalue="Python.Starting_GUI" />
-        <item itemvalue="Python.Testing" />
-        <item itemvalue="Python.Monitoring_GUI" />
+        <item itemvalue="Python.Talker" />
+        <item itemvalue="Python.SessionManger" />
+        <item itemvalue="Python.gui" />
+        <item itemvalue="Python.make_robot" />
       </list>
     </recent_temporary>
   </component>
@@ -446,27 +401,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552511110732</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added plotting tools">
-      <created>1553362962911</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1553362962912</updated>
-    </task>
-    <task id="LOCAL-00016" summary="changed so that the sensor keeps the filtered values.">
-      <created>1553363016739</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1553363016739</updated>
-    </task>
-    <task id="LOCAL-00017" summary="updating Plotting to work with new style of sensor.">
-      <created>1553365228956</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1553365228956</updated>
     </task>
     <task id="LOCAL-00018" summary="tested the robot class. Working on getting the plotting window to work">
       <created>1553887939134</created>
@@ -790,25 +724,46 @@
       <option name="project" value="LOCAL" />
       <updated>1561077253125</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="fixed issue with make_robot not running. had to had comm.setup() to the &#10;script">
+      <created>1561117932391</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1561117932392</updated>
+    </task>
+    <task id="LOCAL-00065" summary="EXO-390 The record and stop btns work. The CSV files are created and the &#10;trial lable increaments correctly.">
+      <created>1561128711892</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1561128711893</updated>
+    </task>
+    <task id="LOCAL-00066" summary="EXO-386 record btn turn white when not recording and red when recording">
+      <created>1561129202001</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1561129202001</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-1084" width="1922" height="1085" extended-state="6" />
+    <frame x="-1" y="-4" width="1922" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.76489025" visible="true" weight="0.13087071" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.76489025" visible="true" weight="0.1646438" />
       <window_info id="Structure" order="1" sideWeight="0.23510972" side_tool="true" weight="0.14459103" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32822758" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41829392" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22816032" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39979446" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.21891059" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.66906476" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.13977389" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3299075" />
       <window_info anchor="bottom" id="Statistic" order="11" weight="0.2903564" />
@@ -845,10 +800,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="EXO-359 The dictionary accessing method was wrong. Cannot use a for loop with two indexis. Changed to one varible and made a sub dict and accesssed the elements using the keys. Inaddition swith a safer method of accesss elements in dict using the .get() funtion. this ensure that it does not throw an error if the key does not exist." />
-    <MESSAGE value="working on talker" />
-    <MESSAGE value="talker and listener are working, need to use bytearray to convert data" />
-    <MESSAGE value="client is talkering to server" />
     <MESSAGE value="it is reading from the server now. However, the queues had to be removed form some reason. It was causing blocking issues and now allowing it to update. this might be cause it was not poping the queue and it was getting block." />
     <MESSAGE value="EXO-354 everything is working." />
     <MESSAGE value="removed print statements" />
@@ -870,34 +821,16 @@
     <MESSAGE value="EXO-385 Starting GUI extends session manager and passes (not optimal syntax) btns, lbls, txts" />
     <MESSAGE value="EXO-385 fixed stupied init error" />
     <MESSAGE value="EXO-392 &#10;Turned on all the btns for now  to make testing eaiser. &#10;All the buttons are hard coded to the correct callback function. &#10;The connect button connects to the Talker now." />
-    <option name="LAST_COMMIT_MESSAGE" value="EXO-392 &#10;Turned on all the btns for now  to make testing eaiser. &#10;All the buttons are hard coded to the correct callback function. &#10;The connect button connects to the Talker now." />
+    <MESSAGE value="fixed issue with make_robot not running. had to had comm.setup() to the &#10;script" />
+    <MESSAGE value="EXO-391 made GUI look better" />
+    <MESSAGE value="EXO-390 The record and stop btns work. The CSV files are created and the &#10;trial lable increaments correctly." />
+    <MESSAGE value="EXO-386 record btn turn white when not recording and red when recording" />
+    <option name="LAST_COMMIT_MESSAGE" value="EXO-386 record btn turn white when not recording and red when recording" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Testing/test01.cvs.csv" />
-    <entry file="file://$PROJECT_DIR$/Communication/Saver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Filters/Kalman.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="91" column="21" lean-forward="true" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Filters/MeanFilter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Sensors/Temperature.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
@@ -1156,13 +1089,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI/gui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="213" column="14" selection-end-line="221" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Managers/Manager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -1170,43 +1096,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/socket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/Starting_GUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="196" column="55" selection-start-line="196" selection-start-column="55" selection-end-line="196" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/SessionManger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-532">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Managers/RecorderManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Managers/CommunicationManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="2759">
           <caret line="93" selection-start-line="93" selection-end-line="93" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
@@ -1214,30 +1106,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/lib/python2.7/socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6944">
+          <caret line="227" selection-start-line="227" selection-end-line="227" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Communication/Ethernet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2418">
-          <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-64">
+          <caret line="21" selection-start-line="21" selection-end-line="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Testing/make_robot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="584">
+          <caret line="62" selection-start-line="62" selection-end-line="62" selection-end-column="15" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/UI/export.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/trial_0.csv" />
+    <entry file="file://$PROJECT_DIR$/Main/subject_78_trial_5.csv" />
+    <entry file="file://$PROJECT_DIR$/Main/subject_6.yaml" />
+    <entry file="file://$PROJECT_DIR$/Managers/RecorderManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Testing/Talker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1383">
-          <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        <state relative-caret-position="31">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/Starting_GUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1922">
+          <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
+          <folding>
+            <element signature="e#202#237#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Managers/SessionManger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="90" column="48" lean-forward="true" selection-start-line="90" selection-start-column="48" selection-end-line="90" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#3848#5389#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -38,6 +38,7 @@ class SessionManager(Manager.Manager):
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)
         self.SM.register_sub(self.recorder)
         self.in_session = False
+        self.recording = False
         self.txt_boxes = self.make_objects(txt)
         self.lbls = self.make_objects(lbl)
         self.btns = self.make_objects(btn)
@@ -82,8 +83,12 @@ class SessionManager(Manager.Manager):
             yaml.dump(session, outfile, default_flow_style=False)
 
         self.in_session = True
+        self.btns["btnRecord"].setEnabled(True)
+        self.btns["btnStartSession"].setEnabled(False)
 
     def record_callback(self):
+        self.btns["btnStop"].setEnabled(True)
+        self.btns["btnRecord"].setEnabled(False)
         print "record"
         if not self.in_session:
             print "Session not started"
@@ -147,6 +152,8 @@ class SessionManager(Manager.Manager):
         self.plotter.add_window(item, "CoP", (3, 0))
 
     def stop_callback(self):
+        self.btns["btnStop"].setEnabled(False)
+        self.btns["btnRecord"].setEnabled(True)
         print "stop"
         self.btns["btnRecord"].setStyleSheet("background-color: white")
         self.recorder.stop_recording()
@@ -163,6 +170,7 @@ class SessionManager(Manager.Manager):
 
     def connect_callback(self):
         print "connect"
+        self.btns["btnConnect"].setEnabled(False)
         host = self.txt_boxes["txtHost"].toPlainText()
         port = int(self.txt_boxes["txtPort"].toPlainText())
         print host
