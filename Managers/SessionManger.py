@@ -148,6 +148,7 @@ class SessionManager(Manager.Manager):
 
     def stop_callback(self):
         print "stop"
+        self.btns["btnRecord"].setStyleSheet("background-color: white")
         self.recorder.stop_recording()
         trial_name = self.session_name + "_trial_" + str(self.trial_number)
 
