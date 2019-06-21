@@ -22,8 +22,6 @@ class SessionManager(Manager.Manager):
         self.session_name = ""
         self.date = datetime.datetime.now()
 
-
-
         path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
         self.SM = SensorManager.SensorManager()
         self.FM = FilterManager.FilterManager()  # btns = None  # type: Dict[Any, QtWidgets.QAbstractButton]
@@ -59,18 +57,20 @@ class SessionManager(Manager.Manager):
         for obj in objs:
             name = obj.objectName()
             object_dict[name] = obj
-            count+=1
+            count += 1
 
         return object_dict
 
     def session_callback(self):
         print "session"
         session = {}
-        for name, box in self.txt:
-            # Error checking is needed
-            # maybe used groups???
-            value = box.textbox.text()
-            session[name] = value
+
+        session["Age"] = self.txt_boxes["txtAge"].toPlainText()
+        session["Gender"] = self.txt_boxes["txtGender"].toPlainText()
+        session["Mass"] = self.txt_boxes["txtMass"].toPlainText()
+        session["Height"] = self.txt_boxes["txtHeight"].toPlainText()
+        session["LegLength"] = self.txt_boxes["txtLegLength"].toPlainText()
+        session["subject"] = self.txt_boxes["txtSubject"].toPlainText()
 
         session["date"] = self.date
         session["trials"] = []
@@ -82,8 +82,6 @@ class SessionManager(Manager.Manager):
             yaml.dump(session, outfile, default_flow_style=False)
 
         self.in_session = True
-
-        pass
 
     def record_callback(self):
         print "record"

@@ -21,7 +21,7 @@ class Ui_MainWindow(SessionManger.SessionManager):
                 self.lblTrialNumber, self.lblPort]
         btn_ = [self.btnConnect, self.btnOpenMonitor, self.btnRecord, self.btnStartSession, self.btnStop]
         txt_ = [self.txtAge, self.txtGender, self.txtHost, self.txtLegLength, self.txtMass, self.txtPort,
-                self.txtSubject]
+                self.txtSubject, self.txtHeight]
 
         super(Ui_MainWindow, self).__init__(btn_, txt_, lbl_)
 
@@ -116,15 +116,15 @@ class Ui_MainWindow(SessionManger.SessionManager):
         self.txtGender.setMaximumSize(QtCore.QSize(500, 16777215))
         self.txtGender.setObjectName("txtGender")
         self.gridLayout_3.addWidget(self.txtGender, 2, 1, 1, 1)
-        self.xtxHeight = QtWidgets.QPlainTextEdit(self.widget)
+        self.txtHeight = QtWidgets.QPlainTextEdit(self.widget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Ignored)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.xtxHeight.sizePolicy().hasHeightForWidth())
-        self.xtxHeight.setSizePolicy(sizePolicy)
-        self.xtxHeight.setMaximumSize(QtCore.QSize(500, 16777215))
-        self.xtxHeight.setObjectName("xtxHeight")
-        self.gridLayout_3.addWidget(self.xtxHeight, 4, 1, 1, 1)
+        sizePolicy.setHeightForWidth(self.txtHeight.sizePolicy().hasHeightForWidth())
+        self.txtHeight.setSizePolicy(sizePolicy)
+        self.txtHeight.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.txtHeight.setObjectName("txtHeight")
+        self.gridLayout_3.addWidget(self.txtHeight, 4, 1, 1, 1)
         self.widget1 = QtWidgets.QWidget(self.centralwidget)
         self.widget1.setGeometry(QtCore.QRect(433, 20, 300, 81))
         self.widget1.setObjectName("widget1")
@@ -203,7 +203,7 @@ class Ui_MainWindow(SessionManger.SessionManager):
         self.lblGender.raise_()
         self.txtMass.raise_()
         self.lblMass.raise_()
-        self.xtxHeight.raise_()
+        self.txtHeight.raise_()
         self.lblheight.raise_()
         self.txtLegLength.raise_()
         self.lblLegLength.raise_()
