@@ -7,8 +7,7 @@ class RecorderManager(Manager.Manager):
 
     def __init__(self, sensor_names, name=None):
         super(RecorderManager, self).__init__()
-
-        self._recording = False  #
+        self._recording = False
         self.sensor_names = sensor_names
         if name is None:
             self._recording = False
@@ -17,11 +16,11 @@ class RecorderManager(Manager.Manager):
             self.recording = True
 
     @property
-    def _recording(self):
+    def recording(self):
         return self._recording
 
-    @_recording.setter
-    def _recording(self, value):
+    @recording.setter
+    def recording(self, value):
         self._recording = value
 
     def stat_recording(self):
@@ -50,7 +49,7 @@ class RecorderManager(Manager.Manager):
             """
             RuntimeError("IN THE MIDDLE OF RECORDING")
             return
-
+        print name
         self._name = name + ".csv"
         with open(self._name, "a") as f:
             writer = csv.writer(f, delimiter=",")

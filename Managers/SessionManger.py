@@ -12,8 +12,18 @@ from Robot import Robot
 
 class SessionManager(Manager.Manager):
 
+    #txt_boxes = None  # type: Dict[Any, QtWidgets.QPlainTextEdit]
+
     def __init__(self, btn, txt, lbl):
-        super(SessionManager, self).__init__()
+        """
+
+
+        """
+        self.trial_number = 0
+        self.session_name = ""
+        self.date = datetime.datetime.now()
+
+
 
         path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
         self.SM = SensorManager.SensorManager()
@@ -34,45 +44,28 @@ class SessionManager(Manager.Manager):
         self.txt_boxes = self.make_objects(txt)
         self.lbls = self.make_objects(lbl)
         self.btns = self.make_objects(btn)
+        self.btns["btnStop"].clicked.connect(self.stop_callback)
+        self.btns["btnStartSession"].clicked.connect(self.session_callback)
+        self.btns["btnRecord"].clicked.connect(self.record_callback)
+        self.btns["btnOpenMonitor"].clicked.connect(self.monitor_callback)
+        self.btns["btnStartSession"].clicked.connect(self.session_callback)
+        self.btns["btnConnect"].clicked.connect(self.connect_callback)
 
-        self.click_functions = {}
-        self.trial_number = 0
-        self.session_name = ""
-        self.date = datetime.datetime.now()
+        super(SessionManager, self).__init__()
 
     def make_objects(self, objs):
 
         object_dict = {}
+        count = 0
         for obj in objs:
             name = obj.objectName()
-            if obj is QtWidgets.QAbstractButton:
-                obj.clicked.connect(lambda: self.on_click(obj))
             object_dict[name] = obj
+            count+=1
 
         return object_dict
 
-    def on_click(self, btn):
-        """
-        General callback that will handle the function calls to the other
-        fuctions. This will make it easier to build the front end because
-        only one callback in the front end.
-        :param btn:  The button that was clicked
-        :type btn:  QtWidgets.QAbstractButton
-        :return:
-        """
-
-        if btn.objectName() is "btnStartSession":
-            self.session_callback()
-        if btn.objectName() is "btnStop":
-            self.stop_callback()
-        if btn.objectName() is "btnRecord":
-            self.record_callback()
-        if btn.objectName() is "btnOpenMonitor":
-            self.monitor_callback()
-        if btn.objectName() is "btnConnect":
-            self.connect_callback()
-
     def session_callback(self):
+        print "session"
         session = {}
         for name, box in self.txt:
             # Error checking is needed
@@ -94,7 +87,7 @@ class SessionManager(Manager.Manager):
         pass
 
     def record_callback(self):
-
+        print "record"
         if not self.in_session:
             print "Session not started"
             return
@@ -115,7 +108,7 @@ class SessionManager(Manager.Manager):
         :param button:
         :return:
         """
-
+        print "monitoir"
         self.plotter.start()
 
     def make_monitor(self):
@@ -159,21 +152,22 @@ class SessionManager(Manager.Manager):
         self.plotter.add_window(item, "CoP", (3, 0))
 
     def stop_callback(self):
-
-        self.recorder.stop_recording()
-        trial_name = "trial_" + str(self.trial_number)
-
-        with open("my_file.yaml") as f:
-            list_doc = yaml.load(f)
-        list_doc["trials"].append(trial_name)
-        with open(self.session_name + ".yaml", "w") as f:
-            yaml.dump(list_doc, f)
+        print "stop"
+        # self.recorder.stop_recording()
+        # trial_name = "trial_" + str(self.trial_number)
+        #
+        # with open("my_file.yaml") as f:
+        #     list_doc = yaml.load(f)
+        # list_doc["trials"].append(trial_name)
+        # with open(self.session_name + ".yaml", "w") as f:
+        #     yaml.dump(list_doc, f)
 
     def connect_callback(self):
-
-        host = self.txt["txthost"].textbox.text()
-        port = self.txt["txtport"].textbox.text()
-
+        print "connect"
+        host = self.txt_boxes["txtHost"].toPlainText()
+        port = int(self.txt_boxes["txtPort"].toPlainText())
+        print host
+        print port
         self.comm.setup(host, port)
         self.comm.start()
         self.connected = self.comm.connected
