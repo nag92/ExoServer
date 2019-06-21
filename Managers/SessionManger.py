@@ -47,7 +47,7 @@ class SessionManager(Manager.Manager):
         self.btns["btnOpenMonitor"].clicked.connect(self.monitor_callback)
         self.btns["btnStartSession"].clicked.connect(self.session_callback)
         self.btns["btnConnect"].clicked.connect(self.connect_callback)
-        self.make_monitor()
+        # self.make_monitor()
         super(SessionManager, self).__init__()
 
     def make_objects(self, objs):
@@ -93,9 +93,9 @@ class SessionManager(Manager.Manager):
             print "In the middle of recording. Stop the trial first then you can start again"
             return
 
-        trial_name = "trial_" + str(self.trial_number)
+        trial_name = self.session_name + "_trial_" + str(self.trial_number)
 
-        self.btns["btnRecording"].setStyleSheet("background-color: red")
+        self.btns["btnRecord"].setStyleSheet("background-color: red")
         self.recorder.new_file(trial_name)
         self.recorder.start_recording()
 
@@ -148,14 +148,17 @@ class SessionManager(Manager.Manager):
 
     def stop_callback(self):
         print "stop"
-        # self.recorder.stop_recording()
-        # trial_name = "trial_" + str(self.trial_number)
-        #
-        # with open("my_file.yaml") as f:
-        #     list_doc = yaml.load(f)
-        # list_doc["trials"].append(trial_name)
-        # with open(self.session_name + ".yaml", "w") as f:
-        #     yaml.dump(list_doc, f)
+        self.recorder.stop_recording()
+        trial_name = self.session_name + "_trial_" + str(self.trial_number)
+
+        with open(self.session_name + ".yaml") as f:
+            list_doc = yaml.load(f)
+        list_doc["trials"].append(trial_name)
+        with open(self.session_name + ".yaml", "w") as f:
+            yaml.dump(list_doc, f)
+
+        self.trial_number = self.trial_number + 1
+        self.lbls["lblTrialNumber"].setText("Trial " + str(self.trial_number))
 
     def connect_callback(self):
         print "connect"

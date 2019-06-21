@@ -23,7 +23,7 @@ class RecorderManager(Manager.Manager):
     def recording(self, value):
         self._recording = value
 
-    def stat_recording(self):
+    def start_recording(self):
         """
         Start recording
         :return:
