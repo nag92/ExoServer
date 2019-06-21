@@ -1,6 +1,5 @@
 import datetime
 import os
-from PyQt5 import QtWidgets
 
 import yaml
 
@@ -50,7 +49,7 @@ class SessionManager(Manager.Manager):
         self.btns["btnOpenMonitor"].clicked.connect(self.monitor_callback)
         self.btns["btnStartSession"].clicked.connect(self.session_callback)
         self.btns["btnConnect"].clicked.connect(self.connect_callback)
-
+        self.make_monitor()
         super(SessionManager, self).__init__()
 
     def make_objects(self, objs):
@@ -113,12 +112,10 @@ class SessionManager(Manager.Manager):
 
     def make_monitor(self):
 
-
         for name, sensor in self.SM.get_sensors().iteritems():
             print sensor.name, sensor.raw_values
 
         accel = self.robot.get_accel
-
         gyro = self.robot.get_gyro
         pot = self.robot.get_pot
         fsr = self.robot.get_fsr

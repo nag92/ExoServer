@@ -1,0 +1,1 @@
+pyuic5 -x Subject_Tester.ui -o  gui.py
