@@ -174,7 +174,7 @@ class Ui_MainWindow(SessionManger.SessionManager):
         self.btnStartSession.setObjectName("btnStartSession")
         self.gridLayout_5.addWidget(self.btnStartSession, 0, 0, 1, 1)
         self.btnOpenMonitor = QtWidgets.QPushButton(self.widget2)
-        self.btnOpenMonitor.setEnabled(False)
+        self.btnOpenMonitor.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)

@@ -62,7 +62,7 @@ for j in xrange(3):
 
 for j in xrange(3):
     msg = struct.pack('h', j)
-    print msg
+
     MESSAGE = MESSAGE + msg
 
 for j in xrange(3):

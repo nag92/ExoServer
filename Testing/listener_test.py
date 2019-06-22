@@ -18,4 +18,3 @@ comm.start()
 
 while 1:
     for name, sensor in SM.get_sensors().iteritems():
-        print sensor.name, sensor.get_values()

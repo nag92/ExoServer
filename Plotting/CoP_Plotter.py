@@ -69,7 +69,6 @@ class CoP_Plotter(TK_Plotter):
         centerY = 0
 
         for fsr, loc in zip(fsrs, location):
-            print loc
             total_force += fsr.get_values()[0]
             centerX += fsr.get_values()[0] * loc[0]
             centerY += fsr.get_values()[0] * loc[1]

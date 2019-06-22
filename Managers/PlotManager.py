@@ -79,4 +79,3 @@ class PlotManager(Manager.Manager, Tkinter.Tk):
         """
         self.after(2, self.refesh)  # call the refreash method
         self.mainloop()
-

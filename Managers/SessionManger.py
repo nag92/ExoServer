@@ -4,7 +4,7 @@ import os
 import yaml
 
 from Communication import Ethernet
-from Managers import Manager, RecorderManager, FilterManager, SensorManager, PlotManager
+from Managers import Manager, RecorderManager, FilterManager, SensorManager
 from Plotting import Line_Graph, FSR_BarGraph, CoP_Plotter
 from Robot import Robot
 
@@ -37,12 +37,12 @@ class SessionManager(Manager.Manager):
 
         # set up Managers
         self.SM.register_sub(self.FM)
-        self.plotter = PlotManager.PlotManager()
+        # self.plotter = PlotManager.PlotManager()
         self.robot = Robot.Robot(path, self.SM, self.FM)
         self.sensor_names = self.SM.get_sensor_names()
         self.comm = Ethernet.Ethernet()
         self.comm.register_sub(self.SM)
-        self.SM.register_sub(self.plotter)
+        #self.SM.register_sub(self.plotter)
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)
         self.SM.register_sub(self.recorder)
 
@@ -60,7 +60,7 @@ class SessionManager(Manager.Manager):
         self.btns["btnOpenMonitor"].clicked.connect(self.monitor_callback)
         self.btns["btnStartSession"].clicked.connect(self.session_callback)
         self.btns["btnConnect"].clicked.connect(self.connect_callback)
-        # self.make_monitor()
+        #self.make_monitor()
         super(SessionManager, self).__init__()
 
     def make_objects(self, objs):
@@ -216,6 +216,7 @@ class SessionManager(Manager.Manager):
         """
         print "connect"
         self.btns["btnConnect"].setEnabled(False)
+        self.btns["btnOpenMonitor"].setEnabled(True)
         host = self.txt_boxes["txtHost"].toPlainText()
         port = int(self.txt_boxes["txtPort"].toPlainText())
         print host
