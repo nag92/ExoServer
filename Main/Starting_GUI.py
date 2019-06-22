@@ -1,10 +1,19 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Subject_Tester.ui'
+# Form implementation generated from reading ui file 'UI/Subject_Tester.ui'
 #
 # Created by: PyQt5 UI code generator 5.5.1
 #
-# WARNING! All changes made in this file will be lost!
+
+"""
+This file is used to bring up the GUI to run a trial. It implements
+The QT interface and the Session Manager to bring up a main window to control everything.
+
+It will create yaml file for the subject and connect to the exoskeleton
+to record the sensor output. It will save the date named CSV files and referanced
+in the yaml file. The record button is used to record muiplyy trials using the stop button.
+to end a trial.
+"""
 
 from PyQt5 import QtCore, QtWidgets
 
@@ -14,20 +23,28 @@ from Managers import SessionManger
 class Ui_MainWindow(SessionManger.SessionManager):
 
     def __init__(self):
+        # set up the main window
         self.MainWindow = QtWidgets.QMainWindow()
         self.setupUi(self.MainWindow)
 
+        # store all the widgets in lists
         lbl_ = [self.lblAge, self.lblGender, self.lblheight, self.lblLegLength, self.lblheight, self.lblMass,
                 self.lblTrialNumber, self.lblPort]
         btn_ = [self.btnConnect, self.btnOpenMonitor, self.btnRecord, self.btnStartSession, self.btnStop]
         txt_ = [self.txtAge, self.txtGender, self.txtHost, self.txtLegLength, self.txtMass, self.txtPort,
                 self.txtSubject, self.txtHeight]
 
+        # pass the widgets into the session manager class
         super(Ui_MainWindow, self).__init__(btn_, txt_, lbl_)
 
         self.MainWindow.show()
 
     def setupUi(self, MainWindow):
+        """
+        Creates the layout
+        :param MainWindow:
+        :return:
+        """
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(988, 347)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
