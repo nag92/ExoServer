@@ -1,14 +1,16 @@
 import abc
 import matplotlib
-from Tkinter import *
-
-matplotlib.use('TKAgg')
+from PyQt4 import QtGui, QtCore
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from Sensors import Sensor
-import matplotlib.figure
-import matplotlib.pyplot as pltlib
+from  matplotlib.figure import Figure
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt4agg import (
+        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 
+class QT_Plotter(FigureCanvas):
 
-class TK_Plotter(object):
+    fig = None  # type: Figure
 
     def __init__(self, object, name):
         """
@@ -17,18 +19,12 @@ class TK_Plotter(object):
         """
         self.object = object
         self.name = name
-        self.canvasFig = pltlib.figure(1)
-        self.fig = matplotlib.figure.Figure(figsize=(3, 2), dpi=100)
-        self.fig.canvas
+        self.fig = Figure(figsize=(3, 2), dpi=100)
         self.ax = self.fig.add_subplot(111)
-        self.ax.autoscale(True, tight=True)
         self.colors = ['r-', 'g-', 'b-', 'k-', 'm-', 'c-', 'y-']
-        self.value = None
-        self.root = None
-        self.position = (0, 0)
 
     @abc.abstractmethod
-    def initilize(self, root, position):
+    def initilize(self, parent):
         """
         This function is used to set up the windows
         set up a window to plot
@@ -37,15 +33,17 @@ class TK_Plotter(object):
         :return: None
         """
 
-        self.root = root
-        self.position = position
-        self.frame = Frame(self.root)
-        self.frame.grid(row=self.position[0], column=self.position[1])
+        FigureCanvas.__init__(self, self.fig)
+        self.setParent(parent)
+        FigureCanvas.setSizePolicy(self,
+                                   QtGui.QSizePolicy.Expanding,
+                                   QtGui.QSizePolicy.Expanding)
+        FigureCanvas.updateGeometry(self)
+
+
         self.set_title(self.name)
         self.set_axis_names()
-        self.canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(self.fig, master=self.frame)
-        self.canvas.show()
-        self.canvas.get_tk_widget().grid(row=0, column=0)
+
         # self.set_fitler_menu()
         return
 
@@ -85,8 +83,9 @@ class TK_Plotter(object):
         :return:
         """
         # update the axis limits
+
+        #redraw
+
         self.ax.relim()
         self.ax.autoscale_view()
-        #redraw
-        self.fig.canvas.draw()
-        self.fig.canvas.flush_events()
+        self.draw()

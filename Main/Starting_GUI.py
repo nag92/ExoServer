@@ -20,6 +20,7 @@ from PyQt5 import QtCore, QtWidgets
 from Managers import SessionManger
 
 
+
 class Ui_MainWindow(SessionManger.SessionManager):
 
     def __init__(self):

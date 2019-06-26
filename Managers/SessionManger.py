@@ -7,7 +7,7 @@ from Communication import Ethernet
 from Managers import Manager, RecorderManager, FilterManager, SensorManager
 from Plotting import Line_Graph, FSR_BarGraph, CoP_Plotter
 from Robot import Robot
-
+from Testing import monitor
 
 class SessionManager(Manager.Manager):
     lbls = None  # type: object
@@ -143,7 +143,7 @@ class SessionManager(Manager.Manager):
         """
         # TODO: does not work yet
         print "monitoir"
-        self.plotter.start()
+        monitor.something_dumb(self.robot, self.SM)
 
     def make_monitor(self):
 
