@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a40d6a-0c34-4a82-bb9f-8109db5d49e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Testing/change_plot_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/PlotManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/PlotManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QTPlotting/QT_Plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/QTPlotting/QT_Plotter.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Testing/qt_monitor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1519">
+            <state relative-caret-position="751">
               <caret line="67" column="15" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -42,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Managers/PlotManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+            <state relative-caret-position="280">
+              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -838,7 +836,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32822758" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49920845" visible="true" weight="0.2569373" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49920845" visible="true" weight="0.44398767" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39979446" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -856,12 +854,12 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.76489025" visible="true" weight="0.13350923" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.76489025" visible="true" weight="0.20738786" />
       <window_info id="Structure" order="1" sideWeight="0.23510972" side_tool="true" weight="0.14459103" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32822758" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49920845" visible="true" weight="0.18191162" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49920845" visible="true" weight="0.25590956" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39979446" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1188,7 +1186,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Testing/qt_monitor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1519">
+        <state relative-caret-position="751">
           <caret line="67" column="15" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -1198,8 +1196,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Managers/PlotManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+        <state relative-caret-position="280">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
         </state>
       </provider>
     </entry>

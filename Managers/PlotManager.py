@@ -34,11 +34,11 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
         self.objects = {}
         self.mplfigs.itemClicked.connect(self.changefig)
         fig = Figure()
-        self.canvas = FigureCanvas(fig)
-        self.toolbar = NavigationToolbar(self.canvas,
-                                         self.mplwindow, coordinates=True)
+        # self.canvas = FigureCanvas(fig)
+        # self.toolbar = NavigationToolbar(self.canvas,
+        #                                  self.mplwindow, coordinates=True)
         self.stacked_layout = QtGui.QStackedLayout(self.mplwindow)
-        self.stacked_layout.addWidget(self.toolbar)
+        #self.stacked_layout.addWidget(self.toolbar)
         self.mplvl.addLayout(self.stacked_layout)
 
     def changefig(self, item):
@@ -77,7 +77,7 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
 
 #        time.sleep(0.1)
 
-        print "update"
+
         for key, obj in self.objects.iteritems():
             obj[0].flush()
 
