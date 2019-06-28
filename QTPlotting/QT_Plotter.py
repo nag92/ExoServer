@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt4agg import (
         FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 
-class QT_Plotter(FigureCanvas):
+class QT_Plotter(object):
 
     fig = None  # type: Figure
 
@@ -20,6 +20,8 @@ class QT_Plotter(FigureCanvas):
         self.object = object
         self.name = name
         self.fig = Figure(figsize=(3, 2), dpi=100)
+        self.canvas = FigureCanvas(self.fig)
+        self.toolbar = None
         self.ax = self.fig.add_subplot(111)
         self.colors = ['r-', 'g-', 'b-', 'k-', 'm-', 'c-', 'y-']
 
@@ -32,15 +34,16 @@ class QT_Plotter(FigureCanvas):
         :param position: where to put the window
         :return: None
         """
+        #
+        # FigureCanvas.__init__(self, self.fig)
+        # self.setParent(parent)
+        # FigureCanvas.setSizePolicy(self,
+        #                            QtGui.QSizePolicy.Expanding,
+        #                            QtGui.QSizePolicy.Expanding)
+        # FigureCanvas.updateGeometry(self)
 
-        FigureCanvas.__init__(self, self.fig)
-        self.setParent(parent)
-        FigureCanvas.setSizePolicy(self,
-                                   QtGui.QSizePolicy.Expanding,
-                                   QtGui.QSizePolicy.Expanding)
-        FigureCanvas.updateGeometry(self)
-
-
+        self.toolbar = NavigationToolbar(self.canvas, parent)
+        self.canvas.setParent(parent)
         self.set_title(self.name)
         self.set_axis_names()
 
@@ -54,6 +57,7 @@ class QT_Plotter(FigureCanvas):
         :return:
         """
         pass
+
 
     def set_title(self, title="some_graph"):
         """
@@ -88,4 +92,5 @@ class QT_Plotter(FigureCanvas):
 
         self.ax.relim()
         self.ax.autoscale_view()
-        self.draw()
+        self.canvas.draw()
+

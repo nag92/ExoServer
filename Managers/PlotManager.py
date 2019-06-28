@@ -15,6 +15,7 @@ from PyQt4.uic import loadUiType
 
 from PyQt4 import QtGui, QtCore
 
+
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt4agg import (
     FigureCanvasQTAgg as FigureCanvas,
@@ -25,6 +26,7 @@ Ui_MainWindow, QMainWindow = loadUiType('window.ui')
 class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
 
     def __init__(self):
+        self.index = 0
         print Ui_MainWindow
         super(PlotManager, self).__init__()
         self.count = 0
@@ -33,36 +35,29 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
         self.mplfigs.itemClicked.connect(self.changefig)
         fig = Figure()
         self.canvas = FigureCanvas(fig)
-        self.mplvl.addWidget(self.canvas)
-        self.canvas.draw()
         self.toolbar = NavigationToolbar(self.canvas,
                                          self.mplwindow, coordinates=True)
-        self.mplvl.addWidget(self.toolbar)
-
+        self.stacked_layout = QtGui.QStackedLayout(self.mplwindow)
+        self.stacked_layout.addWidget(self.toolbar)
+        self.mplvl.addLayout(self.stacked_layout)
 
     def changefig(self, item):
         text = str(item.text())
-        self.rmmpl()
-        self.addmpl(self.objects[text])
+        fig, index = self.objects[text]
+        print index
+        self.stacked_layout.setCurrentIndex(index)
 
     def addfig(self, fig):
-        self.objects[fig.name] = fig
+
         fig.initilize(self)
+        widget = QtGui.QWidget()
+        lay = QtGui.QVBoxLayout(widget)
+        lay.addWidget(fig.toolbar)
+        lay.addWidget(fig.canvas)
+        self.stacked_layout.addWidget(widget)
+        self.objects[fig.name] = (fig, self.index)
+        self.index = self.index + 1
         self.mplfigs.addItem(fig.name)
-
-    def addmpl(self, fig):
-        self.canvas = fig
-        self.mplvl.addWidget(self.canvas)
-        self.canvas.draw()
-        self.toolbar = NavigationToolbar(self.canvas,
-                                         self.mplwindow, coordinates=True)
-        self.mplvl.addWidget(self.toolbar)
-
-    def rmmpl(self):
-        self.mplvl.removeWidget(self.canvas)
-        self.canvas.close()
-        self.mplvl.removeWidget(self.toolbar)
-        self.toolbar.close()
 
     def update(self, data):
         """
@@ -72,7 +67,7 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
         """
         # loop through all the plots and update them
         for key, obj in self.objects.iteritems():
-            obj.update()
+            obj[0].update()
 
     def refesh(self):
         """
@@ -84,7 +79,7 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
 
         print "update"
         for key, obj in self.objects.iteritems():
-            obj.flush()
+            obj[0].flush()
 
         QtCore.QTimer.singleShot(1, self.refesh)
 
