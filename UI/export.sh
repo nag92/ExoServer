@@ -1,1 +1,1 @@
-pyuic5 -x Subject_Tester.ui -o  gui.py
+pyuic5 -x notes.ui -o  note.py

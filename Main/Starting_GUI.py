@@ -20,7 +20,6 @@ from PyQt5 import QtCore, QtWidgets
 from Managers import SessionManger
 
 
-
 class Ui_MainWindow(SessionManger.SessionManager):
 
     def __init__(self):
@@ -36,7 +35,7 @@ class Ui_MainWindow(SessionManger.SessionManager):
                 self.txtSubject, self.txtHeight]
 
         # pass the widgets into the session manager class
-        super(Ui_MainWindow, self).__init__(btn_, txt_, lbl_)
+        super(Ui_MainWindow, self).__init__(self.MainWindow, btn_, txt_, lbl_)
 
         self.MainWindow.show()
 

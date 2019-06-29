@@ -1,5 +1,7 @@
 import datetime
 import os
+# from Testing import monitor
+from PyQt5 import QtWidgets
 
 import yaml
 
@@ -7,12 +9,13 @@ from Communication import Ethernet
 from Managers import Manager, RecorderManager, FilterManager, SensorManager
 from Plotting import Line_Graph, FSR_BarGraph, CoP_Plotter
 from Robot import Robot
-from Testing import monitor
+from UI import Notes
+
 
 class SessionManager(Manager.Manager):
     lbls = None  # type: object
 
-    def __init__(self, btn, txt, lbl):
+    def __init__(self, main, btn, txt, lbl):
 
         """
               Create the session manager. Each session consits of muiltpy trials
@@ -61,6 +64,7 @@ class SessionManager(Manager.Manager):
         self.btns["btnStartSession"].clicked.connect(self.session_callback)
         self.btns["btnConnect"].clicked.connect(self.connect_callback)
         #self.make_monitor()
+        self.main_window = main
         super(SessionManager, self).__init__()
 
     def make_objects(self, objs):
@@ -190,13 +194,21 @@ class SessionManager(Manager.Manager):
         :return:
         """
         print "stop"
+
+        trial_name = self.session_name + "_trial_" + str(self.trial_number)
+
+        dialog = QtWidgets.QDialog()
+        dialog.ui = Notes.Notes()
+        dialog.ui.setupUi(dialog, trial_name)
+        dialog.exec_()
+        dialog.show()
         # turn on/off the buttons
         self.btns["btnStop"].setEnabled(False)
         self.btns["btnRecord"].setEnabled(True)
         self.btns["btnRecord"].setStyleSheet("background-color: white")
         # stop the recording
         self.recorder.stop_recording()
-        trial_name = self.session_name + "_trial_" + str(self.trial_number)
+
         # update the yaml file
         with open(self.session_name + ".yaml") as f:
             list_doc = yaml.load(f)
