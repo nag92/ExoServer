@@ -48,16 +48,7 @@ class SessionManager(Manager.Manager):
 
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)
         self.SM.register_sub(self.recorder)
-        self.plotter = PlotManager.PlotManager()
-        self.SM.register_sub(self.plotter)
-        accel = self.robot.get_accel
-        # gyro = self.robot.get_gyro
-        # pot = self.robot.get_pot
-        # fsr = self.robot.get_fsr
-
-        for key, sensor in accel.items():
-            accel = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
-            self.plotter.addfig(accel)
+        self.setup_monitor()
         # turn off the buttons
         self.in_session = False
         self.recording = False
@@ -148,25 +139,37 @@ class SessionManager(Manager.Manager):
         self.recorder.new_file(trial_name)
         self.recorder.start_recording()
 
+    def setup_monitor(self):
+
+        self.plotter = PlotManager.PlotManager()
+        self.SM.register_sub(self.plotter)
+        accel = self.robot.get_accel
+        gyro = self.robot.get_gyro
+        pot = self.robot.get_pot
+        # fsr = self.robot.get_fsr
+
+        for key, sensor in accel.items():
+            accel = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
+            self.plotter.addfig(accel)
+
+        for key, sensor in gyro.items():
+            gyro = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
+            self.plotter.addfig(gyro)
+
+        for key, sensor in pot.items():
+            pot = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
+            self.plotter.addfig(pot)
+
+
+
     def monitor_callback(self):
         """
         Bring up the monitors
         :param button:
         :return:
         """
-
-        path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
-
-        # for key, sensor in gyro.items():
-        #     gyro = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
-        #     self.plotter.addfig(gyro)
-        #
-        # for key, sensor in gyro.items():
-        #     pot = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
-        #     self.plotter.addfig(pot)
-
         self.plotter.start()
-        self.plotter.show()
+        # self.plotter.show()
 
     def stop_callback(self):
         """
