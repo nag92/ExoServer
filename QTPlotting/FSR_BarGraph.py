@@ -1,12 +1,9 @@
 import numpy as np
 
-from TK_Plotter import TK_Plotter
+from QT_Plotter import QT_Plotter
 
 
-class FSR_BarGraph(TK_Plotter):
-    """
-    Creates a bar graph for plotting the FSR
-    """
+class FSR_BarGraph(QT_Plotter):
 
     def __init__(self, name, object, numbars=6):
         """
@@ -16,18 +13,17 @@ class FSR_BarGraph(TK_Plotter):
         self.num_bars = np.arange(numbars)
         super(FSR_BarGraph, self).__init__(object, name)
 
-    def initilize(self, root, position):
+    def initilize(self, parent):
         """
         Create the plot
 
-        :param root: window to put the plot
-        :param position: position in window to put the plot
+        :param parent: parent window
         :return: None
         """
 
         self.ax.set_ylim([0, 1])
         self.bars = self.ax.bar(self.num_bars, [0] * len(self.num_bars), align='center', alpha=0.5)
-        super(FSR_BarGraph, self).initilize(root, position)
+        super(FSR_BarGraph, self).initilize(parent)
 
     def load(self, input):
         """Retrieve data from the input source and return an object."""
