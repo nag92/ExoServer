@@ -45,7 +45,7 @@ class CoP_Plotter(QT_Plotter):
         :return: None
         """
         # read the sensor and put it into the queue
-        self.ax.imshow(self.img)
+        #self.ax.imshow(self.img)
         left = self.calc_CoP(self._left, self.left_locations)
         right = self.calc_CoP(self._right, self.right_locations)
         self.left.set_xdata([left[0]])

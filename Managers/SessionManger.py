@@ -7,7 +7,7 @@ import yaml
 
 from Communication import Ethernet
 from Managers import Manager, RecorderManager, FilterManager, SensorManager, PlotManager
-from QTPlotting import Line_Graph, FSR_BarGraph
+from QTPlotting import Line_Graph, FSR_BarGraph, CoP_Plotter
 from Robot import Robot
 from UI import Notes
 
@@ -166,8 +166,8 @@ class SessionManager(Manager.Manager):
         fsr_plot = FSR_BarGraph.FSR_BarGraph("FSR", fsr.values())
         self.plotter.addfig(fsr_plot)
         #
-        # cop_plot = CoP_Plotter.CoP_Plotter("CoP", left_fsr, right_fsr)
-        # self.plotter.addfig(cop_plot)
+        cop_plot = CoP_Plotter.CoP_Plotter("CoP", left_fsr, right_fsr)
+        self.plotter.addfig(cop_plot)
 
 
     def monitor_callback(self):
