@@ -14,15 +14,13 @@ SM.register_sub(FM)
 plotter = PlotManager.PlotManager()
 robot = Robot.Robot(path, SM, FM)
 names = SM.get_sensor_names()
-recorder = RecorderManager.RecorderManager("test01", names)
+recorder = RecorderManager.RecorderManager( names,"test01",)
 comm = Ethernet.Ethernet()
+comm.setup()
 comm.register_sub(SM)
 SM.register_sub(plotter)
 SM.register_sub(recorder)
 
-
-
-print "\n\n"
 for name, sensor in SM.get_sensors().iteritems():
     print sensor.name, sensor.raw_values
 

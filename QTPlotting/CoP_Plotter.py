@@ -1,10 +1,10 @@
 import matplotlib.image as mpimg
 
+from QT_Plotter import QT_Plotter
 from Sensors import Sensor
-from TK_Plotter import TK_Plotter
 
 
-class CoP_Plotter(TK_Plotter):
+class CoP_Plotter(QT_Plotter):
 
     def __init__(self, name, left, right):
         """
@@ -19,7 +19,7 @@ class CoP_Plotter(TK_Plotter):
         self.img = mpimg.imread("/home/nathaniel/git/exoserver/images/AFO_Foot_Sensor.png")
         super(CoP_Plotter, self).__init__(object, name)
 
-    def initilize(self, root, position):
+    def initilize(self, parent):
         """
         Create the plot
 
@@ -33,7 +33,7 @@ class CoP_Plotter(TK_Plotter):
         self.left, = self.ax.plot([], [], 'rx', lw=10)
         self.right, = self.ax.plot([], [], 'bx', lw=10)
         self.ax.autoscale(False)
-        super(CoP_Plotter, self).initilize(root, position)
+        super(CoP_Plotter, self).initilize(parent=parent)
 
     def load(self, input):
         """Retrieve data from the input source and return an object."""
@@ -45,7 +45,7 @@ class CoP_Plotter(TK_Plotter):
         :return: None
         """
         # read the sensor and put it into the queue
-        self.ax.imshow(self.img)
+        #self.ax.imshow(self.img)
         left = self.calc_CoP(self._left, self.left_locations)
         right = self.calc_CoP(self._right, self.right_locations)
         self.left.set_xdata([left[0]])

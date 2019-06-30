@@ -5,6 +5,7 @@ class Pot(Sensor.Sensor):
 
     def __init__(self, name, byte_list, side):
         super(Pot, self).__init__(name, byte_list, side)
+
         self._type = Sensor.Sensor.POT
 
     @property
@@ -24,7 +25,7 @@ class Pot(Sensor.Sensor):
     def _raw_value_setter(self, blocks):
         """
         Fills in the components of the array
-        :param blocks: byte array
+        :param blocks: byte array+
         :return:
         """
         values = [0]

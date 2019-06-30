@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+       <width>988</width>
+       <height>347</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+      <widget class="QPushButton" name="btnConnect">
+    <property name="geometry">
+     <rect>
+         <x>503</x>
+         <y>110</y>
+         <width>135</width>
+         <height>27</height>
+     </rect>
+    </property>
+          <property name="text">
+              <string>Connect to Exo</string>
+          </property>
+      </widget>
+      <widget class="QLabel" name="lblTrialNumber">
+          <property name="geometry">
+              <rect>
+                  <x>783</x>
+                  <y>100</y>
+                  <width>57</width>
+                  <height>19</height>
+              </rect>
+          </property>
+          <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+              </sizepolicy>
+          </property>
+          <property name="text">
+              <string>Trial 00</string>
+          </property>
+      </widget>
+      <widget class="QWidget" name="">
+          <property name="geometry">
+              <rect>
+                  <x>30</x>
+                  <y>10</y>
+                  <width>387</width>
+                  <height>191</height>
+              </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+              <item row="1" column="0">
+                  <widget class="QLabel" name="lblAge">
+                      <property name="text">
+                          <string>Age</string>
+                      </property>
+                  </widget>
+              </item>
+              <item row="3" column="0">
+                  <widget class="QLabel" name="lblMass">
+                      <property name="text">
+                          <string>Mass</string>
+                      </property>
+                  </widget>
+              </item>
+              <item row="2" column="0">
+                  <widget class="QLabel" name="lblGender">
+                      <property name="text">
+                          <string>Gender</string>
+                      </property>
+                  </widget>
+     </item>
+     <item row="0" column="0">
+         <widget class="QLabel" name="lblSubject">
+             <property name="text">
+                 <string>Subject number</string>
+             </property>
+         </widget>
+     </item>
+              <item row="0" column="1">
+                  <widget class="QPlainTextEdit" name="txtSubject">
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                          <size>
+                              <width>500</width>
+                              <height>16777215</height>
+                          </size>
+                      </property>
+                  </widget>
+              </item>
+              <item row="3" column="1">
+                  <widget class="QPlainTextEdit" name="txtMass">
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                          <size>
+                              <width>500</width>
+                              <height>16777215</height>
+                          </size>
+                      </property>
+                  </widget>
+              </item>
+              <item row="4" column="0">
+                  <widget class="QLabel" name="lblheight">
+                      <property name="text">
+                          <string>Height</string>
+                      </property>
+                  </widget>
+              </item>
+              <item row="5" column="0">
+                  <widget class="QLabel" name="lblLegLength">
+                      <property name="text">
+                          <string>Leg Length</string>
+                      </property>
+                  </widget>
+              </item>
+              <item row="1" column="1">
+                  <widget class="QPlainTextEdit" name="txtAge">
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                          <size>
+                              <width>500</width>
+                              <height>16777215</height>
+                          </size>
+                      </property>
+                  </widget>
+              </item>
+              <item row="5" column="1">
+                  <widget class="QPlainTextEdit" name="txtLegLength">
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                          <size>
+                              <width>500</width>
+                              <height>16777215</height>
+                          </size>
+                      </property>
+                  </widget>
+              </item>
+              <item row="2" column="1">
+                  <widget class="QPlainTextEdit" name="txtGender">
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                          <size>
+                              <width>500</width>
+                              <height>16777215</height>
+                          </size>
+                      </property>
+                  </widget>
+              </item>
+              <item row="4" column="1">
+                  <widget class="QPlainTextEdit" name="xtxHeight">
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                          <size>
+                              <width>500</width>
+                              <height>16777215</height>
+                          </size>
+                      </property>
+                  </widget>
+              </item>
+          </layout>
+      </widget>
+      <widget class="QWidget" name="">
+          <property name="geometry">
+              <rect>
+                  <x>433</x>
+                  <y>20</y>
+                  <width>300</width>
+                  <height>81</height>
+              </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+              <item row="0" column="0">
+                  <widget class="QLabel" name="lblost">
+                      <property name="text">
+                          <string>host</string>
+                      </property>
+                  </widget>
+     </item>
+              <item row="0" column="1">
+                  <widget class="QPlainTextEdit" name="txtHost"/>
+              </item>
+              <item row="1" column="0">
+                  <widget class="QLabel" name="lblPort">
+                      <property name="text">
+                          <string>port</string>
+                      </property>
+                  </widget>
+              </item>
+              <item row="1" column="1">
+                  <widget class="QTextEdit" name="txtPort"/>
+              </item>
+          </layout>
+      </widget>
+      <widget class="QWidget" name="">
+          <property name="geometry">
+              <rect>
+                  <x>753</x>
+                  <y>20</y>
+                  <width>125</width>
+                  <height>62</height>
+              </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="0">
+                  <widget class="QPushButton" name="btnStartSession">
+                      <property name="enabled">
+                          <bool>true</bool>
+                      </property>
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="text">
+                          <string>Start Session</string>
+                      </property>
+                  </widget>
+              </item>
+              <item row="1" column="0">
+                  <widget class="QPushButton" name="btnOpenMonitor">
+                      <property name="enabled">
+                          <bool>true</bool>
+                      </property>
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="text">
+                          <string>open monitor</string>
+                      </property>
+                  </widget>
+              </item>
+          </layout>
+      </widget>
+      <widget class="QWidget" name="">
+          <property name="geometry">
+              <rect>
+                  <x>883</x>
+                  <y>20</y>
+                  <width>87</width>
+                  <height>62</height>
+              </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_6">
+              <item row="2" column="0">
+                  <widget class="QPushButton" name="btnStop">
+                      <property name="enabled">
+                          <bool>true</bool>
+                      </property>
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                          <size>
+                              <width>600</width>
+                              <height>16777215</height>
+                          </size>
+                      </property>
+                      <property name="text">
+                          <string>Stop</string>
+                      </property>
+                  </widget>
+              </item>
+              <item row="1" column="0">
+                  <widget class="QPushButton" name="btnRecord">
+                      <property name="enabled">
+                          <bool>true</bool>
+                      </property>
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                          <size>
+                              <width>200</width>
+                              <height>16777215</height>
+                          </size>
+                      </property>
+                      <property name="text">
+                          <string>Record</string>
+                      </property>
+                  </widget>
+     </item>
+    </layout>
+   </widget>
+      <zorder>lblSubject</zorder>
+      <zorder>txtAge</zorder>
+      <zorder>lblAge</zorder>
+      <zorder>lblSubject</zorder>
+      <zorder>lblSubject</zorder>
+      <zorder>txtSubject</zorder>
+      <zorder>txtAge</zorder>
+      <zorder>lblAge</zorder>
+      <zorder>lblGender</zorder>
+      <zorder>txtGender</zorder>
+      <zorder>lblGender</zorder>
+      <zorder>txtMass</zorder>
+      <zorder>lblMass</zorder>
+      <zorder>xtxHeight</zorder>
+      <zorder>lblheight</zorder>
+      <zorder>txtLegLength</zorder>
+      <zorder>lblLegLength</zorder>
+      <zorder>txtHost</zorder>
+      <zorder>lblost</zorder>
+      <zorder>txtPort</zorder>
+      <zorder>lblPort</zorder>
+      <zorder>btnConnect</zorder>
+      <zorder>btnStartSession</zorder>
+      <zorder>btnOpenMonitor</zorder>
+      <zorder>lblTrialNumber</zorder>
+      <zorder>btnRecord</zorder>
+      <zorder>btnStop</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+        <width>988</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSubject">
+    <property name="title">
+     <string>Subject </string>
+    </property>
+   </widget>
+   <addaction name="menuSubject"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

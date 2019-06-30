@@ -62,7 +62,7 @@ for j in xrange(3):
 
 for j in xrange(3):
     msg = struct.pack('h', j)
-    print msg
+
     MESSAGE = MESSAGE + msg
 
 for j in xrange(3):
@@ -85,10 +85,8 @@ while True:
             while 1:
                 # data = conn.recv(2048)
                 conn.sendall(MESSAGE)
-
                 time.sleep(0.001)
 
-                pass
 
     except socket.error:
         print "Error Occured."
