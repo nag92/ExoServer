@@ -2,33 +2,22 @@
 import matplotlib
 
 matplotlib.use('TKAgg')
-import Tkinter
-# import matplotlib.pyplot as pltlib
-# lmfit is imported becuase parameters are allowed to depend on each other along with bounds, etc.
-# from lmfit import minimize, Parameters, Minimizer
-import ttk
+
 import Manager
-import time
-
-
-from PyQt4.uic import loadUiType
-
-from PyQt4 import QtGui, QtCore
-
-
+from QTPlotting import QT_Plotter
+from PyQt5.uic import loadUiType
+from PyQt5 import QtCore, QtWidgets
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_qt4agg import (
-    FigureCanvasQTAgg as FigureCanvas,
-    NavigationToolbar2QT as NavigationToolbar)
 
 Ui_MainWindow, QMainWindow = loadUiType('window.ui')
 
+
 class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
 
-    def __init__(self):
+    def __init__(self, parent=None):
         self.index = 0
-        print Ui_MainWindow
-        super(PlotManager, self).__init__()
+        self.parent = parent
+        super(PlotManager, self).__init__(parent)
         self.count = 0
         self.setupUi(self)
         self.objects = {}
@@ -37,7 +26,7 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
         # self.canvas = FigureCanvas(fig)
         # self.toolbar = NavigationToolbar(self.canvas,
         #                                  self.mplwindow, coordinates=True)
-        self.stacked_layout = QtGui.QStackedLayout(self.mplwindow)
+        self.stacked_layout = QtWidgets.QStackedLayout(self.mplwindow)
         #self.stacked_layout.addWidget(self.toolbar)
         self.mplvl.addLayout(self.stacked_layout)
 
@@ -48,10 +37,13 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
         self.stacked_layout.setCurrentIndex(index)
 
     def addfig(self, fig):
+        """
 
+        :type fig: QT_Plotter.QT_Plotter
+        """
         fig.initilize(self)
-        widget = QtGui.QWidget()
-        lay = QtGui.QVBoxLayout(widget)
+        widget = QtWidgets.QWidget()
+        lay = QtWidgets.QVBoxLayout(widget)
         lay.addWidget(fig.toolbar)
         lay.addWidget(fig.canvas)
         self.stacked_layout.addWidget(widget)
@@ -75,14 +67,10 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
         :return:
         """
 
-#        time.sleep(0.1)
-
-
         for key, obj in self.objects.iteritems():
             obj[0].flush()
 
         QtCore.QTimer.singleShot(1, self.refesh)
-
 
     def start(self):
         """

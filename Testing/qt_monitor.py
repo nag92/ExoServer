@@ -1,14 +1,14 @@
-import time
-from PyQt4 import QtGui
+from PyQt5 import QtWidgets
+import sys
+from PyQt5 import QtWidgets
+
 from Communication import Ethernet
-from Managers import SensorManager, PlotManager, FilterManager, RecorderManager
+from Managers import SensorManager, PlotManager, FilterManager
 from QTPlotting import Line_Graph
 from Robot import Robot
-import sys
-
 
 if __name__ == '__main__':
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
     SM = SensorManager.SensorManager()
     FM = FilterManager.FilterManager()

@@ -1,12 +1,11 @@
 import abc
-import matplotlib
-from PyQt4 import QtGui, QtCore
+from matplotlib.backends.backend_qt5agg import (
+    FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+
 from Sensors import Sensor
-from  matplotlib.figure import Figure
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_qt4agg import (
-        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
+
 
 class QT_Plotter(object):
 
@@ -30,8 +29,7 @@ class QT_Plotter(object):
         """
         This function is used to set up the windows
         set up a window to plot
-        :param root: window to put the plot in
-        :param position: where to put the window
+        :param parent: window to put the plot in
         :return: None
         """
         #

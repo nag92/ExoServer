@@ -6,8 +6,8 @@ from PyQt5 import QtWidgets
 import yaml
 
 from Communication import Ethernet
-from Managers import Manager, RecorderManager, FilterManager, SensorManager
-from Plotting import Line_Graph, FSR_BarGraph, CoP_Plotter
+from Managers import Manager, RecorderManager, FilterManager, SensorManager, PlotManager
+from QTPlotting import Line_Graph
 from Robot import Robot
 from UI import Notes
 
@@ -45,10 +45,19 @@ class SessionManager(Manager.Manager):
         self.sensor_names = self.SM.get_sensor_names()
         self.comm = Ethernet.Ethernet()
         self.comm.register_sub(self.SM)
-        #self.SM.register_sub(self.plotter)
+
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)
         self.SM.register_sub(self.recorder)
+        self.plotter = PlotManager.PlotManager()
+        self.SM.register_sub(self.plotter)
+        accel = self.robot.get_accel
+        # gyro = self.robot.get_gyro
+        # pot = self.robot.get_pot
+        # fsr = self.robot.get_fsr
 
+        for key, sensor in accel.items():
+            accel = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
+            self.plotter.addfig(accel)
         # turn off the buttons
         self.in_session = False
         self.recording = False
@@ -145,47 +154,19 @@ class SessionManager(Manager.Manager):
         :param button:
         :return:
         """
-        # TODO: does not work yet
-        print "monitoir"
-        monitor.something_dumb(self.robot, self.SM)
 
-    def make_monitor(self):
+        path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
 
-        for name, sensor in self.SM.get_sensors().iteritems():
-            print sensor.name, sensor.raw_values
+        # for key, sensor in gyro.items():
+        #     gyro = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
+        #     self.plotter.addfig(gyro)
+        #
+        # for key, sensor in gyro.items():
+        #     pot = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
+        #     self.plotter.addfig(pot)
 
-        accel = self.robot.get_accel
-        gyro = self.robot.get_gyro
-        pot = self.robot.get_pot
-        fsr = self.robot.get_fsr
-
-        # print accel
-        self.plotter.add_pane("Accel", (0, 0))
-        self.plotter.add_pane("Gyro", (0, 0))
-        self.plotter.add_pane("Pot", (0, 0))
-        self.plotter.add_pane("FSR", (1, 0))
-        self.plotter.add_pane("CoP", (0, 0))
-
-        for ii, (key, sensor) in enumerate(accel.iteritems()):
-            print type(sensor)
-            accel = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
-            self.plotter.add_window(accel, "Accel", (0, ii))
-
-        for ii, (key, sensor) in enumerate(gyro.iteritems()):
-            gyro = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
-            self.plotter.add_window(gyro, "Gyro", (1, ii))
-
-        for ii, (key, sensor) in enumerate(pot.iteritems()):
-            print sensor
-            item = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
-            self.plotter.add_window(item, "Pot", (2, ii))
-
-        item = FSR_BarGraph.FSR_BarGraph("FSR", fsr.values())
-        self.plotter.add_window(item, "FSR", (2, 6))
-        left_fsr = [fsr["FSR1_Left"], fsr["FSR2_Left"], fsr["FSR3_Left"]]
-        right_fsr = [fsr["FSR1_Right"], fsr["FSR2_Right"], fsr["FSR3_Right"]]
-        item = CoP_Plotter.CoP_Plotter("CoP", left_fsr, right_fsr)
-        self.plotter.add_window(item, "CoP", (3, 0))
+        self.plotter.start()
+        self.plotter.show()
 
     def stop_callback(self):
         """
