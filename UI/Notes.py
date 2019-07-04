@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 class Notes(object):
 
@@ -34,7 +34,7 @@ class Notes(object):
     def save_callback(self,file_name):
         print "saving"
         text = str( self.txtNotes.toPlainText() )
-        file = open(file_name + "notes.txt", "w")
+        file = open(file_name + "_notes.txt", "w")
         file.write(text)
         file.close()
 

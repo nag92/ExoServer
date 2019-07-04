@@ -1,5 +1,6 @@
 import datetime
 import os
+import time
 # from Testing import monitor
 from PyQt5 import QtWidgets
 
@@ -32,7 +33,8 @@ class SessionManager(Manager.Manager):
         self.trial_number = 0
         self.session_name = ""
         self.date = datetime.datetime.now()
-
+        self.start_time = None
+        self.current_milli_time = lambda: int(round(time.time() * 1000))
         path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
         self.SM = SensorManager.SensorManager()
         self.FM = FilterManager.FilterManager()  # btns = None  # type: Dict[Any, QtWidgets.QAbstractButton]
@@ -101,7 +103,7 @@ class SessionManager(Manager.Manager):
         session["LegLength"] = self.txt_boxes["txtLegLength"].toPlainText()
         session["subject"] = self.txt_boxes["txtSubject"].toPlainText()
         session["date"] = self.date
-        session["trials"] = []
+        session["trials"] = {}
 
         # File name to save data too
         self.session_name = "subject_" + str(session["subject"])
@@ -137,10 +139,16 @@ class SessionManager(Manager.Manager):
         trial_name = self.session_name + "_trial_" + str(self.trial_number)
         self.btns["btnRecord"].setStyleSheet("background-color: red")
         self.recorder.new_file(trial_name)
+        self.start_time = self.current_milli_time()
         self.recorder.start_recording()
 
     def setup_monitor(self):
+        """
+        This sets up all the nessary objects for monitoring the sensors
 
+        :return:
+        """
+        # Reg
         self.plotter = PlotManager.PlotManager()
         self.SM.register_sub(self.plotter)
         accel = self.robot.get_accel
@@ -185,6 +193,9 @@ class SessionManager(Manager.Manager):
         increaments the trial number.
         :return:
         """
+
+        self.recorder.stop_recording()
+        dt = self.current_milli_time() - self.start_time
         print "stop"
 
         trial_name = self.session_name + "_trial_" + str(self.trial_number)
@@ -199,12 +210,18 @@ class SessionManager(Manager.Manager):
         self.btns["btnRecord"].setEnabled(True)
         self.btns["btnRecord"].setStyleSheet("background-color: white")
         # stop the recording
-        self.recorder.stop_recording()
+
 
         # update the yaml file
         with open(self.session_name + ".yaml") as f:
             list_doc = yaml.load(f)
-        list_doc["trials"].append(trial_name)
+        current_trial = {}
+        current_trial["dt"] = dt
+        current_trial["number"] = self.trial_number
+        current_trial["output"] = trial_name + ".yaml"
+        current_trial["notes"] = trial_name + "_notes.txt"
+
+        list_doc["trials"][trial_name] = current_trial
         with open(self.session_name + ".yaml", "w") as f:
             yaml.dump(list_doc, f)
         # increament the trial number
