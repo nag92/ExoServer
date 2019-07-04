@@ -65,5 +65,5 @@ class RecorderManager(Manager.Manager):
                 writer = csv.writer(f, delimiter=",")
                 data = []
                 for key, sensor in sensors.iteritems():
-                    data.append(sensor.get_values())
+                    data.append(', '.join(map(str, sensor.get_values())))
                 writer.writerow(data)
