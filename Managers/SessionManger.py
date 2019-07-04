@@ -221,7 +221,7 @@ class SessionManager(Manager.Manager):
         current_trial["output"] = trial_name + ".yaml"
         current_trial["notes"] = trial_name + "_notes.txt"
 
-        list_doc["trials"][trial_name] = current_trial
+        list_doc["trials"][self.trial_number] = current_trial
         with open(self.session_name + ".yaml", "w") as f:
             yaml.dump(list_doc, f)
         # increament the trial number
