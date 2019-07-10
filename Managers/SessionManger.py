@@ -110,7 +110,7 @@ class SessionManager(Manager.Manager):
         path = os.path.dirname(os.path.abspath(__file__))
 
         with open(self.session_name + '.yaml', 'w') as outfile:
-            yaml.dump(session, outfile, default_flow_style=False)
+            yaml.safe_dump(session, outfile, default_flow_style=False)
 
         # Enable buttons
         self.in_session = True
@@ -214,7 +214,7 @@ class SessionManager(Manager.Manager):
 
         # update the yaml file
         with open(self.session_name + ".yaml") as f:
-            list_doc = yaml.load(f)
+            list_doc = yaml.safe_load(f)
         current_trial = {}
         current_trial["dt"] = dt
         current_trial["number"] = self.trial_number
@@ -223,7 +223,7 @@ class SessionManager(Manager.Manager):
 
         list_doc["trials"][self.trial_number] = current_trial
         with open(self.session_name + ".yaml", "w") as f:
-            yaml.dump(list_doc, f)
+            yaml.safe_dump(list_doc, f)
         # increament the trial number
         self.trial_number = self.trial_number + 1
         self.lbls["lblTrialNumber"].setText("Trial " + str(self.trial_number))
