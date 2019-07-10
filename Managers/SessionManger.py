@@ -220,6 +220,7 @@ class SessionManager(Manager.Manager):
         current_trial["number"] = self.trial_number
         current_trial["output"] = trial_name + ".yaml"
         current_trial["notes"] = trial_name + "_notes.txt"
+        current_trial["vicon"] = "vicon_" + trial_name + ".csv"
 
         list_doc["trials"][self.trial_number] = current_trial
         with open(self.session_name + ".yaml", "w") as f:
