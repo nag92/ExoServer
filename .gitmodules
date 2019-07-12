@@ -1,0 +1,3 @@
+[submodule "lib/Exoskeleton"]
+	path = lib/Exoskeleton
+	url = http://nagoldfarb@fischerlab2.wpi.edu:7990/scm/exo/exoskeleton.git
