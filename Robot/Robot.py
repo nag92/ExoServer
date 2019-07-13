@@ -5,9 +5,10 @@ import Leg
 from Filters import BaseFilter
 from Managers import SensorManager, FilterManager
 from Sensors import Accel, Gyro, Pot, FSR, Temperature, IMU
+from lib.Exoskeleton.Robot import ExoskeletonBase, Joint, Leg
 
 
-class Robot(object):
+class Robot(ExoskeletonBase.ExoskeletonBase):
 
     def __init__(self, config_path, SM, FM):
         """
@@ -177,3 +178,31 @@ class Robot(object):
                 data[key] = value
 
         return data
+
+    @property
+    def q(self):
+        pass
+
+    @property
+    def qd(self):
+        pass
+
+    @property
+    def state(self):
+        pass
+
+    def dynamic_model(self, total_mass, height):
+        return super(Robot, self).dynamic_model(total_mass, height)
+
+    def update_joints(self, q, qd):
+        super(Robot, self).update_joints(q, qd)
+
+    def make_foot(self, left_ankle, right_ankle):
+        return super(Robot, self).make_foot(left_ankle, right_ankle)
+
+    @property
+    def fk(self):
+        return super(Robot, self).fk()
+
+    def calculate_dynamics(self, q_d, qd_d, qdd_d):
+        return super(Robot, self).calculate_dynamics(q_d, qd_d, qdd_d)
