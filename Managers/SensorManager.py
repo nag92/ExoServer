@@ -1,5 +1,5 @@
 import Manager
-
+from collections import OrderedDict
 
 class SensorManager(Manager.Manager):
 
@@ -7,9 +7,9 @@ class SensorManager(Manager.Manager):
         """
         """
 
-        self.sensors = {}
+        self.sensors = OrderedDict()
 
-        self.types = {}
+        self.types = OrderedDict()
         # Tread to call the serial read at each time step
         # self.timer = Sensors.RepeatedTimer.RepeatedTimer(0.001, self.update)
         super(SensorManager, self).__init__()
