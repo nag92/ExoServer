@@ -1,11 +1,11 @@
-import Sensor
+from lib.Exoskeleton.SensorBase import FSRBase
 
 
-class FSR(Sensor.Sensor):
+class FSR(FSRBase.FSRBase):
 
     def __init__(self, name, byte_list, side, ):
-        super(FSR, self).__init__(name, byte_list, side)
-        self._type = Sensor.Sensor.FSR
+        super(FSR, self).__init__(name, side)
+        self.byte_list = byte_list
 
     @property
     def offset(self):

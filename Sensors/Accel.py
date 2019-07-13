@@ -1,12 +1,11 @@
-import Sensor
+from lib.Exoskeleton.SensorBase import AccelBase
 
 
-class Accel(Sensor.Sensor):
-
+class Accel(AccelBase.AccelBase):
 
     def __init__(self, name, byte_list, side):
-        super(Accel, self).__init__(name, byte_list, side)
-        self._type = Sensor.Sensor.ACCEl
+        super(Accel, self).__init__(name, side)
+        self.byte_list = byte_list
 
     @property
     def offset(self):

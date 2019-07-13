@@ -1,11 +1,11 @@
-import Sensor
+from lib.Exoskeleton.SensorBase import TempertureBase
 
 
-class Temperature(Sensor.Sensor):
+class Temperature(TempertureBase.TemperatureBase):
 
     def __init__(self, name, byte_list, side):
-        super(Temperature, self).__init__(name, byte_list, side)
-        self._type = Sensor.Sensor.POT
+        self.byte_list = byte_list
+        super(Temperature, self).__init__(name, side)
 
     @property
     def offset(self):

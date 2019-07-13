@@ -1,11 +1,12 @@
-import Sensor
+# import Sensor
+from lib.Exoskeleton.SensorBase import MagBase
 
 
-class Mag(Sensor.Sensor):
+class Mag(MagBase.MagBase):
 
     def __init__(self, name, byte_list, side):
-        super(Mag, self).__init__(name, byte_list, side)
-        self._type = Sensor.Sensor.MAG
+        super(Mag, self).__init__(name, side)
+        self.byte_list = byte_list
 
     @property
     def name(self):

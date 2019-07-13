@@ -46,27 +46,27 @@ for j in xrange(7):
     MESSAGE += msg
 
     for i in xrange(1, 9):
-        msg = struct.pack('h', i)
+        msg = struct.pack('h', i + 0.1)
         print msg
         MESSAGE = MESSAGE + msg
 
 for j in xrange(3):
-    msg = struct.pack('h', j)
+    msg = struct.pack('h', j + 0.1)
     print msg
     MESSAGE = MESSAGE + msg
 
 for j in xrange(3):
-    msg = struct.pack('h', j)
+    msg = struct.pack('h', j + 0.1)
     print msg
     MESSAGE = MESSAGE + msg
 
 for j in xrange(3):
-    msg = struct.pack('h', j)
+    msg = struct.pack('h', j + 0.1)
 
     MESSAGE = MESSAGE + msg
 
 for j in xrange(3):
-    msg = struct.pack('h', j)
+    msg = struct.pack('h', j + 0.1)
     print msg
     MESSAGE = MESSAGE + msg
 

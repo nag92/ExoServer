@@ -1,4 +1,4 @@
-from Sensors import Sensor
+from lib.Exoskeleton.SensorBase import Sensor
 
 
 class Counter(Sensor.Sensor):

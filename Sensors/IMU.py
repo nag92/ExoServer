@@ -3,10 +3,11 @@ import math
 import numpy as np
 
 from Filters import Kalman
-from Sensors import Accel, Gyro, Mag
+# from Sensors import Accel, Gyro, Mag, IMU
+from lib.Exoskeleton.SensorBase import IMUBase
 
 
-class IMU(object):
+class IMU(IMUBase.IMUBase):
 
     def __init__(self, name, accel, gyro, temp, counter=None,rshal=None):
         """
