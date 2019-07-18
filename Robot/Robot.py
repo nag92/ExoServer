@@ -32,9 +32,10 @@ class Robot(ExoskeletonBase.ExoskeletonBase):
         self._sensor_manager = SM
         self._filter_manager = FM
         self._sensor_manager.register_sub(FM)
-        self.__setup_sensors(config_path)
+        self._setup_sensors(config_path)
+        self._setup_robot()
 
-    def __setup_sensors(self, config_path):
+    def _setup_sensors(self, config_path):
         """
         This sets up the sensors and adds it up to the SM
         :param config_path: config yaml file
@@ -71,7 +72,6 @@ class Robot(ExoskeletonBase.ExoskeletonBase):
                     self.sensors[name] = Temperature.Temperature(name, byte_list, side)
                 elif sensor_type == "rshal":
                     pass
-                pass
 
             # set up IMUs
             for name in config:
@@ -95,7 +95,7 @@ class Robot(ExoskeletonBase.ExoskeletonBase):
         for key, sensor in self.sensors.iteritems():
             self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor.name)
 
-    def __setup_robot(self):
+    def _setup_robot(self):
         """
         create all the joints and link in the robot
         :return:
