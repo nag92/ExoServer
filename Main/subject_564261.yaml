@@ -1,0 +1,11 @@
+Age: '12'
+Gender: ''
+Height: ''
+LegLength: ''
+Mass: ''
+date: 2019-07-13 16:40:27.906390
+subject: '564261'
+trials:
+  0: {dt: 2667, notes: subject_564261_trial_0_notes.txt, number: 0, output: subject_564261_trial_0.yaml}
+  1: {dt: 3149, notes: subject_564261_trial_1_notes.txt, number: 1, output: subject_564261_trial_1.yaml}
+  2: {dt: 3491, notes: subject_564261_trial_2_notes.txt, number: 2, output: subject_564261_trial_2.yaml}

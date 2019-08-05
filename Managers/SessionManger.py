@@ -126,6 +126,7 @@ class SessionManager(Manager.Manager):
         # Turn on/off the buttons
         self.btns["btnStop"].setEnabled(True)
         self.btns["btnRecord"].setEnabled(False)
+
         print "record"
         if not self.in_session:
             print "Session not started"
