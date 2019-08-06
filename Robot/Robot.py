@@ -5,7 +5,7 @@ import Leg
 from Filters import BaseFilter
 from Managers import SensorManager, FilterManager
 from Sensors import Accel, Gyro, Pot, FSR, Temperature, IMU
-from lib.Exoskeleton.Robot import ExoskeletonBase, Joint, Leg
+from lib.Exoskeleton.Robot import ExoskeletonBase, Joint
 
 
 class Robot(ExoskeletonBase.ExoskeletonBase):
@@ -76,18 +76,20 @@ class Robot(ExoskeletonBase.ExoskeletonBase):
             # set up IMUs
             for name in config:
                 item = config[name]
-                if name == "IMU":
+                if "IMU" in name:
                     accel = item.get("accel")
                     gyro = item.get("gyro")
                     temp = item.get("temp")
                     counter = item.get("counter")
                     rshal = item.get("rshal")
+                    print name
                     imu = IMU.IMU(name,
                                   self.sensors[accel],
                                   self.sensors[gyro],
                                   self.sensors[temp],
-                                  self.sensors[counter],
-                                  self.sensors[rshal])
+                                  None,
+                                  None)
+
 
                     self._imus[name] = imu
             self._sensor_manager.registar_all_sensors(self.sensors.values())
