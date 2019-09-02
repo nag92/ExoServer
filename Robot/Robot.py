@@ -5,9 +5,10 @@ import Leg
 from Filters import BaseFilter
 from Managers import SensorManager, FilterManager
 from Sensors import Accel, Gyro, Pot, FSR, Temperature, IMU
+from lib.Exoskeleton.Robot import ExoskeletonBase, Joint
 
 
-class Robot(object):
+class Robot(ExoskeletonBase.ExoskeletonBase):
 
     def __init__(self, config_path, SM, FM):
         """
@@ -31,9 +32,10 @@ class Robot(object):
         self._sensor_manager = SM
         self._filter_manager = FM
         self._sensor_manager.register_sub(FM)
-        self.__setup_sensors(config_path)
+        self._setup_sensors(config_path)
+        self._setup_robot()
 
-    def __setup_sensors(self, config_path):
+    def _setup_sensors(self, config_path):
         """
         This sets up the sensors and adds it up to the SM
         :param config_path: config yaml file
@@ -70,23 +72,24 @@ class Robot(object):
                     self.sensors[name] = Temperature.Temperature(name, byte_list, side)
                 elif sensor_type == "rshal":
                     pass
-                pass
 
             # set up IMUs
             for name in config:
                 item = config[name]
-                if name == "IMU":
+                if "IMU" in name:
                     accel = item.get("accel")
                     gyro = item.get("gyro")
                     temp = item.get("temp")
                     counter = item.get("counter")
                     rshal = item.get("rshal")
+                    print name
                     imu = IMU.IMU(name,
                                   self.sensors[accel],
                                   self.sensors[gyro],
                                   self.sensors[temp],
-                                  self.sensors[counter],
-                                  self.sensors[rshal])
+                                  None,
+                                  None)
+
 
                     self._imus[name] = imu
             self._sensor_manager.registar_all_sensors(self.sensors.values())
@@ -94,7 +97,7 @@ class Robot(object):
         for key, sensor in self.sensors.iteritems():
             self._filter_manager.registar([BaseFilter.BaseFilter(sensor)], sensor.name)
 
-    def __setup_robot(self):
+    def _setup_robot(self):
         """
         create all the joints and link in the robot
         :return:
@@ -177,3 +180,31 @@ class Robot(object):
                 data[key] = value
 
         return data
+
+    @property
+    def q(self):
+        pass
+
+    @property
+    def qd(self):
+        pass
+
+    @property
+    def state(self):
+        pass
+
+    def dynamic_model(self, total_mass, height):
+        return super(Robot, self).dynamic_model(total_mass, height)
+
+    def update_joints(self, q, qd):
+        super(Robot, self).update_joints(q, qd)
+
+    def make_foot(self, left_ankle, right_ankle):
+        return super(Robot, self).make_foot(left_ankle, right_ankle)
+
+    @property
+    def fk(self):
+        return super(Robot, self).fk()
+
+    def calculate_dynamics(self, q_d, qd_d, qdd_d):
+        return super(Robot, self).calculate_dynamics(q_d, qd_d, qdd_d)

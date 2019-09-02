@@ -6,7 +6,7 @@ from PyQt5 import QtWidgets
 
 import yaml
 
-from Communication import Ethernet
+from Communication import Ethernet,Serial
 from Managers import Manager, RecorderManager, FilterManager, SensorManager, PlotManager
 from QTPlotting import Line_Graph, FSR_BarGraph, CoP_Plotter
 from Robot import Robot

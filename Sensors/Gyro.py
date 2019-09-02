@@ -1,10 +1,11 @@
-import Sensor
+from lib.Exoskeleton.SensorBase import GyroBase, Sensor
 
 
-class Gyro(Sensor.Sensor):
+class Gyro(GyroBase.GyroBase):
 
     def __init__(self, name, byte_list, side):
-        super(Gyro, self).__init__(name, byte_list, side)
+        super(Gyro, self).__init__(name, side)
+        self.byte_list = byte_list
         self._type = Sensor.Sensor.GYRO
 
     @property

@@ -23,15 +23,6 @@ import socket
 import struct
 import time
 
-host = ''  # Symbolic name meaning all available interfaces
-port = 12345  # Arbitrary non-privileged port
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((host, port))
-
-print host, port
-s.listen(1)
-conn, addr = s.accept()
-print('Connected by', addr)
 
 MESSAGE = ''
 msg = struct.pack('B', 1)
@@ -51,26 +42,38 @@ for j in xrange(7):
         MESSAGE = MESSAGE + msg
 
 for j in xrange(3):
-    msg = struct.pack('h', j)
+    msg = struct.pack('h', j + 0.1)
     print msg
     MESSAGE = MESSAGE + msg
 
 for j in xrange(3):
-    msg = struct.pack('h', j)
+    msg = struct.pack('h', j + 0.1)
     print msg
     MESSAGE = MESSAGE + msg
 
 for j in xrange(3):
-    msg = struct.pack('h', j)
+    msg = struct.pack('h', j + 0.1)
 
     MESSAGE = MESSAGE + msg
 
 for j in xrange(3):
-    msg = struct.pack('h', j)
+    msg = struct.pack('h', j + 0.1)
     print msg
     MESSAGE = MESSAGE + msg
 
+print "asldjf"
 print MESSAGE
+
+host = ''  # Symbolic name meaning all available interfaces
+port = 12345  # Arbitrary non-privileged port
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((host, port))
+
+print host, port
+s.listen(1)
+conn, addr = s.accept()
+print('Connected by', addr)
+
 while True:
 
     try:
@@ -84,6 +87,7 @@ while True:
             # MESSAGE.append()
             while 1:
                 # data = conn.recv(2048)
+                print MESSAGE
                 conn.sendall(MESSAGE)
                 time.sleep(0.001)
 
