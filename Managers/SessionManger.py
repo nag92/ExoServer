@@ -1,3 +1,6 @@
+from os import sys, path
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
 import datetime
 import os
 import time
@@ -35,10 +38,11 @@ class SessionManager(Manager.Manager):
         self.date = datetime.datetime.now()
         self.start_time = None
         self.current_milli_time = lambda: int(round(time.time() * 1000))
-        path = "/home/nathaniel/git/exoserver/Config/sensor_list.yaml"
+        path = "Config/sensor_list.yaml"
         self.SM = SensorManager.SensorManager()
         self.FM = FilterManager.FilterManager()  # btns = None  # type: Dict[Any, QtWidgets.QAbstractButton]
         #
+
 
         # set up Managers
         self.SM.register_sub(self.FM)
@@ -92,7 +96,7 @@ class SessionManager(Manager.Manager):
         a yaml file
         :return: None
         """
-        print "session"
+
 
         # Get the data from the textboxes
         session = {}
@@ -244,6 +248,7 @@ class SessionManager(Manager.Manager):
         port = int(self.txt_boxes["txtPort"].toPlainText())
         print host
         print port
-        self.comm.setup(host, port)
+        #self.comm.setup(host, port)
+        self.comm.setup(port)
         self.comm.start()
         self.connected = self.comm.connected

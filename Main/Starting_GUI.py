@@ -1,19 +1,5 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'UI/Subject_Tester.ui'
-#
-# Created by: PyQt5 UI code generator 5.5.1
-#
-
-"""
-This file is used to bring up the GUI to run a trial. It implements
-The QT interface and the Session Manager to bring up a main window to control everything.
-
-It will create yaml file for the subject and connect to the exoskeleton
-to record the sensor output. It will save the date named CSV files and referanced
-in the yaml file. The record button is used to record muiplyy trials using the stop button.
-to end a trial.
-"""
+from os import sys, path
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from PyQt5 import QtCore, QtWidgets
 
