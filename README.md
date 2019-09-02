@@ -13,7 +13,16 @@
 5. pyyaml: ```pip install pyyaml```
 
 
-# Quick Start
+## setup
+
+```
+git clone http://nagoldfarb@fischerlab2.wpi.edu:7990/scm/exo/exoserver.git
+cd exoserver
+git submodule init
+git submodule update
+```
+
+## Quick Start
 
 1. Connect the device to the computer
 2. From the root of the exoserver folder: ```python Main/Starting_GUI.py```
