@@ -75,7 +75,7 @@ class Serial(CommunicationManager.CommunicationManager):
         # check is data is avaible and the correct length, this has to be updated with the
         # correct check method
 
-        if data and len(data) == 159:
+        if data and len(data) == 162 or data and len(data) == 159:
             return data
         else:
             return None
