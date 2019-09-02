@@ -3,7 +3,7 @@ import abc
 import threading
 
 import Manager
-
+import time
 
 class CommunicationManager(Manager.Manager):
 
@@ -91,6 +91,7 @@ class CommunicationManager(Manager.Manager):
         while 1:
             # only read if connected
             if self.connected:
+
                 raw_data = self.read_port()
                 # if there is data then send it to the listeners
                 if raw_data is not None:

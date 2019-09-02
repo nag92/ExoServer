@@ -1,4 +1,6 @@
-# import modules that I'm using
+from os import sys, path
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
 import matplotlib
 
 matplotlib.use('TKAgg')
@@ -9,7 +11,7 @@ from PyQt5.uic import loadUiType
 from PyQt5 import QtCore, QtWidgets
 from matplotlib.figure import Figure
 
-Ui_MainWindow, QMainWindow = loadUiType('window.ui')
+Ui_MainWindow, QMainWindow = loadUiType('Managers/window.ui')
 
 
 class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):

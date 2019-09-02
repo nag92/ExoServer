@@ -86,7 +86,7 @@ class SerialManager(Manager.Manager):
 
         while self.connected:
 
-            if self.serial_port.in_waiting > 0:
+            if self.serial_port.inWaiting() > 0:
                 # store the data in the queue
-                self._data.put(self.serial_port.readline().decode())
+                self._data.put(self.serial_port.readline())
                 #self.notify_observers()
