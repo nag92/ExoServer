@@ -6,7 +6,7 @@ from PyQt5 import QtWidgets
 
 import yaml
 
-from Communication import Ethernet,Serial
+from Communication import Ethernet, Serial
 from Managers import Manager, RecorderManager, FilterManager, SensorManager, PlotManager
 from QTPlotting import Line_Graph, FSR_BarGraph, CoP_Plotter
 from Robot import Robot
@@ -45,7 +45,7 @@ class SessionManager(Manager.Manager):
         # self.plotter = PlotManager.PlotManager()
         self.robot = Robot.Robot(path, self.SM, self.FM)
         self.sensor_names = self.SM.get_sensor_names()
-        self.comm = Ethernet.Ethernet()
+        self.comm = Serial.Serial() #Ethernet.Ethernet()
         self.comm.register_sub(self.SM)
 
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)

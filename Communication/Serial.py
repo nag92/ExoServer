@@ -2,31 +2,22 @@ import socket
 
 from Managers import CommunicationManager
 import serial
+import time
 
 class Serial(CommunicationManager.CommunicationManager):
     """
     implements the communucation class
     """
 
-    def __init__(self, port):
+    def __init__(self, port="/dev/ACM0"):
         """
 
         :param host: name of host
         :param port: name of port
         """
-        self.port = [port]
+        self.port = port
         self.conn = None
         super(Serial, self).__init__()
-
-    # def setup(self):
-    #     """
-    #     set up the communication server
-    #     :return:
-    #     """
-    #
-    #     self._server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #     self._server.connect((self.host, self.port))
-    #     self._server.sendall(b'hello')  # need to send a message to start
 
     def setup(self, port="/dev/ACM0"):
         """
@@ -71,7 +62,10 @@ class Serial(CommunicationManager.CommunicationManager):
         :return:
         """
         # get the data
-        data = self._server.readline()
+        data = None
+        time.sleep(46 / 1000000.0)
+        if self._server.inWaiting() >  0:
+            data = self._server.readline()
         # check is data is avaible and the correct length, this has to be updated with the
         # correct check method
 
@@ -82,4 +76,9 @@ class Serial(CommunicationManager.CommunicationManager):
 
 
     def send(self, msg):
-        raise NotImplementedError
+        """
+
+        :param msg: data to be sent
+        :return: None:q
+        """
+        self._server.write(msg)
