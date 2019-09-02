@@ -1,15 +1,11 @@
 import time
 
-from Managers.SerialManager import SerialListener
+from Managers import SerialManager
 
-serial = SerialListener("/dev/ttyS4", 9600)
-
-for i in xrange(3):
-    serial.get_data
-    time.sleep(1)
-
+serial = SerialManager.SerialManager("/dev/ttyACM2", 9600)
+serial.connect()
 serial.start()
 
-for i in xrange(3):
-    serial.get_data
-    time.sleep(1)
+while 1:
+    if serial.have_data():
+        print serial.get_data()

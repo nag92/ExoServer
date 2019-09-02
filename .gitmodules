@@ -1,3 +1,6 @@
 [submodule "lib/Exoskeleton"]
 	path = lib/Exoskeleton
 	url = http://nagoldfarb@fischerlab2.wpi.edu:7990/scm/exo/exoskeleton.git
+[submodule "lib/lib/Plotting_Tools"]
+	path = lib/lib/Plotting_Tools
+	url = http://nagoldfarb@fischerlab2.wpi.edu:7990/scm/exo/plotting_tools.git

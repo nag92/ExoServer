@@ -8,7 +8,7 @@ import serial
 
 class SerialManager(Manager.Manager):
 
-    def __init__(self, port, baud):
+    def __init__(self, port="/dev/tty/AMC0", baud=9600):
         """
         Handles the serial communication with a device and decodes the serial stream
 
@@ -38,12 +38,12 @@ class SerialManager(Manager.Manager):
         """
         self.thread.start()
 
-    def connect(self, SM):
+    def connect(self):
         """
         Connect to the device.
         :return:
         """
-        self.register_observer(SM)
+        #self.register_observer(SM)
         self.connected = True
 
     def disconnect(self):
@@ -69,6 +69,14 @@ class SerialManager(Manager.Manager):
         """
         return self._data.get()
 
+    def write_data(self, data):
+        """
+
+        :param data: data to be written
+        :return:
+        """
+        self.serial_port.write(data)
+
     def read(self):
         """
         Continuely read from the serial port and stores the reading
@@ -76,11 +84,9 @@ class SerialManager(Manager.Manager):
         :return:
         """
 
-        while not self.connected:
+        while self.connected:
 
             if self.serial_port.in_waiting > 0:
-                ts = datetime.datetime.now().timestamp()
-                # vF, = struct.unpack('<f', data)
                 # store the data in the queue
                 self._data.put(self.serial_port.readline().decode())
-                self.notify_observers()
+                #self.notify_observers()

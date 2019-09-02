@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/lib/Exoskeleton" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lib/Exoskeleton/Plotting_Tools" vcs="Git" />
   </component>
 </project>
