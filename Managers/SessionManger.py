@@ -245,10 +245,10 @@ class SessionManager(Manager.Manager):
         self.btns["btnConnect"].setEnabled(False)
         self.btns["btnOpenMonitor"].setEnabled(True)
         host = self.txt_boxes["txtHost"].toPlainText()
-        port = int(self.txt_boxes["txtPort"].toPlainText())
+        port = self.txt_boxes["txtPort"].toPlainText()
         print host
         print port
         #self.comm.setup(host, port)
-        self.comm.setup(port)
+        self.comm.setup(baud=int(host), port=port)
         self.comm.start()
         self.connected = self.comm.connected

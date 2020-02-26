@@ -93,6 +93,7 @@ class CommunicationManager(Manager.Manager):
             if self.connected:
 
                 raw_data = self.read_port()
+                print "raw data ", raw_data
                 # if there is data then send it to the listeners
                 if raw_data is not None:
                     data = bytearray(raw_data)

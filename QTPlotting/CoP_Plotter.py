@@ -16,7 +16,7 @@ class CoP_Plotter(QT_Plotter):
         self.name = name
         self.left_locations = [[103, 56], [44, 73], [72, 294]]
         self.right_locations = [[192, 55], [250, 72], [223, 293]]
-        self.img = mpimg.imread("/home/nathaniel/git/exoserver/images/AFO_Foot_Sensor.png")
+        self.img = mpimg.imread("images/AFO_Foot_Sensor.png")
         super(CoP_Plotter, self).__init__(object, name)
 
     def initilize(self, parent):
