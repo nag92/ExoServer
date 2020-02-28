@@ -4,14 +4,6 @@ from serial import Serial
 import threading
 
 
-
-
-
-
-
-
-
-
 # import binascii
 # import socket
 # import struct
@@ -82,13 +74,10 @@ master,slave = pty.openpty() #open the pseudoterminal
 s_name = os.ttyname(slave) #translate the slave fd to a filename
 
 
-
-
-
 while 1:
     # data = conn.recv(2048)
     #print MESSAGE
-    os.write(master, MESSAGE+'\r\n')
+    os.write(master, MESSAGE+'\n')
     print s_name
     time.sleep(0.1)
 

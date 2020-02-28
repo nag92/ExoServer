@@ -25,8 +25,8 @@ class Serial(CommunicationManager.CommunicationManager):
         :return:
         """
         self.port = port
-        self._server = serial.Serial(port="/dev/pts/1",
-                                     baudrate=2400,
+        self._server = serial.Serial(port=port,
+                                     baudrate=int(baud),
                                      timeout=1,
                                      parity=serial.PARITY_EVEN,
                                      bytesize=serial.EIGHTBITS)
@@ -65,12 +65,13 @@ class Serial(CommunicationManager.CommunicationManager):
         # get the data
         data = None
         #time.sleep(46.0 / 1000000.0)
-        if self._server.inWaiting() > 0:
-            data = self._server.readline()
-        print "I got ", data
+        # if self._server.inWaiting() > 0:
+        #     data = self._server.readline()
+        data = self._server.readline()
+        print "I got ", len(data)
         # check is data is avaible and the correct length, this has to be updated with the
         # correct check method
-
+        return data
         if data and len(data) == 162 or data and len(data) == 159:
             return data
         else:

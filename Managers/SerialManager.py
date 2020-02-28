@@ -5,7 +5,9 @@ import Manager
 import Queue
 import serial
 
-
+"""
+OLD DO NOT USE
+"""
 class SerialManager(Manager.Manager):
 
     def __init__(self, port="/dev/tty/AMC0", baud=9600):

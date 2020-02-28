@@ -249,6 +249,6 @@ class SessionManager(Manager.Manager):
         print host
         print port
         #self.comm.setup(host, port)
-        self.comm.setup(baud=int(host), port=port)
+        self.comm.setup(baud=host, port=port)
         self.comm.start()
         self.connected = self.comm.connected
