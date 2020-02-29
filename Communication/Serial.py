@@ -64,7 +64,7 @@ class Serial(CommunicationManager.CommunicationManager):
         """
         # get the data
         data = None
-        #time.sleep(46.0 / 1000000.0)
+        time.sleep(46.0 / 1000000.0)
         # if self._server.inWaiting() > 0:
         #     data = self._server.readline()
         data = self._server.readline()
