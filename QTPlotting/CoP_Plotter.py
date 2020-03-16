@@ -73,4 +73,7 @@ class CoP_Plotter(QT_Plotter):
             centerX += fsr.get_values()[0] * loc[0]
             centerY += fsr.get_values()[0] * loc[1]
 
-        return [centerX / total_force, centerY / total_force]
+        if total_force == 0:
+            return [0.0, 0.0]
+        else:
+            return [centerX / total_force, centerY / total_force]

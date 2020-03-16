@@ -1,6 +1,6 @@
 import Queue
 import abc
-
+import binascii
 
 class Sensor(object):
 
@@ -229,4 +229,19 @@ class Sensor(object):
         :type block2: byte
         :return:
         """
-        return block1 | block2 << 8
+
+        a = self.binbits(int(binascii.hexlify(block1), 16), 8)
+        b = self.binbits(int(binascii.hexlify(block2), 16), 8)
+        c = 3.3*int('0b' + a[0:4] + b,2)/4095.0
+
+        return c
+
+    def binbits(self, x, n):
+        """Return binary representation of x with at least n bits"""
+        bits = bin(x).split('b')[1]
+        if len(bits) < n:
+            ans = '0' * (n - len(bits)) + bits
+        else:
+            ans = bits
+
+        return ans

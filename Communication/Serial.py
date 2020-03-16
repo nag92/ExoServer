@@ -3,6 +3,7 @@ import socket
 from Managers import CommunicationManager
 import serial
 import time
+import
 
 class Serial(CommunicationManager.CommunicationManager):
     """
@@ -19,7 +20,7 @@ class Serial(CommunicationManager.CommunicationManager):
         self.conn = None
         super(Serial, self).__init__()
 
-    def setup(self, baud=19200, port="/dev/ACM0"):
+    def setup(self, baud=19200, port="/dev/ttyUSB0"):
         """
         set up the communication server
         :return:
@@ -27,10 +28,8 @@ class Serial(CommunicationManager.CommunicationManager):
         self.port = port
         self._server = serial.Serial(port=port,
                                      baudrate=int(baud),
-                                     timeout=1,
                                      parity=serial.PARITY_EVEN,
                                      bytesize=serial.EIGHTBITS)
-
 
     def start(self):
         """
@@ -63,19 +62,12 @@ class Serial(CommunicationManager.CommunicationManager):
         :return:
         """
         # get the data
-        data = None
-        time.sleep(46.0 / 1000000.0)
-        # if self._server.inWaiting() > 0:
-        #     data = self._server.readline()
-        data = self._server.readline()
-        print "I got ", len(data)
-        # check is data is avaible and the correct length, this has to be updated with the
-        # correct check method
-        return data
-        if data and len(data) == 162 or data and len(data) == 159:
-            return data
-        else:
-            return None
+        data = []
+
+        if self._server.inWaiting() > 0:
+            data = self._server.readline()
+            if len(data) > 162:
+                return data
 
 
     def send(self, msg):

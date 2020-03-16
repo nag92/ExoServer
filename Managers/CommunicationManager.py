@@ -91,12 +91,12 @@ class CommunicationManager(Manager.Manager):
         while 1:
             # only read if connected
             if self.connected:
-
+                time.sleep(39 * 10 ** (-6))
                 raw_data = self.read_port()
-                print "raw data ", raw_data
                 # if there is data then send it to the listeners
                 if raw_data is not None:
                     data = bytearray(raw_data)
+                    print "byte0 ",  data[162]
                     self._incoming_messages.put(data)
                     self.publisher.publish(self._incoming_messages)  # publish the data
 
