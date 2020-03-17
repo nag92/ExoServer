@@ -4,6 +4,7 @@ import threading
 
 import Manager
 import time
+import binascii
 
 class CommunicationManager(Manager.Manager):
 
@@ -93,15 +94,41 @@ class CommunicationManager(Manager.Manager):
             if self.connected:
                 time.sleep(39 * 10 ** (-6))
                 raw_data = self.read_port()
-                # if there is data then send it to the listeners
                 if raw_data is not None:
-                    data = bytearray(raw_data)
-                    print "byte0 ",  data[162]
-                    self._incoming_messages.put(data)
-                    self.publisher.publish(self._incoming_messages)  # publish the data
+                    if len(raw_data) > 162 and raw_data[0] == "X" and raw_data[1] == "O":
+                        self._incoming_messages.put(raw_data)
+                        self.publisher.publish(self._incoming_messages)  # publish the data
+                        #print self.parse(raw_data[153], raw_data[154])
 
 
     @abc.abstractmethod
     def send(self, msg):
         pass
 
+    ### REMOVE  AFTER TESTING
+    def parse(self, block1, block2):
+        """
+        convers the bytes to a decimal value
+
+        :param block1: byte 1
+        :param block2: byte 2
+        :type block1: byte
+        :type block2: byte
+        :return:
+        """
+
+        a = self.binbits(int(binascii.hexlify(block1), 16), 8)
+        b = self.binbits(int(binascii.hexlify(block2), 16), 8)
+        c = 3.3*int('0b' + a[0:4] + b, 2) / 4095
+
+        return c
+
+    def binbits(self, x, n):
+        """Return binary representation of x with at least n bits"""
+        bits = bin(x).split('b')[1]
+        if len(bits) < n:
+            ans = '0' * (n - len(bits)) + bits
+        else:
+            ans = bits
+
+        return ans

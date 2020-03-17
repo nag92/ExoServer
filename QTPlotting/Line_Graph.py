@@ -31,11 +31,11 @@ class Line_Graph(QT_Plotter):
         :param position: position in window to put the plot
         :return: None
         """
-        print "init"
+        print "init line graph " + self.name
         for ii in xrange(self.num):
             line, = self.ax.plot([], [], self.colors[ii], lw=2)
             self.lines.append(line)
-
+        self.ax.set_ylim(bottom=0.0, top=3.3, auto=False)
         self.ax.legend(self.labels, loc='upper left')
 
         super(Line_Graph, self).initilize(parent)

@@ -25,9 +25,9 @@ class Accel(AccelBase.AccelBase):
         :return:
         """
         values = 3 * [0]
-        values[0] = self.parse(block1=blocks[4], block2=blocks[5])
-        values[1] = self.parse(block1=blocks[2], block2=blocks[3])
-        values[2] = self.parse(block1=blocks[0], block2=blocks[1])
+        # values[0] = self.parse(block1=blocks[4], block2=blocks[5])
+        # values[1] = self.parse(block1=blocks[2], block2=blocks[3])
+        # values[2] = self.parse(block1=blocks[0], block2=blocks[1])
         self.raw_values = values
 
     def parse(self, block1, block2):

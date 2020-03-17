@@ -21,7 +21,7 @@ class FSR_BarGraph(QT_Plotter):
         :return: None
         """
 
-        self.ax.set_ylim([0, 1])
+        self.ax.set_ylim([0, 3.3])
         self.bars = self.ax.bar(self.num_bars, [0] * len(self.num_bars), align='center', alpha=0.5)
         super(FSR_BarGraph, self).initilize(parent)
 

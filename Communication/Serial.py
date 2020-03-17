@@ -3,7 +3,7 @@ import socket
 from Managers import CommunicationManager
 import serial
 import time
-import
+
 
 class Serial(CommunicationManager.CommunicationManager):
     """
@@ -66,8 +66,7 @@ class Serial(CommunicationManager.CommunicationManager):
 
         if self._server.inWaiting() > 0:
             data = self._server.readline()
-            if len(data) > 162:
-                return data
+            return data
 
 
     def send(self, msg):
