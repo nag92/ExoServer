@@ -70,13 +70,13 @@ for j in xrange(3):
 print "asldjf"
 print MESSAGE
 
-master,slave = pty.openpty() #open the pseudoterminal
+master, slave = pty.openpty() #open the pseudoterminal
 s_name = os.ttyname(slave) #translate the slave fd to a filename
 
 
 while 1:
     # data = conn.recv(2048)
-    #print MESSAGE
+    print MESSAGE
     os.write(master, MESSAGE+'\n')
     print s_name
     time.sleep(0.1)

@@ -246,7 +246,7 @@ class Ui_MainWindow(SessionManger.SessionManager):
         self.lblSubject.setText(_translate("MainWindow", "Subject number"))
         self.lblheight.setText(_translate("MainWindow", "Height"))
         self.lblLegLength.setText(_translate("MainWindow", "Leg Length"))
-        self.lblost.setText(_translate("MainWindow", "host"))
+        self.lblost.setText(_translate("MainWindow", "Baud"))
         self.lblPort.setText(_translate("MainWindow", "port"))
         self.btnStartSession.setText(_translate("MainWindow", "Start Session"))
         self.btnOpenMonitor.setText(_translate("MainWindow", "open monitor"))

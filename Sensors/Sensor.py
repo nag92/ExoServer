@@ -233,8 +233,8 @@ class Sensor(object):
         a = self.binbits(int(binascii.hexlify(block1), 16), 8)
         b = self.binbits(int(binascii.hexlify(block2), 16), 8)
         c = 3.3*int('0b' + a[0:4] + b, 2)/4095.0
-
-        return c
+        #return c
+        return block1 | block2 << 8
 
     def binbits(self, x, n):
         """Return binary representation of x with at least n bits"""

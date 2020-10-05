@@ -94,11 +94,12 @@ class CommunicationManager(Manager.Manager):
             if self.connected:
                 time.sleep(39 * 10 ** (-6))
                 raw_data = self.read_port()
+
                 if raw_data is not None:
-                    if len(raw_data) > 162 and raw_data[0] == "X" and raw_data[1] == "O":
-                        self._incoming_messages.put(raw_data)
-                        self.publisher.publish(self._incoming_messages)  # publish the data
-                        #print self.parse(raw_data[153], raw_data[154])
+                    #if len(raw_data) > 162 and raw_data[0] == "X" and raw_data[1] == "O":
+                    self._incoming_messages.put(raw_data)
+                    self.publisher.publish(self._incoming_messages)  # publish the data
+                    print self.parse(raw_data[153], raw_data[154])
 
 
     @abc.abstractmethod
