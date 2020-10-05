@@ -3,12 +3,12 @@ import csv
 import Manager
 
 
-class RecorderManager(Manager.Manager):
+class LoggerManager(Manager.Manager):
 
-    def __init__(self, sensor_names, name=None):
-        super(RecorderManager, self).__init__()
+    def __init__(self, name=None ):
+        super(LoggerManager, self).__init__()
         self._recording = False
-        self.sensor_names = sensor_names
+
         if name is None:
             self._recording = False
         else:
@@ -49,22 +49,21 @@ class RecorderManager(Manager.Manager):
             """
             RuntimeError("IN THE MIDDLE OF RECORDING")
             return
-        print name
         self._name = name + ".csv"
         with open(self._name, "a") as f:
             writer = csv.writer(f, delimiter=",")
-            writer.writerow(self.sensor_names)
 
-    def update(self, sensors):
+
+    def update(self, raw_signal):
         """
         write values the the CSV file
         :type sensors: dict
         """
+
         if self.recording:
-            print("recording")
+
+            #print(raw_signal.get())
+            print(type(raw_signal))
             with open(self._name, "a") as f:
                 writer = csv.writer(f, delimiter=",")
-                data = []
-                for key, sensor in sensors.iteritems():
-                    data.append(', '.join(map(str, sensor.get_values())))
-                writer.writerow(data)
+                writer.writerow([5,5,4,3,4,4])

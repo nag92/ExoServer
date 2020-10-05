@@ -10,7 +10,7 @@ from PyQt5 import QtWidgets
 import yaml
 
 from Communication import Ethernet, Serial
-from Managers import Manager, RecorderManager, FilterManager, SensorManager, PlotManager
+from Managers import Manager, RecorderManager, FilterManager, SensorManager, PlotManager, LoggerManager
 from QTPlotting import Line_Graph, FSR_BarGraph, CoP_Plotter
 from Robot import Robot
 from UI import Notes
@@ -54,6 +54,8 @@ class SessionManager(Manager.Manager):
         self.comm.register_sub(self.SM)
 
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)
+        #self.logger = LoggerManager.LoggerManager()
+        self.comm.register_sub(self.logger)
         self.SM.register_sub(self.recorder)
         self.setup_monitor()
         # turn off the buttons
@@ -142,12 +144,16 @@ class SessionManager(Manager.Manager):
             return
 
         # Use the recording manager to save the sensors too.
+
         trial_name = self.session_name + "_trial_" + str(self.trial_number)
+        log_name = self.session_name + "_trial_log_" +  str(self.trial_number)
         self.btns["btnRecord"].setStyleSheet("background-color: red")
         self.recorder.new_file(trial_name)
+        #self.logger.new_file(log_name)
         self.start_time = self.current_milli_time()
         self.arduino.send(str(1))
         self.recorder.start_recording()
+        self.logger.start_recording()
 
     def setup_monitor(self):
         """
@@ -201,8 +207,9 @@ class SessionManager(Manager.Manager):
         :return:
         """
 
-        self.arduino.send(str(0))
+        #self.arduino.send(str(0))
         self.recorder.stop_recording()
+        #self.logger.stop_recording()
         dt = self.current_milli_time() - self.start_time
         print "stop"
 

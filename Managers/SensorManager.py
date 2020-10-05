@@ -65,11 +65,14 @@ class SensorManager(Manager.Manager):
         :return:
         """
         data = packet.get()
+        print("sensors")
+
         # # put the raw packets in the sensors
         for key, sensor in self.sensors.iteritems():
             start, stop = sensor.byte_list
             packet = data[start - 1:stop]
             sensor.packet = packet
+            print(packet)
         self.publisher.publish(self.sensors)
 
     def get_sensor_names(self):
