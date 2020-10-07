@@ -61,7 +61,6 @@ class RecorderManager(Manager.Manager):
         :type sensors: dict
         """
         if self.recording:
-            print("recording")
             with open(self._name, "a") as f:
                 writer = csv.writer(f, delimiter=",")
                 data = []

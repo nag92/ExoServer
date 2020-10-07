@@ -1,7 +1,7 @@
 import csv
 
 import Manager
-
+import binascii
 
 class LoggerManager(Manager.Manager):
 
@@ -54,7 +54,7 @@ class LoggerManager(Manager.Manager):
             writer = csv.writer(f, delimiter=",")
 
 
-    def update(self, raw_signal):
+    def update(self, packet):
         """
         write values the the CSV file
         :type sensors: dict
@@ -62,8 +62,8 @@ class LoggerManager(Manager.Manager):
 
         if self.recording:
 
-            #print(raw_signal.get())
-            print(type(raw_signal))
+            data = packet
+
             with open(self._name, "a") as f:
                 writer = csv.writer(f, delimiter=",")
-                writer.writerow([5,5,4,3,4,4])
+                writer.writerow(data)
