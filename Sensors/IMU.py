@@ -121,3 +121,18 @@ class IMU(IMUBase.IMUBase):
         self.kalman[imu_axis].move(gyro, accel)
         state = self.kalman[imu_axis].getState()
         return state
+
+    def _raw_value_setter(self, blocks):
+        """
+        Fills in the components of the array
+        :param blocks: byte array+
+        :return:
+        """
+        values = [0]
+        values[0] = self.parse(block1=blocks[0], block2=blocks[1])
+
+        self.raw_values = values
+
+    def parse(self, block1, block2):
+        data = super(IMU, self).parse(block1, block2)
+        return data

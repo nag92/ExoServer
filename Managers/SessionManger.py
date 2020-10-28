@@ -136,13 +136,13 @@ class SessionManager(Manager.Manager):
         self.btns["btnStop"].setEnabled(True)
         self.btns["btnRecord"].setEnabled(False)
 
-        print "record"
+        print("record")
         if not self.in_session:
-            print "Session not started"
+            print("Session not started")
             return
 
         if self.recorder.recording:
-            print "In the middle of recording. Stop the trial first then you can start again"
+            print("In the middle of recording. Stop the trial first then you can start again")
             return
 
         # Use the recording manager to save the sensors too.
@@ -213,7 +213,7 @@ class SessionManager(Manager.Manager):
         self.recorder.stop_recording()
         self.logger.stop_recording()
         dt = self.current_milli_time() - self.start_time
-        print "stop"
+        print("stop")
 
         trial_name = self.session_name + "_trial_" + str(self.trial_number)
 
@@ -253,11 +253,22 @@ class SessionManager(Manager.Manager):
         boxes to connect.
         :return:
         """
-        print "connect"
+        print("connect")
         self.btns["btnConnect"].setEnabled(False)
         self.btns["btnOpenMonitor"].setEnabled(True)
+
         baud = self.txt_boxes["txtHost"].toPlainText()
         port = self.txt_boxes["txtPort"].toPlainText()
+
+
+        if baud == "":
+            baud = 19200
+
+        if port == "":
+            port = "/dev/ttyUSB0"
+
+        print(baud)
+        print(port)
 
         self.comm.setup(baud, port)
         #self.arduino.setup(9600, "/dev/ttyACM0")

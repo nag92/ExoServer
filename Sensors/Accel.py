@@ -1,5 +1,6 @@
 from lib.Exoskeleton.SensorBase import AccelBase
-
+import binascii
+from bitstring import BitArray
 
 class Accel(AccelBase.AccelBase):
 
@@ -25,11 +26,22 @@ class Accel(AccelBase.AccelBase):
         :return:
         """
         values = 3 * [0]
-        # values[0] = self.parse(block1=blocks[4], block2=blocks[5])
-        # values[1] = self.parse(block1=blocks[2], block2=blocks[3])
-        # values[2] = self.parse(block1=blocks[0], block2=blocks[1])
+        values[0] = self.parse(block1=blocks[0], block2=blocks[1])
+        values[1] = self.parse(block1=blocks[2], block2=blocks[3])
+        values[2] = self.parse(block1=blocks[4], block2=blocks[5])
         self.raw_values = values
 
     def parse(self, block1, block2):
-        data = super(Accel, self).parse(block1, block2)
-        return data
+        """
+        convers the bytes to a decimal value
+
+        :param block1: byte 1
+        :param block2: byte 2
+        :type block1: byte
+        :type block2: byte
+        :return:
+        """
+        a = self.binbits(int(binascii.hexlify(block1), 16), 8)
+        b = self.binbits(int(binascii.hexlify(block2), 16), 8)
+        c = BitArray(bin=a + b)
+        return c.int
