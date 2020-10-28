@@ -44,4 +44,8 @@ class Accel(AccelBase.AccelBase):
         a = self.binbits(int(binascii.hexlify(block1), 16), 8)
         b = self.binbits(int(binascii.hexlify(block2), 16), 8)
         c = BitArray(bin=a + b)
+        print(c.int)
         return c.int
+
+    def raw_to_angle(self, raw):
+        return (raw * 250.0) / 32768.0
