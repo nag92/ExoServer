@@ -35,7 +35,6 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
     def changefig(self, item):
         text = str(item.text())
         fig, index = self.objects[text]
-        print index
         self.stacked_layout.setCurrentIndex(index)
 
     def addfig(self, fig):
@@ -82,15 +81,6 @@ class PlotManager(QMainWindow, Ui_MainWindow, Manager.Manager ):
         print "yo"
         self.show()
         self.refesh()
-
-
-
-
-
-
-
-
-
 
 
 # class PlotManager(Manager.Manager, Tkinter.Tk):

@@ -19,9 +19,10 @@ class Ui_MainWindow(SessionManger.SessionManager):
         btn_ = [self.btnConnect, self.btnOpenMonitor, self.btnRecord, self.btnStartSession, self.btnStop]
         txt_ = [self.txtAge, self.txtGender, self.txtHost, self.txtLegLength, self.txtMass, self.txtPort,
                 self.txtSubject, self.txtHeight]
+        ch_ = [self.chVicon]
 
         # pass the widgets into the session manager class
-        super(Ui_MainWindow, self).__init__(self.MainWindow, btn_, txt_, lbl_)
+        super(Ui_MainWindow, self).__init__(self.MainWindow, btn_, txt_, lbl_,ch_)
 
         self.MainWindow.show()
 
@@ -145,6 +146,15 @@ class Ui_MainWindow(SessionManger.SessionManager):
         self.txtPort = QtWidgets.QTextEdit(self.widget1)
         self.txtPort.setObjectName("txtPort")
         self.gridLayout_4.addWidget(self.txtPort, 1, 1, 1, 1)
+
+        self.lblVicon = QtWidgets.QLabel(self.widget1)
+        self.lblVicon.setObjectName("lblVicon")
+        self.gridLayout_4.addWidget(self.lblVicon, 2, 0, 1, 1)
+        self.chVicon = QtWidgets.QCheckBox(self.widget1)
+        self.chVicon.setObjectName("chVicon")
+        self.gridLayout_4.addWidget(self.chVicon, 2, 1, 1, 1)
+
+
         self.widget2 = QtWidgets.QWidget(self.centralwidget)
         self.widget2.setGeometry(QtCore.QRect(753, 20, 125, 62))
         self.widget2.setObjectName("widget2")
@@ -248,6 +258,7 @@ class Ui_MainWindow(SessionManger.SessionManager):
         self.lblLegLength.setText(_translate("MainWindow", "Leg Length"))
         self.lblost.setText(_translate("MainWindow", "Baud"))
         self.lblPort.setText(_translate("MainWindow", "port"))
+        self.lblVicon.setText(_translate("MainWindow", "Vicon"))
         self.btnStartSession.setText(_translate("MainWindow", "Start Session"))
         self.btnOpenMonitor.setText(_translate("MainWindow", "open monitor"))
         self.btnStop.setText(_translate("MainWindow", "Stop"))

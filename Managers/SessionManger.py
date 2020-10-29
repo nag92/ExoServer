@@ -19,7 +19,7 @@ from UI import Notes
 class SessionManager(Manager.Manager):
     lbls = None  # type: object
 
-    def __init__(self, main, btn, txt, lbl):
+    def __init__(self, main, btn, txt, lbl,ch):
 
         """
               Create the session manager. Each session consits of muiltpy trials
@@ -40,7 +40,8 @@ class SessionManager(Manager.Manager):
         self.current_milli_time = lambda: int(round(time.time() * 1000))
         path = "Config/sensor_list.yaml"
         self.SM = SensorManager.SensorManager()
-        self.FM = FilterManager.FilterManager()  # btns = None  # type: Dict[Any, QtWidgets.QAbstractButton]
+        self.FM = FilterManager.FilterManager()
+        #btns = None  # type: Dict[Any, QtWidgets.QAbstractButton]
         #
 
 
@@ -67,6 +68,7 @@ class SessionManager(Manager.Manager):
         self.txt_boxes = self.make_objects(txt)
         self.lbls = self.make_objects(lbl)
         self.btns = self.make_objects(btn)
+        self.ch = self.make_objects(ch)
         # Add callbacks to the buttons
         self.btns["btnStop"].clicked.connect(self.stop_callback)
         self.btns["btnStartSession"].clicked.connect(self.session_callback)
@@ -175,15 +177,15 @@ class SessionManager(Manager.Manager):
 
 
         for key, sensor in accel.items():
-            accel = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
+            accel = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"], -32770, 32770)
             self.plotter.addfig(accel)
 
         for key, sensor in gyro.items():
-            gyro = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"])
+            gyro = Line_Graph.Line_Graph(sensor.name, sensor, 3, ["x", "y", "z"], -32770, 32770)
             self.plotter.addfig(gyro)
 
         for key, sensor in pot.items():
-            pot = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"])
+            pot = Line_Graph.Line_Graph(sensor.name, sensor, 1, ["z"], -0.1, 3.4)
             self.plotter.addfig(pot)
 
         fsr_plot = FSR_BarGraph.FSR_BarGraph("FSR", fsr.values())
@@ -253,12 +255,13 @@ class SessionManager(Manager.Manager):
         boxes to connect.
         :return:
         """
-        print("connect")
+
         self.btns["btnConnect"].setEnabled(False)
         self.btns["btnOpenMonitor"].setEnabled(True)
 
         baud = self.txt_boxes["txtHost"].toPlainText()
         port = self.txt_boxes["txtPort"].toPlainText()
+        use_vicon = self.ch["chVicon"].isChecked()
 
 
         if baud == "":
@@ -267,12 +270,14 @@ class SessionManager(Manager.Manager):
         if port == "":
             port = "/dev/ttyUSB0"
 
-        print(baud)
-        print(port)
-
         self.comm.setup(baud, port)
-        #self.arduino.setup(9600, "/dev/ttyACM0")
         #self.comm.setup()
         self.comm.start()
-        #self.arduino.start()
+
+        if use_vicon:
+            print("using Vicon communication")
+            self.arduino.start()
+            self.arduino.setup(9600, "/dev/ttyACM0")
+
         self.connected = self.comm.connected
+        print("connect")

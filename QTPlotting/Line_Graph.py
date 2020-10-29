@@ -9,7 +9,7 @@ import matplotlib.pyplot as pltlib
 
 class Line_Graph(QT_Plotter):
 
-    def __init__(self, name, object, num, labels):
+    def __init__(self, name, object, num, labels, bottom=0.0, top=3.3):
         """
 
         :type object: Sensor.Sensor
@@ -20,6 +20,8 @@ class Line_Graph(QT_Plotter):
         self.lines = []
         self.queue_size = 20
         self.ticks = 0
+        self.top = top
+        self.bottom = bottom
         self.queue = Queue.Queue(self.queue_size)
         super(Line_Graph, self).__init__(object, name)
 
@@ -35,7 +37,7 @@ class Line_Graph(QT_Plotter):
         for ii in xrange(self.num):
             line, = self.ax.plot([], [], self.colors[ii], lw=2)
             self.lines.append(line)
-        self.ax.set_ylim(bottom=0.0, top=3.3, auto=False)
+        self.ax.set_ylim(bottom=self.bottom, top=self.top, auto=False)
         self.ax.legend(self.labels, loc='upper left')
 
         super(Line_Graph, self).initilize(parent)
