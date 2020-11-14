@@ -1,9 +1,0 @@
-Age: ''
-Gender: ''
-Height: ''
-LegLength: ''
-Mass: ''
-date: 2019-07-17 20:36:33.975040
-subject: sdfsaf
-trials:
-  0: {dt: 2590, notes: subject_sdfsaf_trial_0_notes.txt, number: 0, output: subject_sdfsaf_trial_0.yaml}

@@ -46,21 +46,21 @@ class SessionManager(Manager.Manager):
 
 
         # set up Managers
-        self.SM.register_sub(self.FM)
+        #self.SM.register_sub(self.FM)
         # self.plotter = PlotManager.PlotManager()
         self.robot = Robot.Robot(path, self.SM, self.FM)
         self.sensor_names = self.SM.get_sensor_names()
         self.comm = Serial.Serial() #Ethernet.Ethernet()
         self.arduino = Serial.Serial()
-        self.logger = LoggerManager.LoggerManager()
-        self.comm.register_sub(self.logger)
+        # self.logger = LoggerManager.LoggerManager()
+        # self.comm.register_sub(self.logger)
         self.comm.register_sub(self.SM)
 
         self.recorder = RecorderManager.RecorderManager(self.sensor_names)
 
 
         self.SM.register_sub(self.recorder)
-        self.setup_monitor()
+        #self.setup_monitor()
         # turn off the buttons
         self.in_session = False
         self.recording = False
@@ -153,11 +153,11 @@ class SessionManager(Manager.Manager):
         log_name = self.session_name + "_trial_log_" +  str(self.trial_number)
         self.btns["btnRecord"].setStyleSheet("background-color: red")
         self.recorder.new_file(trial_name)
-        self.logger.new_file(log_name)
+        #self.logger.new_file(log_name)
         self.start_time = self.current_milli_time()
         #self.arduino.send(str(1))
         self.recorder.start_recording()
-        self.logger.start_recording()
+        #self.logger.start_recording()
 
     def setup_monitor(self):
         """
@@ -213,7 +213,7 @@ class SessionManager(Manager.Manager):
 
         #self.arduino.send(str(0))
         self.recorder.stop_recording()
-        self.logger.stop_recording()
+        #self.logger.stop_recording()
         dt = self.current_milli_time() - self.start_time
         print("stop")
 
@@ -276,8 +276,8 @@ class SessionManager(Manager.Manager):
 
         if use_vicon:
             print("using Vicon communication")
-            self.arduino.start()
             self.arduino.setup(9600, "/dev/ttyACM0")
+            self.arduino.start()
 
         self.connected = self.comm.connected
         print("connect")
